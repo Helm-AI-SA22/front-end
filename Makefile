@@ -11,7 +11,7 @@ shell:
 exec:
 	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container npm start
 
-build:
+build-app:
 	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container npm run build
 
 test:
