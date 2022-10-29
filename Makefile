@@ -9,9 +9,12 @@ build:
 destroy:
 	docker stop helmfe
 	docker rm -v helmfe
-
+	
 shell:
 	docker exec -it helmfe bash
+
+install:
+	docker exec -it helmfe bash -c "npm install"
 
 exec:
 	docker exec -it helmfe bash -c "npm start"
