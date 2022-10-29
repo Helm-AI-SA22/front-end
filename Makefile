@@ -4,15 +4,20 @@ all: build
 
 build:
 	docker build -f Dockerfile.FE -t fe-container .
+	docker run -itd --name helmfe -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container bash -c "/bin/sleep infinity"
+
+destroy:
+	docker stop helmfe
+	docker rm -v helmfe
 
 shell:
-	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container bash
+	docker exec -it helmfe bash
 
 exec:
-	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container npm start
+	docker exec -it helmfe bash -c "npm start"
 
 build-app:
-	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container npm run build
+	docker exec helmfe bash -c "npm run build"
 
 test:
-	docker run -it -v ${CURDIR}/:/home/frontenduser/workdir -p 3000:3000 fe-container npm test
+	docker exec helmfe bash -c "npm test"
