@@ -1,9 +1,12 @@
 FROM node:19-buster-slim
 
-### fix user
-RUN useradd -ms /bin/bash frontenduser
-USER frontenduser
+RUN cd /usr/src && mkdir workdir
 
-RUN cd /home/frontenduser && mkdir workdir
+WORKDIR /usr/src/workdir
 
-WORKDIR /home/frontenduser/workdir
+COPY . .
+
+RUN npm install
+
+# Start the app
+CMD [ "npm", "start" ]
