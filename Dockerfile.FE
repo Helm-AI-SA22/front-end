@@ -1,5 +1,8 @@
 FROM node:19-buster-slim
 
+RUN apt update
+RUN apt install htop
+
 RUN cd /usr/src && mkdir workdir
 
 WORKDIR /usr/src/workdir
