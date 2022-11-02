@@ -1,3 +1,22 @@
-.Layout{
-    font-size: 100px;
+.frame {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
+
+.header {
+    background-color: red;
+}
+
+.right-panel{
+    background-color: green;
+}
+
+.content{ 
+
+}
+
+.footer{ 
+    background-color: blue;
+}
+
