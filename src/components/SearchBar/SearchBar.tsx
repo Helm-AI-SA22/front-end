@@ -23,7 +23,6 @@ const SearcBar = () => {
                   onInputChange={(event, newInputValue) => {
                     setInputValue(newInputValue);
                   }}
-
                   freeSolo={true}
                   disablePortal
                   className='search-autocomplete'
@@ -31,10 +30,11 @@ const SearcBar = () => {
                   sx={{ width: 500 }}
                   renderInput={(params) => <TextField {...params} label="Research Topic" />}
               />
-              <Button variant="contained" endIcon={<Search />} className="search-button" onClick={() => {
+              <Button variant="contained" endIcon={<Search />} className="search-button" onClick={async () => {
                 if(value){
-                  searchAPI(value);
                   alert(`You are searching: ${value}`);
+                  await searchAPI(value);
+                  //@redirect
                 }
               }}>
                   Search
