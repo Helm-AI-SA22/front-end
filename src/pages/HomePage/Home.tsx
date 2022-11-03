@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
 
-import './HomePage.css';
+import './Home.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 

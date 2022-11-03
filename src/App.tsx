@@ -1,16 +1,21 @@
 import React from 'react';
 import './App.css';
 
-import HomePage  from './pages/HomePage/HomePage';
+import HomePage  from './pages/HomePage/Home';
 import Dashboard from './pages/Dashboard/Dashboard';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import { BrowserRouter,Routes, Route, Navigate } from 'react-router-dom';
+import AboutPage from './pages/About/About';
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage/>}></Route>
-        <Route path="/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/" element={<Navigate to="/search"/>}></Route>
+        <Route path="/search" element={<HomePage/>}></Route>
+        <Route path="/query/:querytext" element={<Dashboard/>}></Route>
+        <Route path="*" element={<Navigate to="/search"/>}></Route>
+        <Route path="/about" element={<AboutPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
