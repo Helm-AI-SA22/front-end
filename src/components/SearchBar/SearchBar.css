@@ -1,12 +1,14 @@
 .search-bar {
-    display:inline;
+    display:inline-block;
     margin: auto;
 }
 
 .search-autocomplete{
-        display: inline-block;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .search-button { 
+    vertical-align: middle;
     display: inline-block;
 }

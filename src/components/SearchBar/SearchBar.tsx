@@ -28,7 +28,7 @@ const SearcBar = () => {
                   disablePortal
                   className='search-autocomplete'
                   options={options}
-                  sx={{ width: 300 }}
+                  sx={{ width: 500 }}
                   renderInput={(params) => <TextField {...params} label="Research Topic" />}
               />
               <Button variant="contained" endIcon={<Search />} className="search-button" onClick={() => {
