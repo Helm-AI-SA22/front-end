@@ -1,17 +1,17 @@
 import axios from 'axios';
-import {SearchAPIResponse, Keyword} from './interfaces';
+import {SearchAPIResponse, SearchAPIRequest} from './interfaces';
 
 const SERVER = 'http://localhost:5000';
 
-const search = async (query: Keyword) => {
+const search = async (request: SearchAPIRequest) => {
     const ROUTE = 'aggregator'; // The name of this route can be improved BE side.
 
     try {
         // tslint:disable-next-line: no-console
-        console.log(`The search API has been called. Query: ${query}`);
+        console.log(`The search API has been called. Query: ${request}`);
 
         // @TODO Remove "| any" when we will be sure of the response
-        return await axios.get<SearchAPIResponse | any>(`${SERVER}/${ROUTE}/${query}`);
+        return await axios.get<SearchAPIResponse | any>(`${SERVER}/${ROUTE}/${request}`);
     } catch (error) {
         if (axios.isAxiosError(error)) {
             // tslint:disable-next-line: no-console

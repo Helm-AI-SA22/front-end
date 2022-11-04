@@ -6,6 +6,7 @@ import { Search } from '@mui/icons-material'
 import Switch from '@mui/material/Switch';
 
 import { searchAPI } from '../../api/api'
+import { SearchAPIRequest } from '../../api/interfaces';
 
 const options = ['Siamese Network',  'Social Robotics'];
 
@@ -41,7 +42,9 @@ const SearcBar = () => {
               <Button variant="contained" endIcon={<Search />} className="search-button" onClick={async () => {
                 if(value){
                   alert(`You are searching: ${value}.  Research type: ${checked ? 'fast': 'slow'}.`);
-                  await searchAPI(value);
+                  await searchAPI({
+                    keywords: [value], 
+                    type: checked ? 'LDA' : 'BERT'});
                   //@redirect
                 }
               }}>

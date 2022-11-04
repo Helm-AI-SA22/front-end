@@ -42,7 +42,7 @@ export interface SearchAPIResponse {
     topicVisualization: LDAChart | BERTChart; 
 }
 
-export interface Keyword{
-    keywords: [];
+export interface SearchAPIRequest{
+    keywords: string[];
     type: string;
 }
