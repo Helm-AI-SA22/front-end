@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React, {Component} from 'react';
 
 import './Home.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -11,13 +11,15 @@ export default class HomePage extends Component {
         return (
             <Container maxWidth="xl" className="page">
                 <div className="logo-container">
-                    <img src={bluLogo} alt="logo" />
+                    <img id="logo-blu" src={bluLogo} alt="logo" />
                 </div>
                 <div className='title'>
-                    Helm
+                    <h1>Helm</h1>
+                    <h2>Your research assistant</h2>
                 </div>
                 <div className="searchbarbar-container">
                     <SearchBar/>
+                    
                 </div>
             </Container>
           );
