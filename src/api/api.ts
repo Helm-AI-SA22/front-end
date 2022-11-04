@@ -1,24 +1,10 @@
 import axios from 'axios';
+import {SearchAPIResponse, Keyword} from './interfaces';
 
-interface Paper {
-    id: string;
-    abstract: string;
-    keywords: string[];
-    authors: string[];
-    source: string;
-    metadata: string;
-    year: number;
-    fullText: boolean
-}
+const SERVER = 'http://localhost:5000';
 
-interface SearchAPIResponse {
-    papers: Paper[]
-}
-
-const SERVER = 'http://localhost/5000';
-
-const search = async (query: string) => {
-    const ROUTE = 'Aggregator'; // The name of this route can be improved BE side.
+const search = async (query: Keyword) => {
+    const ROUTE = 'aggregator'; // The name of this route can be improved BE side.
 
     try {
         // tslint:disable-next-line: no-console
@@ -40,6 +26,5 @@ const search = async (query: string) => {
           }
     }
 }
-
 
 export { search as searchAPI};
