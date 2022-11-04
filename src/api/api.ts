@@ -11,7 +11,7 @@ const search = async (request: SearchAPIRequest) => {
         console.log(`The search API has been called. Query: ${request}`);
 
         // @TODO Remove "| any" when we will be sure of the response
-        return await axios.get<SearchAPIResponse | any>(`${SERVER}/${ROUTE}/${request}`);
+        return await axios.post<SearchAPIResponse>(`${SERVER}/${ROUTE}`, request);
     } catch (error) {
         if (axios.isAxiosError(error)) {
             // tslint:disable-next-line: no-console

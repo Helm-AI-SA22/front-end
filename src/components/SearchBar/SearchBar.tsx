@@ -6,7 +6,7 @@ import { Search } from '@mui/icons-material'
 import Switch from '@mui/material/Switch';
 
 import { searchAPI } from '../../api/api'
-import { SearchAPIRequest, TopicModelingAlgorithm } from '../../api/interfaces';
+import { TopicModelingAlgorithm } from '../../api/interfaces';
 
 const options = ['Siamese Network',  'Social Robotics'];
 
@@ -15,7 +15,6 @@ const SearcBar = () => {
     const [inputValue, setInputValue] = React.useState('');
     const [checked, setChecked] = React.useState(false);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(checked)
       setChecked(event.target.checked);
     };
 

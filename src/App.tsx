@@ -6,14 +6,15 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { BrowserRouter,Routes, Route, Navigate } from 'react-router-dom';
 import AboutPage from './pages/About/About';
 
-
+//@todo creare due dashboard, una per BERT e una per LDA
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/search"/>}></Route>
         <Route path="/search" element={<HomePage/>}></Route>
-        <Route path="/query/:querytext" element={<Dashboard/>}></Route>
+        <Route path="/fast/:querytext" element={<Dashboard/>}></Route>
+        <Route path="/slow/:querytext" element={<Dashboard/>}></Route>
         <Route path="*" element={<Navigate to="/search"/>}></Route>
         <Route path="/about" element={<AboutPage/>}></Route>
       </Routes>

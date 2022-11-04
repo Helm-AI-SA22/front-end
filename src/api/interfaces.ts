@@ -26,14 +26,14 @@ export interface TopicIndex{
 }
 
 export interface LDAChart{
-    ldaPlot: string;
+    ldaPlot?: string;
 }
 
 export interface BERTChart{
-    topicClustersPlot: string;
-    hierarchicalClusteringPlot: string;
-    topicsWordsScorePlot: string;
-    topicsSimilarityPlot: string;
+    topicClustersPlot?: string;
+    hierarchicalClusteringPlot?: string;
+    topicsWordsScorePlot?: string;
+    topicsSimilarityPlot?: string;
 }
 
 export interface SearchAPIResponse {
