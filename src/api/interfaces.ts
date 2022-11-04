@@ -42,7 +42,12 @@ export interface SearchAPIResponse {
     topicVisualization: LDAChart | BERTChart; 
 }
 
+export enum TopicModelingAlgorithm { 
+    BERT = 'BERT', 
+    LDA = 'LDA'     
+    } 
+
 export interface SearchAPIRequest{
     keywords: string[];
-    type: string;
+    type: TopicModelingAlgorithm;
 }

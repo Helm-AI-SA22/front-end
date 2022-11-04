@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React from 'react';
 import './SearchBar.css';
 
 import {Autocomplete, TextField, Button} from '@mui/material';
@@ -6,7 +6,7 @@ import { Search } from '@mui/icons-material'
 import Switch from '@mui/material/Switch';
 
 import { searchAPI } from '../../api/api'
-import { SearchAPIRequest } from '../../api/interfaces';
+import { SearchAPIRequest, TopicModelingAlgorithm } from '../../api/interfaces';
 
 const options = ['Siamese Network',  'Social Robotics'];
 
@@ -44,7 +44,7 @@ const SearcBar = () => {
                   alert(`You are searching: ${value}.  Research type: ${checked ? 'fast': 'slow'}.`);
                   await searchAPI({
                     keywords: [value], 
-                    type: checked ? 'LDA' : 'BERT'});
+                    type: (checked ? 'LDA' : 'BERT') as TopicModelingAlgorithm});
                   //@redirect
                 }
               }}>
