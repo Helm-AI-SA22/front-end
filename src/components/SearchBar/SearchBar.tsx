@@ -1,16 +1,18 @@
 import React from 'react';
 import './SearchBar.css';
 
+import { useNavigate } from 'react-router-dom';
 import {Autocomplete, TextField, Button, Chip} from '@mui/material';
 import { Search } from '@mui/icons-material' 
 import Switch from '@mui/material/Switch';
 
-import { searchAPI } from '../../api/api'
+import { searchAPI } from '../../api/api';
 import { TopicModelingAlgorithm } from '../../api/interfaces';
 
 const options = ['Siamese Network',  'Social Robotics'];
 
 const SearcBar = () => {
+    const navigate = useNavigate();
     const [value, setValue] = React.useState<string[]>(options);
     const [inputValue, setInputValue] = React.useState('');
     const [checked, setChecked] = React.useState(false);
@@ -48,11 +50,13 @@ const SearcBar = () => {
               <Button variant="contained" endIcon={<Search />} className="search-button" onClick={async () => {
                 console.log(value)
                 if(value.length){
-                  alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${checked ? 'fast': 'slow'}.`);
+                  const speed = checked ? 'fast': 'slow';
+                  alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);
                   await searchAPI({
                     keywords: value, 
-                    type: (checked ? 'LDA' : 'BERT') as TopicModelingAlgorithm});
-                  //@redirect
+                    type: (checked ? 'LDA' : 'BERT') as TopicModelingAlgorithm
+                  });
+                    navigate(`/${speed}/${value[0]}`)
                 }
               }}>
                   Search
