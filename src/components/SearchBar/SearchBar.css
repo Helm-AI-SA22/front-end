@@ -1,6 +1,9 @@
+
+
 .search-bar {
-    display:inline-block;
+    display:flex;
     margin: auto;
+    justify-content: center;
 }
 
 .search-autocomplete{
@@ -11,6 +14,8 @@
 .search-button { 
     vertical-align: middle;
     display: inline-block;
+    height: auto;
+    width: inherit;
 }
 
 .switch-contained{

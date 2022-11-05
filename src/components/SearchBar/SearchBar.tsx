@@ -19,7 +19,7 @@ const SearcBar = () => {
     };
 
       return (
-        <div >
+        <div className="bar-wrapper">
           <div className="search-bar">
               <Autocomplete
                   multiple
