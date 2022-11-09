@@ -73,7 +73,7 @@ const SearcBar = () => {
               />
               <span>
                 Fast search
-                  <Tooltip title="Switch on the fast search modality to obtain faster access to your results.">
+                  <Tooltip title="Get faster access to your results: if you choose this modality the results could be less accurate.">
                     <IconButton>
                       <InfoIcon/>
                     </IconButton>

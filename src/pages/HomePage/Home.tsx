@@ -56,11 +56,9 @@ export default class HomePage extends Component {
                     <Typography  variant="h5" align="center"  color="text.secondary" sx={{fontWeight: 'bold'}} paragraph>
                     {'In the sea of the academic knowledge,'} <br/> 
                     {'let HELM guide you to destination ports.'}
-                    </Typography>  
-                    <Typography variant="body1" align="center"  color="text.primary" sx={{pt:4}} paragraph>
-                    Retrieve the most significant sources for any research field, explore the results and analyze them with intiutive topic-centered visualizations tools.
-                    <Button variant="text" >Read more about us</Button>
-                    </Typography>  
+                    <Button sx={{pt:2}} variant="text" >Read more about us</Button>
+                    </Typography>
+                    
                 </Container>
                 </Box>
                 <Box sx={{bgcolor: 'background.paper', pt: 2, pb: 3}}>
