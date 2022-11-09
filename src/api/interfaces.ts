@@ -1,23 +1,20 @@
 export interface Paper {
     id: string;
+    title: string;
     abstract: string;
-    keywords: string[];
-    authors: string[];
-    source: string;
+    publicationYear: number;
+    citationCount: number;
+    authkeywords: string[];
+    authors: string;
+    pdfLink: string;
     metadata: string;
-    year: number;
-    fullText: boolean;
-    topicMapping: TopicPaperMap; 
-}
-
-export interface Topic{
-    idx: string;
-    affinity: number;
+    openaccess: boolean;
+    topics: TopicPaperMap[]; 
 }
 
 export interface TopicPaperMap{
     id: string;
-    topics: Topic;
+    affinity: number;
 }
 
 export interface TopicIndex{
@@ -26,25 +23,27 @@ export interface TopicIndex{
 }
 
 export interface LDAChart{
-    ldaPlot?: string;
+    lda_plot?: string;
 }
 
 export interface BERTChart{
-    topicClustersPlot?: string;
-    hierarchicalClusteringPlot?: string;
-    topicsWordsScorePlot?: string;
-    topicsSimilarityPlot?: string;
+    topic_clusters_plot?: string, 
+    hierarchical_clustering_plot?: string,
+    topics_words_score_plot?: string,
+    topics_similarity_plot?: string,
+    document_clusters_plot?: string;
 }
 
 export interface SearchAPIResponse {
-    papers: Paper[];
-    topicsIndex: TopicIndex[];
+    documents: Paper[];
+    topics: TopicIndex[];
+    lda_plot: LDAChart
     topicVisualization: LDAChart | BERTChart; 
 }
 
 export enum TopicModelingAlgorithm { 
-    BERT = 'BERT', 
-    LDA = 'LDA'     
+    SLOW = 'slow', 
+    FAST = 'fast'     
     } 
 
 export interface SearchAPIRequest{

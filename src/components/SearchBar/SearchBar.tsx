@@ -53,11 +53,11 @@ const SearcBar = () => {
               <Button variant="contained" endIcon={<Search />} className="search-button" onClick={async () => {
                 console.log(value)
                 if(value.length){
-                  const speed = checked ? 'fast': 'slow';
+                  const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
                   alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);
                   await searchAPI({
                     keywords: value, 
-                    type: (checked ? 'LDA' : 'BERT') as TopicModelingAlgorithm
+                    type: speed
                   });
                     navigate(`/${speed}/${value[0]}`)
                 }
