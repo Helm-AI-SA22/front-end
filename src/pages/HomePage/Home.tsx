@@ -74,8 +74,7 @@ export default class HomePage extends Component {
                 </Box>
             </main>
 
-            {/* Footer */}
-            <PageFooter />
+            {/* <PageFooter /> */}
 
             </ThemeProvider>
   );
