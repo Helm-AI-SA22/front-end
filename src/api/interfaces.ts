@@ -42,8 +42,8 @@ export interface SearchAPIResponse {
 }
 
 export enum TopicModelingAlgorithm { 
-    BERT = 'BERT', 
-    LDA = 'LDA'     
+    SLOW = 'slow', 
+    FAST = 'fast'     
     } 
 
 export interface SearchAPIRequest{
