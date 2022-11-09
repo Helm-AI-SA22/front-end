@@ -1,0 +1,17 @@
+.search-bar {
+    display:flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.search-autocomplete{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.search-button { 
+    vertical-align: middle;
+    display: inline-block;
+    height: auto;
+    width: inherit;
+}
