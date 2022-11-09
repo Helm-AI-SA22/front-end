@@ -54,7 +54,7 @@ const SearcBar = () => {
                 console.log(value)
                 if(value.length){
                   const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
-                  alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);
+                  /**alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);*/
                   await searchAPI({
                     keywords: value, 
                     type: speed
