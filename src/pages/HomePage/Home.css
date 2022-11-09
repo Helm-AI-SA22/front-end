@@ -1,42 +1,11 @@
+#root {
+    margin-top: 0px;
+    padding-top: 0px;
+
+}
 .page {
     width: 100%;
-    margin: 2%;
+    margin: 0;
+    padding: 0;
     text-align: center;
-}
-
-.title {
-    display: block;
-    font-size: 400%;
-    padding: 2%;
-}
-
-.logo-container {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top:15%;
-    position:center;
-
-}
-
-.logo-container img {
-    width: 40%;
-}
-
-.title h1{
-    color:midnightblue;
-    font-family: Helvetica;
-    font-weight: 900;
-    font-size: 90px;
-    padding-bottom: 2%;
-    margin-bottom:0%;
-}
-
-.title h2{
-    color:midnightblue;
-    font-family: Helvetica;
-    font-weight: 400;
-    font-size: 20px;
-    padding-top: 0%;
-    margin-top:0%;
 }

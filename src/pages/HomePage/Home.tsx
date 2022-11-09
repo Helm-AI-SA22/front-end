@@ -1,27 +1,82 @@
 import React, {Component} from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 
-import './Home.css';
+import CssBaseline from '@mui/material/CssBaseline';
+import {Container, Box, Toolbar} from '@mui/material';
+import {Typography, Divider} from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Logo from '../../assets/logo/white.png';
+
 import SearchBar from '../../components/SearchBar/SearchBar';
-import bluLogo from '../../assets/logo/black.png';
+import PageFooter from '../../components/Footer/Footer';
 
-import { Container } from '@mui/material';
+const theme = createTheme();
+
 
 export default class HomePage extends Component {
     render(){
         return (
-            <Container maxWidth="xl" className="page">
-                <div className="logo-container">
-                    <img id="logo-blu" src={bluLogo} alt="logo" />
-                </div>
-                <div className='title'>
-                    <h1>Helm</h1>
-                    <h2>Your research assistant</h2>
-                </div>
-                <div className="searchbarbar-container">
-                    <SearchBar/>
-                    
-                </div>
-            </Container>
-          );
-    }
-}
+            <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {/* Header */}
+            <AppBar position="relative">
+                <Toolbar>
+                <Box
+                    component="img"
+                    sx={{
+                    height: 44,
+                    pr:2
+                    }}
+                    alt="Your logo."
+                    src={Logo}
+                />
+                <Typography variant="h5" color="inherit" noWrap  sx={{fontWeight: 'bold'}}>
+                    Helm
+                </Typography>
+                </Toolbar>
+            </AppBar>
+            
+            {/* Body */}
+            <main>
+                {/* Helm desctiption */}
+                <Box sx={{bgcolor: 'background.paper', pt: 8, pb: 2}}>
+                <Container maxWidth="md">
+                    <Typography
+                    component="h1"
+                    variant="h2"
+                    align="center"
+                    color="text.primary"
+                    gutterBottom
+                    >
+                    Your research assistant
+                    </Typography>
+                </Container>
+                <Container maxWidth="sm">
+                    <Typography  variant="h5" align="center"  color="text.secondary" sx={{fontWeight: 'bold'}} paragraph>
+                    {'In the sea of the academic knowledge,'} <br/> 
+                    {'let HELM guide you to destination ports.'}
+                    </Typography>  
+                    <Typography variant="body1" align="center"  color="text.primary" sx={{pt:4}} paragraph>
+                    Retrieve the most significant sources for any research field, explore the results and analyze them with intiutive topic-centered visualizations tools.
+                    <Button variant="text" >Read more about us</Button>
+                    </Typography>  
+                </Container>
+                </Box>
+                <Box sx={{bgcolor: 'background.paper', pt: 2, pb: 3}}>
+                <Container sx={{py: 0}} maxWidth="md">
+                    <Divider />
+                    <Typography variant="subtitle1" align="left" color="text.secondary" sx={{ ml:15, fontWeight: 'bold', pt:5, pb:1}} paragraph>
+                    Choose your interest and start exploring
+                    </Typography>
+                    <SearchBar />
+                </Container>
+                </Box>
+            </main>
+
+            {/* Footer */}
+            <PageFooter />
+
+            </ThemeProvider>
+  );
+}}

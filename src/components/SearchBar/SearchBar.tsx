@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import {Autocomplete, TextField, Button, Chip} from '@mui/material';
 import { Search } from '@mui/icons-material' 
 import Switch from '@mui/material/Switch';
+import InfoIcon from '@mui/icons-material/Info';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 
 import { searchAPI } from '../../api/api';
 import { TopicModelingAlgorithm } from '../../api/interfaces';
@@ -62,13 +66,22 @@ const SearcBar = () => {
                   Search
               </Button>
           </div>
-          <div className= "switch-contained">
+          <Box sx={{pt:1, pl:15, pb:4}} className= "switch-container" >
             <Switch
               checked={checked}
               onChange={handleChange}
               inputProps={{ 'aria-label': 'controlled' }}
               />
-          </div>
+              <span>
+                Fast search
+                  <Tooltip title="Switch on the fast search modality to obtain faster access to your results.">
+                    <IconButton>
+                      <InfoIcon/>
+                    </IconButton>
+                </Tooltip>
+              </span>
+
+          </Box>
         </div>
         );
   }
