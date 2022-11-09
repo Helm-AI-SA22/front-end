@@ -12,12 +12,11 @@ import Box from '@mui/material/Box';
 
 import { searchAPI } from '../../api/api';
 import { TopicModelingAlgorithm } from '../../api/interfaces';
-
-const options = ['Siamese Network',  'Social Robotics'];
+import  suggestions  from '../../assets/suggestions.json'
 
 const SearcBar = () => {
     const navigate = useNavigate();
-    const [value, setValue] = React.useState<string[]>(options);
+    const [value, setValue] = React.useState<string[]>([]);
     const [inputValue, setInputValue] = React.useState('');
     const [checked, setChecked] = React.useState(false);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +41,7 @@ const SearcBar = () => {
                   freeSolo={true}
                   disablePortal
                   className='search-autocomplete'
-                  options={options}
+                  options={suggestions}
                   sx={{ width: 500 }}
                   renderInput={(params) => <TextField {...params} variant="filled" label="Research Topic" placeholder="Bibliometry"/>}
                   renderTags={(value: readonly string[], getTagProps) =>
