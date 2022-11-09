@@ -1,0 +1,22 @@
+.frame {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    background-color: red;
+}
+
+.right-panel{
+    background-color: green;
+}
+
+.content{ 
+    background-color: gray;
+}
+
+.footer{ 
+    background-color: blue;
+}
+

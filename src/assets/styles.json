@@ -1,0 +1,16 @@
+{
+    "palette": {
+        "primary": "#0d1e5d",
+        "primary-dark":"#1b1e25", 
+        "primary-light":"#1c4587",
+        "secondary": "#6585ff",
+        "secondary-dark":"#263fff", 
+        "secondary-light":"#c7d9ff" 
+    }, 
+    "fonts": {
+        "main": "Montserrat", 
+        "details":"Poppins", 
+        "extra": "Arial"
+    },
+    "logo":"https://www.flaticon.com/free-icon/helm_924239?k=1667490737714"
+}
