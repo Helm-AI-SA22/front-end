@@ -9,7 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from '../../assets/logo/white.png';
 
 import SearchBar from '../../components/SearchBar/SearchBar';
-import PageFooter from '../../components/Footer/Footer';
+// import PageFooter from '../../components/Footer/Footer';
 
 const theme = createTheme();
 
