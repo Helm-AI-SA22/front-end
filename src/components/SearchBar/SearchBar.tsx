@@ -12,17 +12,30 @@ import Box from '@mui/material/Box';
 
 import { searchAPI } from '../../api/api';
 import { TopicModelingAlgorithm } from '../../api/interfaces';
-import  suggestions  from '../../assets/suggestions.json'
+import  suggestions  from '../../assets/suggestions.json';
+import Fade from '@mui/material/Fade'
+import LinearProgress from '@mui/material/LinearProgress';
+
 
 const SearcBar = () => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState<string[]>([]);
     const [inputValue, setInputValue] = React.useState('');
     const [checked, setChecked] = React.useState(false);
+    const [ loading, setLoading ] = React.useState(false);
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setChecked(event.target.checked);
     };
 
+    const startLoading = (l:boolean) => {
+      setLoading(!loading);
+    };
+   /** const handleWaiting = setLoading((prevLoading) => !prevLoading);**/
+   /** const handleWaiting = (event: React.ChangeEvent<HTMLInputElement>) => {
+      /**setLoading(event.target.loading);
+    };**/
+    
       return (
         <div>
           <div className="search-bar">
@@ -50,16 +63,21 @@ const SearcBar = () => {
                     ))
                   }
               />
-              <Button variant="contained" endIcon={<Search />} className="search-button" onClick={async () => {
+              <Button variant="contained" endIcon={<Search />} className="search-button" onClick={ async () => {
                 console.log(value)
+                startLoading(false);
+               
+                /**handleWaiting**/
                 if(value.length){
                   const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
-                  alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);
+                  /**alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);*/
                   await searchAPI({
                     keywords: value, 
                     type: speed
                   });
-                    navigate(`/${speed}/${value[0]}`)
+                  startLoading(true);
+                  console.log(loading);
+                  navigate(`/${speed}/${value[0]}`)
                 }
               }}>
                   Search
@@ -80,6 +98,17 @@ const SearcBar = () => {
                 </Tooltip>
               </span>
 
+          </Box>
+              <Box sx={{ height: 40 }}>
+                <Fade
+                  in={loading}
+                  style={{
+                    transitionDelay: loading ? '800ms' : '0ms',
+                  }}
+                  unmountOnExit
+                >
+              <LinearProgress color='primary'/>
+            </Fade>
           </Box>
         </div>
         );
