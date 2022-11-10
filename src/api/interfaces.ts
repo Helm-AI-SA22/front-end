@@ -2,12 +2,10 @@ export interface Paper {
     id: string;
     title: string;
     abstract: string;
-    publicationYear: number;
+    publicationDate: string;
     citationCount: number;
-    authkeywords: string[];
     authors: string;
     pdfLink: string;
-    metadata: string;
     openaccess: boolean;
     topics: TopicPaperMap[]; 
 }
@@ -27,17 +25,17 @@ export interface LDAChart{
 }
 
 export interface BERTChart{
-    topic_clusters_plot?: string, 
-    hierarchical_clustering_plot?: string,
-    topics_words_score_plot?: string,
-    topics_similarity_plot?: string,
-    document_clusters_plot?: string;
+    topic_clusters_plot: string; 
+    hierarchical_clustering_plot: string;
+    topics_words_score_plot: string;
+    topics_similarity_plot: string;
+    document_clusters_plot: string;
 }
 
 export interface SearchAPIResponse {
     documents: Paper[];
     topics: TopicIndex[];
-    lda_plot: LDAChart
+    lda_plot: LDAChart;
     topicVisualization: LDAChart | BERTChart; 
 }
 

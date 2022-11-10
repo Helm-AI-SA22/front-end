@@ -4,7 +4,7 @@ import {SearchAPIResponse, SearchAPIRequest} from './interfaces';
 const SERVER = 'http://localhost:5000';
 
 const search = async (request: SearchAPIRequest) => {
-    const ROUTE = 'aggregator'; // The name of this route can be improved BE side.
+    const ROUTE = '/mock'; // The name of this route can be improved BE side.
 
     try {
         // tslint:disable-next-line: no-console

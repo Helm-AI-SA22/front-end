@@ -14,7 +14,6 @@ const Dashboard = () => {
         <div>
             <AppBar></AppBar>
             <Layout></Layout>
-            <p> Results for query:  {querytext}</p>
         </div>
         );
 }
