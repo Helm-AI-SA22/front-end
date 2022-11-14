@@ -27,25 +27,25 @@ const Dashboard = () => {
 
                         </RankingBar>
                 </Box>
-                <Box sx={{width: '100%', height: '80vh'}}>
-                    <Box sx={{width: '25%', height: '100%', display: 'inline-block'}}>
+                <Box sx={{width: '100%', height: '80vh',  display: 'flex', flexDirection: 'row'} }>
+                    <Box sx={{width: '25%', height: '100%'}}>
                         <RightPanel>
 
                         </RightPanel>
                     </Box>
-                    <Box sx={{width: '50%', height: '100%', display: 'inline-block'}}>
-                        <ResultsList>
+                    <Box sx={{width: '50%', height: '100%'}}>
+                        <ResultsList />
 
-                        </ResultsList>
+                        
                     </Box>
-                    <Box sx={{width: '25%', height: '100%', display: 'inline-block'}}>   
+                    <Box sx={{width: '25%', height: '100%'}}>   
                         <LeftPanel>
 
                         </LeftPanel>
                     </Box>
                 </Box>
                 <Box sx={{width: '100%'}}>
-                    <PageFooter></PageFooter>
+                    {/**<PageFooter></PageFooter>*/}
                 </Box>
 
             </Box>
