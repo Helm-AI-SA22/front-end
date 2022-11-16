@@ -22,7 +22,7 @@ const Dashboard = () => {
         <div>
             <AppBar></AppBar>
             <Box sx={{width: '100%', height:'90vh'}}>
-                <Box sx={{width: '100%', height: '4vh'}}>
+                <Box sx={{width: '100%', height: '7vh'}}>
                         <RankingBar>
 
                         </RankingBar>

@@ -1,4 +1,9 @@
 .ranking-bar{
     background-color: green;
-    min-height: 100%;
+    /*min-height: 100%;*/
+}
+
+.formC{
+    
+    align-self: center;
 }
