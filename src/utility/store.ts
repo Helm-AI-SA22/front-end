@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import documentsReducer from './documentsSlice';
+import documentsReducer from '../components/SearchBar/documentsSlice';
 
 export const store = configureStore({
   reducer: {
