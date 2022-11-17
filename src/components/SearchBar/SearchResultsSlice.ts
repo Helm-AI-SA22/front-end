@@ -1,19 +1,22 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../utility/store';
-import { Paper, SearchResults } from '../../utility/interfaces';
+import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
+import { searchAPI } from '../../utility/api';
 
 export interface SearchResultsState {
-  results: SearchResults,
-  searched: boolean
+  data: SearchResults,
+  searched: boolean;
+  filtered: boolean;
+  error?: APIError;
 }
 
 const initialState: SearchResultsState = {
-  results: {
+  data: {
     documents: [] as Array<Paper>
   } as SearchResults,
-  searched: false
+  searched: false,
+  filtered: false
 };
-
 
 export const resultsSlice = createSlice({
   name: 'results',
@@ -21,15 +24,14 @@ export const resultsSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     update: (state, action: PayloadAction<SearchResults>) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.results = action.payload; //@TODO replace with search api results.
+      state.data = action.payload;
       state.searched = true;
     },
+    setError: (state, action: PayloadAction<APIError>) => {
+       state.error = action.payload;
+    },
     clean: (state) => {
-      state.results = { documents: [] as Array<Paper> } as SearchResults;
+      state.data = { documents: [] as Array<Paper> } as SearchResults;
       state.searched = false;
     },
     filter: (state, action) => {
@@ -41,23 +43,23 @@ export const resultsSlice = createSlice({
   }
 });
 
-export const { update, clean } = resultsSlice.actions;
+export const callSearchAPI = async (request: SearchAPIRequest, dispatch: Dispatch) => {
+  const response = await searchAPI(request) as SearchAPIResponse; 
+  console.log(response);
+  if (response.error) {
+    dispatch(setError(response.error as APIError));
+  }
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectResults = (state: RootState) => state.results;
-export const selectSearched = (state: RootState) => state.results.searched
-export const selectNoResultsFound= (state: RootState) => state.results.searched && state.results.results.documents.length > 0
+  dispatch(update(response.data)); 
+}
 
+export const { update, setError, clean, filter, rank } = resultsSlice.actions;
 
-// We can also write thunks by hand, which may contain both sync and async logic.
-// Here's an example of conditionally dispatching actions based on current state.
-// export const incrementIfOdd =
-//   (amount: number): AppThunk =>
-//   (dispatch, getState) => {
-//     const currentValue = selectDocuments(getState());
-//     dispatch(incrementByAmount(amount));
-//   };
+export const selectResults = (state: RootState) => state.results.data;
+export const selectErrorState = (state: RootState) => state.results.error;
+export const selectSearched = (state: RootState) => state.results.searched;
+export const selectFiltered = (state: RootState) => state.results.filtered;
+export const selectNoResultsFound = (state: RootState) => state.results.searched && state.results.data.documents.length > 0;
 
 export default resultsSlice.reducer;
+

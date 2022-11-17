@@ -34,6 +34,7 @@ export interface BERTChart{
 
 export interface SearchAPIResponse {
     data: SearchResults;
+    error?: APIError
 }
 
 export interface SearchResults {
@@ -51,4 +52,9 @@ export enum TopicModelingAlgorithm {
 export interface SearchAPIRequest{
     keywords: string[];
     type: TopicModelingAlgorithm;
+}
+
+export interface APIError {
+    code?: number;
+    message: string;
 }
