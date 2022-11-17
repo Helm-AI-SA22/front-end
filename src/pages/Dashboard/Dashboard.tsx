@@ -13,12 +13,13 @@ import PageFooter from '../../components/Footer/Footer';
 
 import { useAppSelector } from '../../utility/hooks';
 import { useLocation, useParams } from 'react-router-dom';
-import { selectDocuments } from '../../components/SearchBar/documentsSlice';
+import { selectResults } from '../../components/SearchBar/SearchResultsSlice';
+import { SearchResults } from '../../utility/interfaces';
 
 const Dashboard = () => {
     const { querytext } = useParams();
     const speed_str = useLocation()['pathname'].split('/')[1];
-    const results =  useAppSelector(selectDocuments).documents as any;
+    const results =  useAppSelector(selectResults).results as SearchResults;
 
     console.log(speed_str, results, querytext )
     return (

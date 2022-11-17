@@ -1,9 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import documentsReducer from '../components/SearchBar/documentsSlice';
+import resultsReducer from '../components/SearchBar/SearchResultsSlice';
+import { SearchResults } from './interfaces';
 
 export const store = configureStore({
   reducer: {
-    documents: documentsReducer,
+    results: resultsReducer,
   },
 });
 
@@ -12,6 +13,6 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
-  unknown,
+  SearchResults,
   Action<string>
 >;

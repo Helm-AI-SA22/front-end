@@ -16,7 +16,7 @@ import { Paper, SearchAPIResponse, TopicModelingAlgorithm } from '../../utility/
 import  suggestions  from '../../assets/suggestions.json';
 import Fade from '@mui/material/Fade'
 import LinearProgress from '@mui/material/LinearProgress';
-import { update } from './documentsSlice';
+import { update } from './SearchResultsSlice';
 
 const SearcBar = () => {
     const navigate = useNavigate();
