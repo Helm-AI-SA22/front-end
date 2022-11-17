@@ -21,6 +21,8 @@ const Dashboard = () => {
     const speed_str = useLocation()['pathname'].split('/')[1];
     const results =  useAppSelector(selectResults).results as SearchResults;
 
+    //Handle the no result case and the no query case.!
+
     console.log(speed_str, results, querytext )
     return (
         <div>
