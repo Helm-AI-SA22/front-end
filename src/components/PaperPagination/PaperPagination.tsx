@@ -2,15 +2,18 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
-import data from '../../assets/fast_be_fe.json';
 import { Button, Chip, Card, CardHeader, CardContent, CardActions } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
+import { Paper } from '../../utility/interfaces';
 
+interface PaperPaginationProps {
+    documents: Array<Paper>;
+}
 
-export default function PaperPagination(){
-    
+export default function PaperPagination( props: PaperPaginationProps){
+    const { documents } = props;
     const perPage = 5;
-    const totPaper = data.documents.length;
+    const totPaper = documents.length;
     const countPages = Math.ceil(totPaper / perPage);
 
     const [page, setPage] = React.useState(1);
@@ -18,8 +21,8 @@ export default function PaperPagination(){
         setPage(value);
     };
     
-    const populatePaperPagination = data.documents.slice((page - 1) * perPage, page * perPage)
-    const populate = populatePaperPagination.map(function (paper) {
+    const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
+    const populate = populatePaperPagination.map(function (paper: Paper) {
     
         const populatetopics = paper.topics.map(function(papertopics){
             return(
@@ -41,7 +44,7 @@ export default function PaperPagination(){
                         {/** aggiungere un grid per posizionare meglio i vari attributi */}
                         <Typography variant="caption" color="text.secondary"> 
                             <Typography variant="caption" sx={{fontWeight:'bold'}}> Authors: </Typography>
-                            {paper.autors}
+                            {paper.authors}
                         </Typography>
                         <Typography variant="caption" color="text.secondary"> 
                             <Typography variant="caption" sx={{fontWeight:'bold'}}> DOI: </Typography>
@@ -49,11 +52,11 @@ export default function PaperPagination(){
                         </Typography>
                         <Typography variant="caption" color="text.secondary"> 
                             <Typography variant="caption" sx={{fontWeight:'bold'}}> Year: </Typography>
-                            {paper["publication-year"]}
+                            {paper.publicationDate}
                         </Typography>
                         <Typography variant="caption" color="text.secondary"> 
                             <Typography variant="caption" sx={{fontWeight:'bold'}}> Cited by: </Typography>
-                            {paper["citation-count"]}
+                            {paper.citationCount}
                         </Typography>
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'row'}}>
@@ -70,11 +73,11 @@ export default function PaperPagination(){
                     </Typography>   
                 </CardContent>
                 <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0}}>
-                    <Button variant="outlined" size="small" href={paper["pdf-link"]}>
+                    <Button variant="outlined" size="small" href={paper.pdfLink}>
                         <LaunchIcon color="primary" sx={{pr:1}}/>
                         Full text
                     </Button>
-                    <Button variant="outlined" size="small" href={paper["pdf-link"]}>
+                    <Button variant="outlined" size="small" href={paper.pdfLink}>
                         <LaunchIcon color="primary" sx={{pr:1}}/>
                         Read abstract
                     </Button>

@@ -5,10 +5,9 @@ import {Card, CardHeader, CardActions, Button, Chip} from '@mui/material';
 import './ResultsList.css';
 import LaunchIcon from '@mui/icons-material/Launch';
 
-
-/** Add mock json in appropriate directory per fare funzionare il tutto*/
-import data from '../../assets/fast_be_fe.json';
 import PaperPagination from '../PaperPagination/PaperPagination';
+import { Paper, SearchAPIResponse } from '../../utility/interfaces';
+
 {/** 
 const populate = data.documents.map(function (paper) {
     
@@ -105,10 +104,15 @@ const populate = data.documents.map(function (paper) {
     )
 });
 */}
-export default function ResultsList() { 
+
+interface ResultsListProps {
+    documents: Array<Paper>
+}
+
+export default function ResultsList(props: ResultsListProps ) { 
         return(
             <Container className="results-list" disableGutters={true}>
-                <PaperPagination></PaperPagination>
+                <PaperPagination documents= {props.documents} ></PaperPagination>
             </Container>
         )
     }

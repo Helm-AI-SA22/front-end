@@ -11,13 +11,16 @@ import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
 import PageFooter from '../../components/Footer/Footer';
 
-import { useParams } from 'react-router-dom';
-
+import { useAppSelector } from '../../utility/hooks';
+import { useLocation, useParams } from 'react-router-dom';
+import { selectDocuments } from '../../components/SearchBar/documentsSlice';
 
 const Dashboard = () => {
     const { querytext } = useParams();
-    console.log(querytext);
+    const speed_str = useLocation()['pathname'].split('/')[1];
+    const results =  useAppSelector(selectDocuments).documents as any;
 
+    console.log(speed_str, results, querytext )
     return (
         <div>
             <AppBar></AppBar>
@@ -34,8 +37,7 @@ const Dashboard = () => {
                         </RightPanel>
                     </Box>
                     <Box sx={{width: '50%', height: '100%'}}>
-                        <ResultsList />
-
+                        <ResultsList documents={results.documents} />
                         
                     </Box>
                     <Box sx={{width: '25%', height: '100%'}}>   

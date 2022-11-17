@@ -33,6 +33,10 @@ export interface BERTChart{
 }
 
 export interface SearchAPIResponse {
+    data: QueryResult;
+}
+
+export interface QueryResult {
     documents: Paper[];
     topics: TopicIndex[];
     lda_plot: LDAChart;
