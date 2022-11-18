@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState } from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -20,11 +20,35 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
 import { TopicIndex, Paper, SearchAPIResponse } from '../../utility/interfaces';
-
+import { FilteringState } from './FilteringSlice';
+import { connect } from 'react-redux';
 //TODO remove mock dataset
 import data from '../../assets/fast_be_fe.json' ;
+import { RootState } from '../../utility/store';
+import { updateListFilter, updateRangeFilter, updateStringFilter, clean, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater } from './FilteringSlice';
+import { Dispatch } from 'redux';
 
-const FilteringPanel = () => {
+const mapStateToProps = (state: RootState) => ({
+    topic: state.filters.topic,
+    authors: state.filters.authors,
+    date: state.filters.date,
+    citationCount: state.filters.citationCount,
+    availability: state.filters.availability
+} as FilteringState);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    updateListFilter: (updater: FilterListUpdater) => dispatch(updateListFilter(updater)),
+    updateRangeFilter: (updater: FilterRangeUpdater) => dispatch(updateRangeFilter(updater)),
+    updateStringFilter: (updater: FilterStringUpdater) => dispatch(updateStringFilter(updater))
+} )
+
+interface FilteringPanelProps extends FilteringState { 
+    updateListFilter: (updater: FilterListUpdater) => void; 
+    updateRangeFilter: (updater: FilterRangeUpdater) => void;
+    updateStringFilter: (updater: FilterStringUpdater) => void;
+}
+
+const FilteringPanel = (props: FilteringPanelProps) => {
 
     interface Range{
         min: number;
@@ -96,11 +120,18 @@ const FilteringPanel = () => {
             if (currentIndex === -1) {
                 //Element checked
                 newChecked.push(value);
+                console.log(props);
+                props.updateListFilter({
+                    filterKey: '',
+                    elementIdx: currentIndex
+                } as FilterListUpdater);
                 //Add the topic to the filter list
+                /**
                 if(jsonToSend.criteria && jsonToSend.criteria.topic){
                     jsonToSend.criteria.topic.push(value);
                     console.log(jsonToSend.criteria);
-                }
+                }*/
+
             } else {
                 //Element unchecked
                 newChecked.splice(currentIndex, 1);
@@ -164,10 +195,17 @@ const FilteringPanel = () => {
                 //Cast string into number
                 let intValue: number = +value;
                 if(intValue >= min && intValue <= max){
+                    /**
                     if(jsonToSend.criteria){
                         ((jsonToSend.criteria as any)[key] as Range).min = intValue
                         console.log(((jsonToSend.criteria as any)[key] as Range).min);
                     }
+                     */
+                    props.updateRangeFilter({
+                        filterKey: 'date',
+                        updateMin: true,
+                        value: intValue
+                    } as FilterRangeUpdater);
                     setErrorMin(false)
                 }
                 else{
@@ -348,7 +386,7 @@ const FilteringPanel = () => {
                 jsonToSend.criteria.authors = authorsString.split('\n');
             }
             //TODO send request to the back-end
-            console.log(jsonToSend.criteria)
+            console.log(props)
         };
 
         return(
@@ -393,4 +431,4 @@ const FilteringPanel = () => {
     );
 }
 
-export default FilteringPanel;
+export default connect(mapStateToProps, mapDispatchToProps)(FilteringPanel);
