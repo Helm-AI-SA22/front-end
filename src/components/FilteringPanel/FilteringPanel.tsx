@@ -24,7 +24,7 @@ import { TopicIndex, Paper, SearchAPIResponse } from '../../utility/interfaces';
 //TODO remove mock dataset
 import data from '../../assets/fast_be_fe.json' ;
 
-const RightPanel = () => {
+const FilteringPanel = () => {
 
     interface Range{
         min: number;
@@ -366,7 +366,6 @@ const RightPanel = () => {
     const dateMin: number = 1900;
     const dateMax: number = new Date().getFullYear();
     const citMin: number = 0;
-    //TODO get maxnumber of citation (maybe it could be better to left the fixed value 1'000'000)
     const citMax: number = 1000000;
 
     let authorsString: string = "";
@@ -394,4 +393,4 @@ const RightPanel = () => {
     );
 }
 
-export default RightPanel;
+export default FilteringPanel;

@@ -6,7 +6,7 @@ import { Box, CircularProgress, IconButton } from '@mui/material';
 import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
-import RightPanel from '../../components/RightPanel/RightPanel';
+import RightPanel from '../../components/FilteringPanel/FilteringPanel';
 import ResultsList from '../../components/ResultsList/ResultsList';
 import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
@@ -17,6 +17,7 @@ import { callSearchAPI, } from '../../components/SearchBar/SearchResultsSlice';
 import { SearchAPIRequest, SearchResults } from '../../utility/interfaces';
 import { RootState } from '../../utility/store';
 import { connect } from 'react-redux';
+import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
 
 interface DashboardProps { 
     data: SearchResults;
@@ -61,7 +62,7 @@ const Dashboard = (props: DashboardProps ) => {
                 </Box>
                 <Box sx={{width: '100%', height: '80vh',  display: 'flex', flexDirection: 'row'} }>
                     <Box sx={{width: '25%', height: '100%'}}>
-                        <RightPanel />
+                        <FilteringPanel/>
                     </Box>
                     <Box sx={{width: '50%', height: '100%'}}>
                         { props.searched && !props.isEmpty ? <ResultsList documents={props.data.documents} /> :
