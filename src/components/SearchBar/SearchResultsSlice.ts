@@ -1,5 +1,5 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../utility/store';
+import { RootState } from '../../utility/store';
 import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
 import { searchAPI } from '../../utility/api';
 
@@ -28,7 +28,7 @@ export const resultsSlice = createSlice({
       state.searched = true;
     },
     setError: (state, action: PayloadAction<APIError>) => {
-       state.error = action.payload;
+       state.error = { ...action.payload};
     },
     clean: (state) => {
       state.data = { documents: [] as Array<Paper> } as SearchResults;
@@ -45,7 +45,6 @@ export const resultsSlice = createSlice({
 
 export const callSearchAPI = async (request: SearchAPIRequest, dispatch: Dispatch) => {
   const response = await searchAPI(request) as SearchAPIResponse; 
-  console.log(response);
   if (response.error) {
     dispatch(setError(response.error as APIError));
   }
@@ -59,7 +58,7 @@ export const selectResults = (state: RootState) => state.results.data;
 export const selectErrorState = (state: RootState) => state.results.error;
 export const selectSearched = (state: RootState) => state.results.searched;
 export const selectFiltered = (state: RootState) => state.results.filtered;
-export const selectNoResultsFound = (state: RootState) => state.results.searched && state.results.data.documents.length > 0;
+export const selectNoResultsFound = (state: RootState) => state.results.searched && !state.results.data.documents.length;
 
 export default resultsSlice.reducer;
 

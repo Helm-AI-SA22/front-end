@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Dashboard.css';
 
-import { Box, IconButton } from '@mui/material';
+import { Box, CircularProgress, IconButton } from '@mui/material';
 import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
@@ -12,34 +12,41 @@ import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
 import PageFooter from '../../components/Footer/Footer';
 import { useAppDispatch } from '../../utility/hooks';
-import { useAppSelector } from '../../utility/hooks';
 import { useLocation, useParams } from 'react-router-dom';
-import { callSearchAPI, SearchResultsState, selectFiltered, selectNoResultsFound, selectResults, selectSearched } from '../../components/SearchBar/SearchResultsSlice';
+import { callSearchAPI, } from '../../components/SearchBar/SearchResultsSlice';
 import { SearchAPIRequest, SearchResults } from '../../utility/interfaces';
+import { RootState } from '../../utility/store';
+import { connect } from 'react-redux';
+
+interface DashboardProps { 
+    data: SearchResults;
+    searched: boolean;
+    isFiltered: boolean;
+    isEmpty: boolean;
+}
+
+const mapStateToProps = (state: RootState) => ({
+    data: state.results.data, 
+    searched: state.results.searched, 
+    isFiltered: state.results.filtered,
+    isEmpty:  state.results.searched && !state.results.data.documents.length
+} as DashboardProps ) 
 
 
-const Dashboard = () => {
+const Dashboard = (props: DashboardProps ) => {
     const dispatch = useAppDispatch();
     const [ loading, setLoading ] = React.useState(false);
 
     const { querytext } = useParams();
     const speed_str = useLocation()['pathname'].split('/')[1];
 
-    const results =  useAppSelector(selectResults) as SearchResults;
-    const searched =  useAppSelector(selectSearched);
-    const isEmpty = useAppSelector(selectNoResultsFound);
-    const isFiltered = useAppSelector(selectFiltered);
-
     const reloadSearch = async () => { 
         setLoading(true);
-        console.log(loading);
         await new Promise(res => setTimeout(res, 5000));
         await callSearchAPI({
             keywords: [ querytext ], 
             type: speed_str
         } as SearchAPIRequest, dispatch);
-
-        console.log(loading);
         setLoading(false);
     }
 
@@ -59,16 +66,20 @@ const Dashboard = () => {
                         </RightPanel>
                     </Box>
                     <Box sx={{width: '50%', height: '100%'}}>
-                        { !searched || isEmpty ? 
+                        { props.searched && !props.isEmpty ? <ResultsList documents={props.data.documents} /> :
                             <div className='empty-results'>
                                 <div>Youy query: " {querytext} " did not produced any result.</div>
-                                <IconButton color="primary" aria-label="upload picture" component="label" onClick={reloadSearch}>
-                                    <Refresher className='refresher'/>
-                                </IconButton>
-                                { searched ? <div>Query altready ran.</div> : <div> Query was not actually executed, try running it again.</div>}
-                                { isFiltered ? <div>Try removing too restrictive filters, if any.</div> : <div>No filter was applied.</div>}
+                                <div className='circle-symbol'>
+                                    { loading ? <CircularProgress /> : 
+                                        <IconButton color="primary" aria-label="upload picture" component="label" onClick={reloadSearch}>
+                                            <Refresher className='refresher'/>
+                                        </IconButton>
+                                    }
+                                </div>
+                                { props.searched ? <div>Query altready ran.</div> : <div> Query was not actually executed, try running it again.</div>}
+                                { props.isFiltered ? <div>Try removing too restrictive filters, if any.</div> : <div>No filter was applied.</div>}
                             </div>
-                            : <ResultsList documents={results.documents} /> 
+                        
                         }
                     </Box>
                     <Box sx={{width: '25%', height: '100%'}}>   
@@ -86,4 +97,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default connect(mapStateToProps)(Dashboard);
