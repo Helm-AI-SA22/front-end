@@ -44,7 +44,8 @@ export interface FilterStringUpdater{
 
 export interface FilterListUpdater {
     filterKey: string;
-    elementIdx: number;
+    element: number;
+    remove: boolean;
 }
 
 export interface FilterRangeUpdater {
@@ -59,19 +60,18 @@ export const filtersSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     updateListFilter: (state, action: PayloadAction<FilterListUpdater>) => {
-        const {filterKey, elementIdx } = action.payload;
-        //(state as any)[filterName] = action.payload;
+        const {filterKey, element, remove } = action.payload;
         const filterList = (state as any)[filterKey] as Array<any>;
-        const isElementIn = filterList.indexOf(action.payload.elementIdx);
-        if (isElementIn == -1) {
-            (state as any)[filterKey] = [...filterList, elementIdx];
+        if (!remove) {
+            (state as any)[filterKey] = [...filterList, element];
         } else {
-            (state as any)[filterKey] = [...(filterList.splice(isElementIn, 1))];
+            const idx = filterList.indexOf(element);
+            filterList.splice(idx, 1);
+            (state as any)[filterKey] = [...filterList];
         }
     },
     updateRangeFilter:  (state, action: PayloadAction<FilterRangeUpdater>) => {
         const {filterKey, updateMin, value} = action.payload;
-        //(state as any)[filterName] = action.payload;
         const filterRange = (state as any)[filterKey] as Range;
         if(updateMin){
             filterRange.min = value;
@@ -82,8 +82,6 @@ export const filtersSlice = createSlice({
     },
     updateStringFilter:  (state, action: PayloadAction<FilterStringUpdater>) => {
         const {filterKey, text} = action.payload;
-        //(state as any)[filterName] = action.payload;
-        //const filterString = (state as any)[filterKey] as string[];
         (state as any)[filterKey] = [...text.split('\n')];
     },
     clean: (state) => {

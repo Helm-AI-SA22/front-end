@@ -92,9 +92,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const [openAvailability, setAvailability] = React.useState(false);
 
 
-    const [checked, setChecked] = React.useState([0]);
+    const [checked, setChecked] = React.useState([] as Array<number>);
     //Set as unchecked the first element of the list
-    checked[0] = -1;
 
     const [errorMinDate, setErrorMinDate] = React.useState(false);
     const [errorMaxDate, setErrorMaxDate] = React.useState(false);
@@ -116,36 +115,26 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         const handleToggle = (value: number) => () => {
             const currentIndex = checked.indexOf(value);
             const newChecked = [...checked];
-        
+            let remove = false;
+            
             if (currentIndex === -1) {
                 //Element checked
                 newChecked.push(value);
-                console.log(props);
-                props.updateListFilter({
-                    filterKey: '',
-                    elementIdx: currentIndex
-                } as FilterListUpdater);
-                //Add the topic to the filter list
-                /**
-                if(jsonToSend.criteria && jsonToSend.criteria.topic){
-                    jsonToSend.criteria.topic.push(value);
-                    console.log(jsonToSend.criteria);
-                }*/
-
+                remove = false;
             } else {
                 //Element unchecked
                 newChecked.splice(currentIndex, 1);
-                if(jsonToSend.criteria && jsonToSend.criteria.topic){
-                    const idx = jsonToSend.criteria.topic.indexOf(value);
-                    //Remove the value if it is in the list
-                    if(idx != -1){
-                        jsonToSend.criteria.topic.splice(idx, 1);
-                    }
-                    console.log(jsonToSend.criteria);
-                }
+                remove = true;
             }
-        
+            
+            //Add or remove the topic to the filter list
+            props.updateListFilter({
+                filterKey: 'topic',
+                element: value,
+                remove: remove
+            } as FilterListUpdater);
             setChecked(newChecked);
+            console.log(props);
         };
         
         return(
