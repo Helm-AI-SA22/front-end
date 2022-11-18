@@ -39,7 +39,7 @@ export interface SearchAPIResponse {
 
 export interface SearchResults {
     documents: Paper[];
-    topics: TopicIndex[]
+    topics: TopicIndex[];
     topicVisualization: LDAChart | BERTChart; 
 }
 
@@ -53,7 +53,7 @@ export interface SearchAPIRequest{
     type: TopicModelingAlgorithm;
 }
 
-export interface APIError{
+export interface APIError {
     code?: number;
     message: string;
 }

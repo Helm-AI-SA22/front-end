@@ -2,6 +2,7 @@ import React from 'react';
 import './SearchBar.css';
 
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../utility/hooks';
 import {Autocomplete, TextField, Button, Chip} from '@mui/material';
 import { Search } from '@mui/icons-material' 
 import Switch from '@mui/material/Switch';
@@ -10,15 +11,17 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 
-import { searchAPI } from '../../api/api';
-import { TopicModelingAlgorithm } from '../../api/interfaces';
+import { searchAPI } from '../../utility/api';
+import { Paper, SearchAPIResponse, TopicModelingAlgorithm } from '../../utility/interfaces';
 import  suggestions  from '../../assets/suggestions.json';
 import Fade from '@mui/material/Fade'
 import LinearProgress from '@mui/material/LinearProgress';
-
+import { update } from './SearchResultsSlice';
 
 const SearcBar = () => {
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
     const [value, setValue] = React.useState<string[]>([]);
     const [inputValue, setInputValue] = React.useState('');
     const [checked, setChecked] = React.useState(false);
@@ -71,10 +74,11 @@ const SearcBar = () => {
                 if(value.length){
                   const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
                   /**alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);*/
-                  await searchAPI({
+                  const response = await searchAPI({
                     keywords: value, 
                     type: speed
-                  });
+                  }) as any; //@TODO apply right error handling.
+                  dispatch(update(response.data))
                   startLoading(true);
                   console.log(loading);
                   navigate(`/${speed}/${value[0]}`)

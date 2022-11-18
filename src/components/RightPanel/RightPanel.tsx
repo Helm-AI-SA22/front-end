@@ -19,7 +19,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
-import { TopicIndex, Paper, SearchAPIResponse } from '../../api/interfaces';
+import { TopicIndex, Paper, SearchAPIResponse } from '../../utility/interfaces';
 
 //TODO remove mock dataset
 import data from '../../assets/fast_be_fe.json' ;

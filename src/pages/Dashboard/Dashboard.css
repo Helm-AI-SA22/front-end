@@ -1,0 +1,9 @@
+.empty-results {
+    display: inline-block;
+    width:100%;
+    margin:auto;
+}
+
+.refresher {
+    font-size: 24vmin
+}

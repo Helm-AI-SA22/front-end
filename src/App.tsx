@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { BrowserRouter,Routes, Route, Navigate } from 'react-router-dom';
 import AboutPage from './pages/About/About';
 
-//@todo creare due dashboard, una per BERT e una per LDA
 function App() {
   return (
     <BrowserRouter>
