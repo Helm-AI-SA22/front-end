@@ -29,9 +29,7 @@ const Dashboard = () => {
                 </Box>
                 <Box sx={{width: '100%', height: '80vh',  display: 'flex', flexDirection: 'row'} }>
                     <Box sx={{width: '25%', height: '100%'}}>
-                        <RightPanel>
-
-                        </RightPanel>
+                        <RightPanel />
                     </Box>
                     <Box sx={{width: '50%', height: '100%'}}>
                         <ResultsList />
