@@ -195,18 +195,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 //Cast string into number
                 let intValue: number = +value;
                 if(intValue >= min && intValue <= max){
-                    /**
-                    if(jsonToSend.criteria){
-                        ((jsonToSend.criteria as any)[key] as Range).min = intValue
-                        console.log(((jsonToSend.criteria as any)[key] as Range).min);
-                    }
-                     */
                     props.updateRangeFilter({
                         filterKey: 'date',
                         updateMin: true,
                         value: intValue
                     } as FilterRangeUpdater);
                     setErrorMin(false)
+                    console.log("Min value set: " + value)
                 }
                 else{
                     setErrorMin(true);
@@ -225,11 +220,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 let intValue: number = +value;
                 if(intValue >= min && intValue <= max){
                     console.log(value)
-                    if(jsonToSend.criteria){
-                        ((jsonToSend.criteria as any)[key] as Range).max = intValue
-                        console.log(((jsonToSend.criteria as any)[key] as Range).max);
-                    }
+                    props.updateRangeFilter({
+                        filterKey: 'date',
+                        updateMin: false,
+                        value: intValue
+                    } as FilterRangeUpdater);
                     setErrorMax(false)
+                    console.log("Max value set: " + value)
                 }
                 else{
                     setErrorMax(true);
