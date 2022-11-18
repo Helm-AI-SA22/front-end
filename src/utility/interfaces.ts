@@ -6,30 +6,30 @@ export interface Paper {
     citationCount: number;
     authors: string;
     pdfLink: string;
-    openaccess: boolean;
+    openaccess: number;
     topics: TopicPaperMap[]; 
 }
 
 export interface TopicPaperMap{
-    id: string;
+    id: number;
     affinity: number;
 }
 
 export interface TopicIndex{
-    id: string;
+    id: number;
     name: string;
 }
 
 export interface LDAChart{
-    lda_plot?: string;
+    ldaPlot?: string;
 }
 
 export interface BERTChart{
-    topic_clusters_plot: string; 
-    hierarchical_clustering_plot: string;
-    topics_words_score_plot: string;
-    topics_similarity_plot: string;
-    document_clusters_plot: string;
+    topicClustersPlot: string; 
+    hierarchicalClusteringPlot: string;
+    topicsWordsScorePlot: string;
+    topicsSimilarityPlot: string;
+    documentClustersPlot: string;
 }
 
 export interface SearchAPIResponse {
@@ -40,7 +40,6 @@ export interface SearchAPIResponse {
 export interface SearchResults {
     documents: Paper[];
     topics: TopicIndex[];
-    lda_plot: LDAChart;
     topicVisualization: LDAChart | BERTChart; 
 }
 
