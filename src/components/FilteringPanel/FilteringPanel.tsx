@@ -185,7 +185,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 let intValue: number = +value;
                 if(intValue >= min && intValue <= max){
                     props.updateRangeFilter({
-                        filterKey: 'date',
+                        filterKey: key,
                         updateMin: true,
                         value: intValue
                     } as FilterRangeUpdater);
@@ -210,7 +210,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 if(intValue >= min && intValue <= max){
                     console.log(value)
                     props.updateRangeFilter({
-                        filterKey: 'date',
+                        filterKey: key,
                         updateMin: false,
                         value: intValue
                     } as FilterRangeUpdater);
@@ -286,6 +286,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             authorsString = event.target.value;
+            props.updateStringFilter({
+                filterKey: 'authors',
+                text: authorsString,
+            } as FilterStringUpdater);
             console.log(authorsString);
         };
 
