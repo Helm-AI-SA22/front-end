@@ -11,7 +11,7 @@ interface Range{
 export interface Setter{
     key: string,
     value: any
-}
+};
 
 export interface FilteringState {
     topic: string[];
@@ -32,10 +32,8 @@ const initialState: FilteringState = {
         min: 0,
         max: 0
     },
-    availability: -1
+    availability: 0
 }
-
-
 
 export interface FilterStringUpdater{
     filterKey: string;
@@ -52,6 +50,11 @@ export interface FilterRangeUpdater {
     filterKey: string;
     updateMin: boolean; 
     value: number;
+}
+
+export interface FilterValueUpdater {
+    filterKey: string;
+    value: number | boolean | string;
 }
 
 export const filtersSlice = createSlice({
@@ -84,13 +87,17 @@ export const filtersSlice = createSlice({
         const {filterKey, text} = action.payload;
         (state as any)[filterKey] = [...text.split('\n')];
     },
+    updateValueFilter: (state, action: PayloadAction<FilterValueUpdater>) => {
+        const {filterKey, value} = action.payload;
+        (state as any)[filterKey] = value;
+    },
     clean: (state) => {
         state = {...initialState};
     }
   }
 });
 
-export const { updateListFilter, updateRangeFilter, updateStringFilter, clean } = filtersSlice.actions;
+export const { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean } = filtersSlice.actions;
 
 export default filtersSlice.reducer;
 

@@ -25,7 +25,7 @@ import { connect } from 'react-redux';
 //TODO remove mock dataset
 import data from '../../assets/fast_be_fe.json' ;
 import { RootState } from '../../utility/store';
-import { updateListFilter, updateRangeFilter, updateStringFilter, clean, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater } from './FilteringSlice';
+import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater } from './FilteringSlice';
 import { Dispatch } from 'redux';
 
 const mapStateToProps = (state: RootState) => ({
@@ -39,13 +39,15 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     updateListFilter: (updater: FilterListUpdater) => dispatch(updateListFilter(updater)),
     updateRangeFilter: (updater: FilterRangeUpdater) => dispatch(updateRangeFilter(updater)),
-    updateStringFilter: (updater: FilterStringUpdater) => dispatch(updateStringFilter(updater))
+    updateStringFilter: (updater: FilterStringUpdater) => dispatch(updateStringFilter(updater)),
+    updateValueFilter: (updater: FilterValueUpdater) => dispatch(updateValueFilter(updater))
 } )
 
 interface FilteringPanelProps extends FilteringState { 
     updateListFilter: (updater: FilterListUpdater) => void; 
     updateRangeFilter: (updater: FilterRangeUpdater) => void;
     updateStringFilter: (updater: FilterStringUpdater) => void;
+    updateValueFilter: (updater: FilterValueUpdater) => void;
 }
 
 const FilteringPanel = (props: FilteringPanelProps) => {
@@ -105,7 +107,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
     //TODO fix that when close a section all filters are deleted
 
-    //TODO understand why topic array is empty at the button click
     function listTopics(elementsList: TopicIndex[]) {
         
         const handleClick = () => {
@@ -327,6 +328,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     function filterAvailability(){
 
         let states = ["All", "Yes", "No"]
+
         const handleClick = () => {
             setAvailability(!openAvailability);
         };
@@ -334,11 +336,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         const handleChange = (event: SelectChangeEvent) => {
             let selectedValue = event.target.value;
             setAvailabilityFilterValue(selectedValue);
-            if(jsonToSend.criteria){
-                let idx = states.indexOf(selectedValue);
-                jsonToSend.criteria.availability = idx;
-                console.log(jsonToSend.criteria)
-            }
+            let elemIdx = states.indexOf(selectedValue);
+            console.log("Availability: " + elemIdx);
+            props.updateValueFilter({
+                filterKey: 'availability',
+                value: elemIdx
+            } as FilterValueUpdater);
         }
         
         return(
@@ -372,9 +375,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     function buttonFilter(){
 
         const handleClick = () => {
-            if(jsonToSend.criteria && jsonToSend.criteria.authors){
-                jsonToSend.criteria.authors = authorsString.split('\n');
-            }
             //TODO send request to the back-end
             console.log(props)
         };
