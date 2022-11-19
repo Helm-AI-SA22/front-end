@@ -1,8 +1,5 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../utility/store';
-import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
-import { searchAPI } from '../../utility/api';
-import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range} from '../../utility/interfaces'
+import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range, Criteria} from '../../utility/interfaces'
 import { CIT_MAX, CIT_MIN, DATE_MAX, DATE_MIN } from '../../utility/constants';
 
 export interface Setter{
@@ -21,8 +18,39 @@ const initialState: FilteringState = {
         min: CIT_MIN,
         max: CIT_MAX
     },
-    availability: 0
+    availability: -1,
+    preprint: -1
 }
+
+export function criteriaToAPI(state: FilteringState): Criteria {
+    
+    const rangeToAPI = (range: Range, min: number, max: number): Range | undefined => {
+
+        if(range.min == min && range.max == max){
+            return undefined;
+        }
+        else{
+            if(range.min == min){
+                range.min = -1;
+            }
+            if(range.max == max){
+                range.max = -1;
+            }
+
+            return range;
+        }
+        
+    }  
+
+    return {
+        topic: (state.topic.length) ? state.topic : undefined,
+        authors: (state.authors.length) ? state.authors : undefined,
+        availability: (state.availability != -1) ? state.availability : undefined,
+        date: (rangeToAPI(state.date, DATE_MIN, DATE_MAX)),
+        citationCount: (rangeToAPI(state.citationCount, CIT_MIN, CIT_MAX))
+    }
+    //nel caso impostare min numCitazioni a 0 se min numCitazioni non indicato e preprint non volute
+};
 
 export const filtersSlice = createSlice({
   name: 'filters',

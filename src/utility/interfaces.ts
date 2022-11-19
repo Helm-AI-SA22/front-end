@@ -70,6 +70,7 @@ export interface FilteringState {
     date: Range;
     citationCount: Range;
     availability: number;
+    preprint: number;
 };
 
 export interface FilterStringUpdater{
@@ -107,10 +108,10 @@ export interface Criteria {
     date?: Range;
     citationCount?: Range;
     availability?: number;
-
+    preprint?: number;
 }
 
-export interface FilterAPIResponse {
+export interface FilterAPIRequest {
     documents: Paper[];
     criteria: Criteria;
 }

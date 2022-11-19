@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIResponse} from './interfaces';
+import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIRequest} from './interfaces';
 
 const SERVER = 'http://localhost:5000';
 
@@ -25,7 +25,7 @@ const search = async (request: SearchAPIRequest) => {
       }
 }
 
-const filter = async (request: FilterAPIResponse) => {
+const filter = async (request: FilterAPIRequest) => {
 	const ROUTE = '/filtering';
 
 	try {
@@ -49,3 +49,4 @@ const filter = async (request: FilterAPIResponse) => {
 
 
 export { search as searchAPI};
+export { filter as filterAPI};

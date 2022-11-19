@@ -23,19 +23,21 @@ import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
 import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean} from './FilteringSlice';
-import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIResponse, Criteria} from '../../utility/interfaces'
+import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest, Criteria} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
 import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants'; 
-import { selectResults } from '../SearchBar/SearchResultsSlice';
-import {useAppSelector} from '../../utility/hooks'
+import { filter, selectResults, update, selectOriginalDocs } from '../SearchBar/SearchResultsSlice';
+import {useAppSelector, useAppDispatch} from '../../utility/hooks'
+import {filterAPI} from '../../utility/api'
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
     authors: state.filters.authors,
     date: state.filters.date,
     citationCount: state.filters.citationCount,
-    availability: state.filters.availability
+    availability: state.filters.availability,
+    preprint: state.filters.preprint
 } as FilteringState);
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -47,15 +49,15 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 const FilteringPanel = (props: FilteringPanelProps) => {
 
+    const dispatch = useAppDispatch();
     const [openTopics, setOpenTopics] = React.useState(false);
     const [openPublicationYear, setOpenPublicationYear] = React.useState(false);
     const [openCitationCount, setOpenCitationCount] = React.useState(false);
     const [openAuthors, setOpenAuthors] = React.useState(false);
     const [openAvailability, setAvailability] = React.useState(false);
-
+    const [openPreprint, setPreprint] = React.useState(false);
 
     const [checked, setChecked] = React.useState([] as Array<number>);
-    //Set as unchecked the first element of the list
 
     const [errorMinDate, setErrorMinDate] = React.useState(false);
     const [errorMaxDate, setErrorMaxDate] = React.useState(false);
@@ -64,12 +66,19 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const [errorMaxCitCount, setErrorMaxCitCount] = React.useState(false);
 
     const [availabilityFilterValue, setAvailabilityFilterValue] = React.useState('All');
+    const [preprintFilterValue, setPreprintFilterValue] = React.useState('All');
 
     const data = useAppSelector(selectResults) as SearchResults;
+    const originalDocs = useAppSelector(selectOriginalDocs) as Paper[];
 
     enum RangedFilters {
         DATE = "date",
         CITCOUNT = "citationCount"
+    }
+
+    enum ListedFilters {
+        AVAILABILITY = 'availability',
+        PREPRINT = 'preprint'
     }
 
     function listTopics(elementsList: TopicIndex[]) {
@@ -137,6 +146,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     
     }
 
+    //TODO handle empty string
     function filterRange(labelSection: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, min: number, max: number, errorMinValue: boolean, setErrorMin: React.Dispatch<React.SetStateAction<boolean>>, errorMaxValue: boolean, setErrorMax: React.Dispatch<React.SetStateAction<boolean>>, key: RangedFilters, regex: RegExp){
 
         const handleClick = () => {
@@ -217,7 +227,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                             id="min"
                             label="From"
                             type="search"
-                            value={props[key].min}
+                            defaultValue={props[key].min}
                             error = {errorMinValue}
                             onChange={handleChangeMin}
                             onKeyPress={handleKeyPressed}
@@ -229,7 +239,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                             id="max"
                             label="To"
                             type="search"
-                            value={props[key].max}
+                            defaultValue={props[key].max}
                             error = {errorMaxValue}
                             onChange={handleChangeMax}
                             onKeyPress={handleKeyPressed}
@@ -292,21 +302,20 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         );
     }
 
-    function filterAvailability(){
-
-        let states = ["All", "Yes", "No"]
+    //TODO change handleClick (bug)
+    function filterList(labelSection: string, key: ListedFilters, labelBox: string, states: string[], statesKeys: number[], open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, value: string, setValue: React.Dispatch<React.SetStateAction<string>>){
 
         const handleClick = () => {
-            setAvailability(!openAvailability);
+            setOpen(!open);
         };
 
         const handleChange = (event: SelectChangeEvent) => {
             let selectedValue = event.target.value;
-            setAvailabilityFilterValue(selectedValue);
+            setValue(selectedValue);
             let elemIdx = states.indexOf(selectedValue);
-            console.log("Availability: " + elemIdx);
+            console.log(labelSection + ": " + elemIdx);
             props.updateValueFilter({
-                filterKey: 'availability',
+                filterKey: key,
                 value: elemIdx
             } as FilterValueUpdater);
         }
@@ -314,23 +323,23 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         return(
             <Box>
                 <ListItemButton onClick={handleClick}>
-                    {openAvailability ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {"Availability"} />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                    <ListItemText primary= {labelSection} />
                 </ListItemButton>
-                <Collapse in={openAvailability} timeout="auto" unmountOnExit>
+                <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box sx={{m: 2, width: '75%'}}>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Free Access</InputLabel>
+                        <InputLabel id="demo-simple-select-label">{labelBox}</InputLabel>
                         <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        label="Free access"
+                        label={labelSection}
                         onChange={handleChange}
-                        value={availabilityFilterValue}
+                        value={value}
                         >
-                        <MenuItem value={'All'}>All</MenuItem>
-                        <MenuItem value={'Yes'}>Yes</MenuItem>
-                        <MenuItem value={'No'}>No</MenuItem>
+                        <MenuItem value={statesKeys[0]}>{states[0]}</MenuItem>
+                        <MenuItem value={statesKeys[1]}>{states[1]}</MenuItem>
+                        <MenuItem value={statesKeys[2]}>{states[2]}</MenuItem>
                         </Select>
                     </FormControl>
                     </Box>
@@ -341,12 +350,16 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
     function buttonFilter(){
 
-        const handleClick = () => {
-            //TODO send request to the back-end
-            let jsonToSend: FilterAPIResponse = {
-                documents: data.documents,
+        const handleClick = async () => {
+
+            //TODO check request
+            let jsonToSend: FilterAPIRequest = {
+                documents: originalDocs,
                 criteria: props
             }
+            const response = await filterAPI(jsonToSend);
+            dispatch(filter());
+            dispatch(update(response.data as SearchResults));
             console.log(jsonToSend);
         };
 
@@ -364,6 +377,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const topicsList: TopicIndex[] = data.topics;
 
     let authorsString: string = "";
+    const statesAvailabilityKeys = [-1, 0, 1];
+    const statesAvailability = ["All", "Yes", "No"];
+    const statesPreprint = ["All", "Peer reviewed only", "Preprint only"];
+    const statesPreprintKeys = [-1, 0, 1];
 
     return (
         <List 
@@ -382,7 +399,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             {filterRange("Citation Count", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
-            {filterAvailability()}
+            {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
+            {/**filterList("Peer reviewed", ListedFilters.PREPRINT, "Peer reviewed", statesPreprint, statesPreprintKeys, openPreprint, setPreprint, preprintFilterValue, setPreprintFilterValue)*/}
             {buttonFilter()}
         </List>
     );
