@@ -105,8 +105,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
     const [availabilityFilterValue, setAvailabilityFilterValue] = React.useState('All');
 
-    //TODO fix that when close a section all filters are deleted
-
     function listTopics(elementsList: TopicIndex[]) {
         
         const handleClick = () => {
@@ -172,10 +170,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     
     }
 
-    //TODO disable refresh onKeyPressed
     function filterRange(labelSection: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, min: number, max: number, errorMinValue: boolean, setErrorMin: React.Dispatch<React.SetStateAction<boolean>>, errorMaxValue: boolean, setErrorMax: React.Dispatch<React.SetStateAction<boolean>>, key: string, regex: RegExp){
 
         const handleClick = () => {
+            if(!open){
+                //TODO insert again the value in the textfields
+            }
             setOpen(!open);
         };
 
@@ -188,7 +188,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: true,
-                        value: intValue
+                        value: intValue,
+                        disableEscapeKeyDown:false
                     } as FilterRangeUpdater);
                     setErrorMin(false)
                     console.log("Min value set: " + value)
@@ -213,7 +214,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: false,
-                        value: intValue
+                        value: intValue,
+                        disableEscapeKeyDown:false
                     } as FilterRangeUpdater);
                     setErrorMax(false)
                     console.log("Max value set: " + value)
@@ -282,6 +284,9 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     function filterAuthors(){
         
         const handleClick = () => {
+            if(!openAuthors){
+                //TODO insert again the value in the textfield
+            }
             setOpenAuthors(!openAuthors);
         };
 
