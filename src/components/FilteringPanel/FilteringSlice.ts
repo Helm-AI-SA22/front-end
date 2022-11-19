@@ -2,59 +2,26 @@ import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../utility/store';
 import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
 import { searchAPI } from '../../utility/api';
-
-interface Range{
-    min: number;
-    max: number;
-};
+import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range} from '../../utility/interfaces'
+import { CIT_MAX, CIT_MIN, DATE_MAX, DATE_MIN } from '../../utility/constants';
 
 export interface Setter{
     key: string,
     value: any
 };
 
-export interface FilteringState {
-    topic: string[];
-    authors: string[];
-    date: Range;
-    citationCount: Range;
-    availability: number;
-};
-
 const initialState: FilteringState = {
     topic: [],
     authors: [],
     date: {
-        min: 0,
-        max: 0
+        min: DATE_MIN,
+        max: DATE_MAX
     },
     citationCount: {
-        min: 0,
-        max: 0
+        min: CIT_MIN,
+        max: CIT_MAX
     },
     availability: 0
-}
-
-export interface FilterStringUpdater{
-    filterKey: string;
-    text: string;
-}
-
-export interface FilterListUpdater {
-    filterKey: string;
-    element: number;
-    remove: boolean;
-}
-
-export interface FilterRangeUpdater {
-    filterKey: string;
-    updateMin: boolean; 
-    value: number;
-}
-
-export interface FilterValueUpdater {
-    filterKey: string;
-    value: number | boolean | string;
 }
 
 export const filtersSlice = createSlice({

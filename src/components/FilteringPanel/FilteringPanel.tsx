@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -18,15 +18,17 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-
-import { TopicIndex, Paper, SearchAPIResponse } from '../../utility/interfaces';
-import { FilteringState } from './FilteringSlice';
+import { TopicIndex, Paper, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
-//TODO remove mock dataset
-import data from '../../assets/fast_be_fe.json' ;
+
 import { RootState } from '../../utility/store';
-import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater } from './FilteringSlice';
+import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean} from './FilteringSlice';
+import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIResponse, Criteria} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
+
+import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants'; 
+import { selectResults } from '../SearchBar/SearchResultsSlice';
+import {useAppSelector} from '../../utility/hooks'
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -43,49 +45,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     updateValueFilter: (updater: FilterValueUpdater) => dispatch(updateValueFilter(updater))
 } )
 
-interface FilteringPanelProps extends FilteringState { 
-    updateListFilter: (updater: FilterListUpdater) => void; 
-    updateRangeFilter: (updater: FilterRangeUpdater) => void;
-    updateStringFilter: (updater: FilterStringUpdater) => void;
-    updateValueFilter: (updater: FilterValueUpdater) => void;
-}
-
 const FilteringPanel = (props: FilteringPanelProps) => {
-
-    interface Range{
-        min: number;
-        max: number;
-    };
-
-    interface Criteria{
-        topic?: number[];
-        date?: Range;
-        authors?: string[];
-        citationCount?: Range;
-        availability?: number;
-    };
-
-    interface FilterAPIRequest{
-        documents: Paper[];
-        criteria: Criteria | null ;
-
-    };
-
-    const rangeDict: Range = {
-        min: 0,
-        max: 0
-    };
-    
-    const jsonToSend = { 
-        documents: data.documents as Array<Paper>,
-        criteria: {
-            topic: [] as Array<number>,
-            date: rangeDict,
-            authors: [] as Array<string>,
-            citationCount: rangeDict,
-            availability: 0
-        }
-    } as FilterAPIRequest;
 
     const [openTopics, setOpenTopics] = React.useState(false);
     const [openPublicationYear, setOpenPublicationYear] = React.useState(false);
@@ -104,6 +64,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const [errorMaxCitCount, setErrorMaxCitCount] = React.useState(false);
 
     const [availabilityFilterValue, setAvailabilityFilterValue] = React.useState('All');
+
+    const data = useAppSelector(selectResults) as SearchResults;
+
+    enum RangedFilters {
+        DATE = "date",
+        CITCOUNT = "citationCount"
+    }
 
     function listTopics(elementsList: TopicIndex[]) {
         
@@ -170,12 +137,9 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     
     }
 
-    function filterRange(labelSection: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, min: number, max: number, errorMinValue: boolean, setErrorMin: React.Dispatch<React.SetStateAction<boolean>>, errorMaxValue: boolean, setErrorMax: React.Dispatch<React.SetStateAction<boolean>>, key: string, regex: RegExp){
+    function filterRange(labelSection: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, min: number, max: number, errorMinValue: boolean, setErrorMin: React.Dispatch<React.SetStateAction<boolean>>, errorMaxValue: boolean, setErrorMax: React.Dispatch<React.SetStateAction<boolean>>, key: RangedFilters, regex: RegExp){
 
         const handleClick = () => {
-            if(!open){
-                //TODO insert again the value in the textfields
-            }
             setOpen(!open);
         };
 
@@ -189,7 +153,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         filterKey: key,
                         updateMin: true,
                         value: intValue,
-                        disableEscapeKeyDown:false
                     } as FilterRangeUpdater);
                     setErrorMin(false)
                     console.log("Min value set: " + value)
@@ -214,8 +177,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: false,
-                        value: intValue,
-                        disableEscapeKeyDown:false
+                        value: intValue
                     } as FilterRangeUpdater);
                     setErrorMax(false)
                     console.log("Max value set: " + value)
@@ -252,9 +214,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                         <Stack spacing={2} direction="row" sx={{m: 2}}>
                             <TextField
-                            id="min-date"
+                            id="min"
                             label="From"
                             type="search"
+                            value={props[key].min}
                             error = {errorMinValue}
                             onChange={handleChangeMin}
                             onKeyPress={handleKeyPressed}
@@ -263,9 +226,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                             }}
                             />
                             <TextField
-                            id="max-date"
+                            id="max"
                             label="To"
                             type="search"
+                            value={props[key].max}
                             error = {errorMaxValue}
                             onChange={handleChangeMax}
                             onKeyPress={handleKeyPressed}
@@ -284,9 +248,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     function filterAuthors(){
         
         const handleClick = () => {
-            if(!openAuthors){
-                //TODO insert again the value in the textfield
-            }
             setOpenAuthors(!openAuthors);
         };
 
@@ -321,6 +282,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                             multiline
                             maxRows={4}
                             onChange={handleChange}
+                            value={props.authors}
                             />
                         </Box>
 
@@ -381,7 +343,11 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         const handleClick = () => {
             //TODO send request to the back-end
-            console.log(props)
+            let jsonToSend: FilterAPIResponse = {
+                documents: data.documents,
+                criteria: props
+            }
+            console.log(jsonToSend);
         };
 
         return(
@@ -396,10 +362,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     }
 
     const topicsList: TopicIndex[] = data.topics;
-    const dateMin: number = 1900;
-    const dateMax: number = new Date().getFullYear();
-    const citMin: number = 0;
-    const citMax: number = 1000000;
 
     let authorsString: string = "";
 
@@ -415,10 +377,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         }
         >
             {listTopics(topicsList)}
-            {filterRange("Publication Year", openPublicationYear, setOpenPublicationYear, dateMin, dateMax, 
-            errorMinDate, setErrorMinDate, errorMaxDate, setErrorMaxDate, 'date', new RegExp('1[0-9]{3}|2[0-9]{3}'))}
-            {filterRange("Citation Count", openCitationCount, setOpenCitationCount, citMin, citMax, 
-            errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, 'citationCount', new RegExp('^[0-9\b]+$'))}
+            {filterRange("Publication Year", openPublicationYear, setOpenPublicationYear, DATE_MIN, DATE_MAX, 
+            errorMinDate, setErrorMinDate, errorMaxDate, setErrorMaxDate, RangedFilters.DATE, new RegExp('1[0-9]{3}|2[0-9]{3}'))}
+            {filterRange("Citation Count", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
+            errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
             {filterAvailability()}
             {buttonFilter()}
