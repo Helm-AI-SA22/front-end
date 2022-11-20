@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIRequest} from './interfaces';
+import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIRequest, RankingAPIRequest} from './interfaces';
 
 const SERVER = 'http://localhost:5000';
 
@@ -47,6 +47,35 @@ const filter = async (request: FilterAPIRequest) => {
       }
 }
 
+const ranking = async (request: RankingAPIRequest) =>  {
+	const ROUTE = '/rank'; 
+
+	try {
+        console.log(`The ranking API has been called. Query: ${request}`);
+		await new Promise(res => setTimeout(res, 2000));
+        // return await axios.post<RankingAPIRequest>(`${SERVER}/${ROUTE}`, request);
+		return {
+			data:{ 
+            	documents: [] as Array<Paper>
+          	} as SearchResults
+		}
+    } catch (error) {
+		console.log("Erro calling the SEARCH API:", error);
+        return {
+          	data:{ 
+            	documents: [] as Array<Paper>
+          	} as SearchResults, 
+			error: axios.isAxiosError(error) ? {
+				message: error.message,
+				code: error.code 
+			} : { 
+				message: 'An unexpected error occurred'
+			} as APIError,
+        } as SearchAPIResponse
+      }
+}
+
 
 export { search as searchAPI};
 export { filter as filterAPI};
+export { ranking as rankingAPI} ;

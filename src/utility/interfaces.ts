@@ -115,3 +115,15 @@ export interface FilterAPIRequest {
     documents: Paper[];
     criteria: Criteria;
 }
+
+export enum RankingCriteria { 
+    SIMILARITY = 'similarity',
+    DATE = 'date',
+    CITATION = 'citation'
+}
+
+export interface RankingAPIRequest {
+    documents: Paper[]
+    criteria: RankingCriteria; 
+    ascending: boolean;
+}
