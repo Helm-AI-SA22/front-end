@@ -103,12 +103,12 @@ export interface FilteringPanelProps extends FilteringState {
 }
 
 export interface Criteria {
-    topic?: string[];
-    authors?: string[];
-    date?: Range;
-    citationCount?: Range;
-    availability?: number;
-    preprint?: number;
+    topic: string[] | null;
+    authors: string[] | null;
+    date: Range | null;
+    citationCount: Range | null;
+    availability: number | null;
+    preprint: number | null;
 }
 
 export interface FilterAPIRequest {

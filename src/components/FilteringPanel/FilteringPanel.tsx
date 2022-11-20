@@ -22,7 +22,7 @@ import { TopicIndex, Paper, SearchAPIResponse, SearchResults } from '../../utili
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
-import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean} from './FilteringSlice';
+import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI} from './FilteringSlice';
 import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest, Criteria} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
@@ -154,24 +154,26 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         const handleChangeMin = (event: React.ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
+            let error = false;
             if(regex.test(value)){
                 //Cast string into number
                 let intValue: number = +value;
-                if(intValue >= min && intValue <= max){
+                if((intValue >= min && intValue <= max) && (!(intValue > props[key].max))){
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: true,
                         value: intValue,
                     } as FilterRangeUpdater);
-                    setErrorMin(false)
+                    error = false;
                     console.log("Min value set: " + value)
                 }
                 else{
-                    setErrorMin(true);
+                    error = true;
                     console.log("Format error");
                 }
             }
             else{
+                //Handle the empty filed case
                 if(value == ""){
                     props.updateRangeFilter({
                         filterKey: key,
@@ -179,49 +181,57 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         value: min,
                     } as FilterRangeUpdater);
                     console.log("Min value set to empty")
-                    setErrorMin(false)
+                    error = false;
                 }
                 else{
-                    setErrorMin(true);
+                    error = true;
                     console.log("Format error");
                 }
             }
+
+            setErrorMin(error);
+            setErrorMax(error);
         };
 
         const handleChangeMax = (event: React.ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
+            let error = false;
             if(regex.test(value)){
                 let intValue: number = +value;
-                if(intValue >= min && intValue <= max){
+                if((intValue >= min && intValue <= max) && (!(intValue < props[key].min))){
                     console.log(value)
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: false,
                         value: intValue
                     } as FilterRangeUpdater);
-                    setErrorMax(false)
+                    error = false;
                     console.log("Max value set: " + value)
                 }
                 else{
-                    if(value == ""){
-                        props.updateRangeFilter({
-                            filterKey: key,
-                            updateMin: true,
-                            value: max,
-                        } as FilterRangeUpdater);
-                        console.log("Max value set to empty")
-                        setErrorMax(false)
-                    }
-                    else{
-                        setErrorMax(true);
-                        console.log("Format error");
-                    }
+                    error = true;
+                    console.log("Format error");
                 }
             }
             else{
-                setErrorMax(true);
-                console.log("Format error");
+                //Handle the empty filed case
+                if(value == ""){
+                    props.updateRangeFilter({
+                        filterKey: key,
+                        updateMin: false,
+                        value: max,
+                    } as FilterRangeUpdater);
+                    console.log("Max value set to empty")
+                    error = false;
+                }
+                else{
+                    error = true;
+                    console.log("Format error");
+                }
             }
+
+            setErrorMin(error);
+            setErrorMax(error);
         };
 
         const handleKeyPressed = () => {
@@ -372,19 +382,27 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         );
     }
 
-    function buttonFilter(){
+    function buttonFilter(errorsList: boolean[]){
 
         const handleClick = async () => {
 
-            //TODO check request
-            let jsonToSend: FilterAPIRequest = {
-                documents: originalDocs,
-                criteria: props
+            if(errorsList.every(element => element === false)){
+                let jsonToSend: FilterAPIRequest = {
+                    documents: originalDocs,
+                    criteria: criteriaToAPI(props)
+                }
+
+                const response = await filterAPI(jsonToSend);
+                const payload = response.data as SearchResults;
+                payload.topicVisualization = data.topicVisualization;
+                payload.topics = data.topics;
+                dispatch(filter());
+                dispatch(update(response.data as SearchResults));
+                console.log(jsonToSend);
             }
-            const response = await filterAPI(jsonToSend);
-            dispatch(filter());
-            dispatch(update(response.data as SearchResults));
-            console.log(jsonToSend);
+            else{
+                alert("Wrong values, unable to complete filtering");
+            }
         };
 
         return(
@@ -405,6 +423,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const statesAvailability = ["All", "Yes", "No"];
     const statesPreprint = ["All", "Peer reviewed only", "Preprint only"];
     const statesPreprintKeys = [-1, 0, 1];
+    const errorsList = [errorMinDate, errorMaxDate, errorMinCitCount, errorMaxCitCount];
 
     return (
         <List 
@@ -425,7 +444,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             {filterAuthors()}
             {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
             {/**filterList("Peer reviewed", ListedFilters.PREPRINT, "Peer reviewed", statesPreprint, statesPreprintKeys, openPreprint, setPreprint, preprintFilterValue, setPreprintFilterValue)*/}
-            {buttonFilter()}
+            {buttonFilter(errorsList)}
         </List>
     );
 }

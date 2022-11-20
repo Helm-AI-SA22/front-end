@@ -24,30 +24,31 @@ const initialState: FilteringState = {
 
 export function criteriaToAPI(state: FilteringState): Criteria {
     
-    const rangeToAPI = (range: Range, min: number, max: number): Range | undefined => {
+    const rangeToAPI = (range: Range, min: number, max: number): Range | null => {
 
+        
         if(range.min == min && range.max == max){
-            return undefined;
+            return null;
         }
-        else{
-            if(range.min == min){
-                range.min = -1;
-            }
-            if(range.max == max){
-                range.max = -1;
-            }
+        const newRange = {...range};
+        if(newRange.min == min){
+            newRange.min = -1;
+        }
+        if(newRange.max == max){
+            newRange.max = -1;
+        }
 
-            return range;
-        }
+        return newRange;
         
     }  
 
     return {
-        topic: (state.topic.length) ? state.topic : undefined,
-        authors: (state.authors.length) ? state.authors : undefined,
-        availability: (state.availability != -1) ? state.availability : undefined,
+        topic: (state.topic.length) ? state.topic : null,
+        authors: (state.authors.length) ? state.authors : null,
+        availability: (state.availability != -1) ? state.availability : null,
         date: (rangeToAPI(state.date, DATE_MIN, DATE_MAX)),
-        citationCount: (rangeToAPI(state.citationCount, CIT_MIN, CIT_MAX))
+        citationCount: (rangeToAPI(state.citationCount, CIT_MIN, CIT_MAX)),
+        preprint: null
     }
     //nel caso impostare min numCitazioni a 0 se min numCitazioni non indicato e preprint non volute
 };
