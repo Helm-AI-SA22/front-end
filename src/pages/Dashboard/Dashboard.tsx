@@ -43,13 +43,17 @@ const Dashboard = (props: DashboardProps ) => {
 
     const reloadSearch = async () => { 
         setLoading(true);
-        await new Promise(res => setTimeout(res, 5000));
         await callSearchAPI({
             keywords: [ querytext ], 
             type: speed_str
         } as SearchAPIRequest, dispatch);
         setLoading(false);
     }
+
+    if (!props.searched && !loading){
+        reloadSearch();
+    }
+
 
     return (
         <div>
