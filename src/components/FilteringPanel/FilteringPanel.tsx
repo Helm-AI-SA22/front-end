@@ -158,7 +158,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             if(regex.test(value)){
                 //Cast string into number
                 let intValue: number = +value;
-                if((intValue >= min && intValue <= max) && (!(intValue > props.date.max))){
+                if((intValue >= min && intValue <= max) && (!(intValue > props[key].max))){
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: true,
@@ -173,6 +173,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 }
             }
             else{
+                //Handle the empty filed case
                 if(value == ""){
                     props.updateRangeFilter({
                         filterKey: key,
@@ -197,7 +198,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             let error = false;
             if(regex.test(value)){
                 let intValue: number = +value;
-                if((intValue >= min && intValue <= max) && (!(intValue < props.date.min))){
+                if((intValue >= min && intValue <= max) && (!(intValue < props[key].min))){
                     console.log(value)
                     props.updateRangeFilter({
                         filterKey: key,
@@ -213,10 +214,11 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 }
             }
             else{
+                //Handle the empty filed case
                 if(value == ""){
                     props.updateRangeFilter({
                         filterKey: key,
-                        updateMin: true,
+                        updateMin: false,
                         value: max,
                     } as FilterRangeUpdater);
                     console.log("Max value set to empty")
@@ -380,6 +382,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         );
     }
 
+    //TODO add check if there is an error in the range TextFields maybe passing a vector of errorStates
     function buttonFilter(){
 
         const handleClick = async () => {
