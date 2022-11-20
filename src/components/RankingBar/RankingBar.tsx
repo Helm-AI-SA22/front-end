@@ -45,9 +45,8 @@ const RankingBar = (props: RankingBarProps ) => {
         } as RankingAPIRequest;
 
         const response = await rankingAPI(request) as RankingAPIResponse;
-
         dispatch(rank());
-        dispatch(updateDocuments(response.documents))
+        dispatch(updateDocuments(response.data.documents))
     };
 
     return ( 

@@ -117,9 +117,9 @@ export interface FilterAPIRequest {
 }
 
 export enum RankingCriteria { 
-    SIMILARITY = 'similarity',
-    DATE = 'date',
-    CITATION = 'citation'
+    SIMILARITY = 'tfidf',
+    DATE = 'publicationDate',
+    CITATION = 'citationCount'
 }
 
 export interface RankingAPIRequest {
@@ -129,6 +129,9 @@ export interface RankingAPIRequest {
 }
 
 export interface RankingAPIResponse {
-    documents: Array<Paper>, 
-    error?: APIError
+    data: {
+        documents: Array<Paper>, 
+        error?: APIError
+    }
+
 }

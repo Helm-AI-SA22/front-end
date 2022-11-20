@@ -8,7 +8,7 @@ export interface Ranking {
 }
 
 const initialState: Ranking = { 
-    criteria: RankingCriteria.DATE,
+    criteria: RankingCriteria.SIMILARITY,
     ascending: true
 }
 
