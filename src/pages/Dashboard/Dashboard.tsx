@@ -56,9 +56,7 @@ const Dashboard = (props: DashboardProps ) => {
             <AppBar></AppBar>
             <Box sx={{width: '100%', height:'90vh'}}>
                 <Box sx={{width: '100%', height: '7vh'}}>
-                        <RankingBar>
-
-                        </RankingBar>
+                        <RankingBar/>
                 </Box>
                 <Box sx={{width: '100%', height: '80vh',  display: 'flex', flexDirection: 'row'} }>
                     <Box sx={{width: '25%', height: '100%'}}>

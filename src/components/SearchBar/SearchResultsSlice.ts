@@ -10,7 +10,6 @@ export interface SearchResultsState {
   filtered: boolean;
   ranked: boolean; 
   error?: APIError;
-  
 }
 
 const initialState: SearchResultsState = {
@@ -35,17 +34,22 @@ export const resultsSlice = createSlice({
       state.data = action.payload;
       state.searched = true;
     },
+    updateDocuments: (state, action: PayloadAction<Array<Paper>>) => { 
+      state.data.documents = [...action.payload]
+    },
     setError: (state, action: PayloadAction<APIError>) => {
        state.error = { ...action.payload};
     },
     clean: (state) => {
       state.data = { documents: [] as Array<Paper> } as SearchResults;
       state.searched = false;
+      state.filtered = false; 
+      state.ranked = false;
     },
     filter: (state) => {
       state.filtered = true;
     },
-    rank: (state, action) => { 
+    rank: (state) => { 
       state.ranked = true; 
     }
   }
@@ -60,7 +64,7 @@ export const callSearchAPI = async (request: SearchAPIRequest, dispatch: Dispatc
   dispatch(update(response.data)); 
 }
 
-export const { update, setError, clean, filter, rank } = resultsSlice.actions;
+export const { update, updateDocuments, setError, clean, filter, rank } = resultsSlice.actions;
 
 export const selectResults = (state: RootState) => state.results.data;
 export const selectOriginalDocs = (state: RootState) => state.results.originalDocuments;

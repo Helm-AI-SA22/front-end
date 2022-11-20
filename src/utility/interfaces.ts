@@ -127,3 +127,8 @@ export interface RankingAPIRequest {
     criteria: RankingCriteria; 
     ascending: boolean;
 }
+
+export interface RankingAPIResponse {
+    documents: Array<Paper>, 
+    error?: APIError
+}

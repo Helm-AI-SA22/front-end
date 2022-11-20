@@ -8,7 +8,7 @@ export interface Ranking {
 }
 
 const initialState: Ranking = { 
-    criteria: RankingCriteria.SIMILARITY,
+    criteria: RankingCriteria.DATE,
     ascending: true
 }
 
@@ -17,13 +17,15 @@ export const rankingSlice = createSlice({
   initialState, 
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    	update: (state, action: PayloadAction<Ranking>) => {
+    	updateRanking: (state, action: PayloadAction<Ranking>) => {
         	state.criteria = action.payload.criteria;
+            state.ascending = action.payload.ascending;
+
     	}
     }
 });
 
-export const { update } = rankingSlice.actions;
+export const { updateRanking } = rankingSlice.actions;
 
 export default rankingSlice.reducer;
 
