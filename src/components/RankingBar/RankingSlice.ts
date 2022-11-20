@@ -9,7 +9,7 @@ export interface Ranking {
 
 const initialState: Ranking = { 
     criteria: RankingCriteria.SIMILARITY,
-    ascending: true
+    ascending: false
 }
 
 export const rankingSlice = createSlice({

@@ -33,7 +33,7 @@ const RankingBar = (props: RankingBarProps ) => {
     const handleChange = async (event: SelectChangeEvent) => {
         const ranking = { 
             criteria: event.target.value as RankingCriteria, 
-            ascending: true 
+            ascending: false 
         } as Ranking;
 
         console.log(ranking);
