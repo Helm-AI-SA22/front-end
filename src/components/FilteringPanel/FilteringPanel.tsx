@@ -154,20 +154,21 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         const handleChangeMin = (event: React.ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
+            let error = false;
             if(regex.test(value)){
                 //Cast string into number
                 let intValue: number = +value;
-                if(intValue >= min && intValue <= max){
+                if((intValue >= min && intValue <= max) && (!(intValue > props.date.max))){
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: true,
                         value: intValue,
                     } as FilterRangeUpdater);
-                    setErrorMin(false)
+                    error = false;
                     console.log("Min value set: " + value)
                 }
                 else{
-                    setErrorMin(true);
+                    error = true;
                     console.log("Format error");
                 }
             }
@@ -179,49 +180,56 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         value: min,
                     } as FilterRangeUpdater);
                     console.log("Min value set to empty")
-                    setErrorMin(false)
+                    error = false;
                 }
                 else{
-                    setErrorMin(true);
+                    error = true;
                     console.log("Format error");
                 }
             }
+
+            setErrorMin(error);
+            setErrorMax(error);
         };
 
         const handleChangeMax = (event: React.ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
+            let error = false;
             if(regex.test(value)){
                 let intValue: number = +value;
-                if(intValue >= min && intValue <= max){
+                if((intValue >= min && intValue <= max) && (!(intValue < props.date.min))){
                     console.log(value)
                     props.updateRangeFilter({
                         filterKey: key,
                         updateMin: false,
                         value: intValue
                     } as FilterRangeUpdater);
-                    setErrorMax(false)
+                    error = false;
                     console.log("Max value set: " + value)
                 }
                 else{
-                    if(value == ""){
-                        props.updateRangeFilter({
-                            filterKey: key,
-                            updateMin: true,
-                            value: max,
-                        } as FilterRangeUpdater);
-                        console.log("Max value set to empty")
-                        setErrorMax(false)
-                    }
-                    else{
-                        setErrorMax(true);
-                        console.log("Format error");
-                    }
+                    error = true;
+                    console.log("Format error");
                 }
             }
             else{
-                setErrorMax(true);
-                console.log("Format error");
+                if(value == ""){
+                    props.updateRangeFilter({
+                        filterKey: key,
+                        updateMin: true,
+                        value: max,
+                    } as FilterRangeUpdater);
+                    console.log("Max value set to empty")
+                    error = false;
+                }
+                else{
+                    error = true;
+                    console.log("Format error");
+                }
             }
+
+            setErrorMin(error);
+            setErrorMax(error);
         };
 
         const handleKeyPressed = () => {
