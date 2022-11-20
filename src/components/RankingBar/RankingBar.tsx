@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box} from '@mui/material';
+import {Box, FormControlLabel, FormGroup, Switch} from '@mui/material';
 import './RankingBar.css'
 
 import InputLabel from '@mui/material/InputLabel';
@@ -13,6 +13,7 @@ import { RootState } from '../../utility/store';
 import { updateDocuments, rank } from '../SearchBar/SearchResultsSlice';
 import { Ranking, updateRanking } from './RankingSlice';
 import { connect } from 'react-redux';
+import { Stack } from '@mui/system';
 
 const mapStateToProps = (state: RootState) => ({
     documents: state.results.data.documents,
@@ -29,14 +30,30 @@ interface RankingBarProps {
 const RankingBar = (props: RankingBarProps ) => {
     const dispatch = useAppDispatch();
     
-    
-    const handleChange = async (event: SelectChangeEvent) => {
+    const handleCriteriaChange = async (event: SelectChangeEvent) => {
         const ranking = { 
             criteria: event.target.value as RankingCriteria, 
-            ascending: false 
+            ascending: props.ascending 
         } as Ranking;
 
-        console.log(ranking);
+        dispatch(updateRanking(ranking));
+
+        const request = {
+            documents: props.documents, 
+            ...ranking
+        } as RankingAPIRequest;
+
+        const response = await rankingAPI(request) as RankingAPIResponse;
+        dispatch(rank());
+        dispatch(updateDocuments(response.data.documents))
+    };
+
+    const handleRankingDirectionhange = async (event: SelectChangeEvent) => {
+        const ranking = { 
+            criteria:  props.criteria, 
+            ascending: !props.ascending 
+        } as Ranking;
+
         dispatch(updateRanking(ranking));
 
         const request = {
@@ -52,19 +69,24 @@ const RankingBar = (props: RankingBarProps ) => {
     return ( 
         <Box className="ranking-bar">
             <div className='formC'>
-                <FormControl size='small' sx={{marginLeft: 50,marginTop: 1, minWidth: 130}}>
-                    <InputLabel size='small' id="demo-simple-select-autowidth-label" sx={{marginTop:0}}>Order by</InputLabel>
-                    <Select sx={{height: '4vh'}}
-                        value={props.criteria}
-                        onChange={handleChange}
-                        autoWidth
-                        label="Rank"
-                    >
-                    <MenuItem sx={{height: '4vh'}} value={RankingCriteria.SIMILARITY}>Query matching</MenuItem>
-                    <MenuItem sx={{height: '4vh'}} value={RankingCriteria.DATE}>Publication year</MenuItem>
-                    <MenuItem sx={{height: '4vh'}} value={RankingCriteria.CITATION}>Citations</MenuItem>
-                    </Select>
-                </FormControl>
+                <Stack direction="row" spacing={2}>
+                    <FormControl size='small' sx={{marginLeft: 50,marginTop: 1, minWidth: 130}}>
+                        <InputLabel size='small' id="demo-simple-select-autowidth-label" sx={{marginTop:0}}>Order by</InputLabel>
+                        <Select sx={{height: '4vh'}}
+                            value={props.criteria}
+                            onChange={handleCriteriaChange}
+                            autoWidth
+                            label="Ranking Criteria"
+                        >
+                            <MenuItem sx={{height: '4vh'}} value={RankingCriteria.SIMILARITY}>Query matching</MenuItem>
+                            <MenuItem sx={{height: '4vh'}} value={RankingCriteria.DATE}>Publication year</MenuItem>
+                            <MenuItem sx={{height: '4vh'}} value={RankingCriteria.CITATION}>Citations</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <FormGroup>
+                        <FormControlLabel control={<Switch defaultChecked value={props.ascending} onChange={handleRankingDirectionhange}  />} label="Descending" />
+                    </FormGroup>
+                </Stack>
             </div>
         </Box>
     )

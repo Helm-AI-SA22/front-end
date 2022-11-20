@@ -52,9 +52,7 @@ const ranking = async (request: RankingAPIRequest) =>  {
 
 	try {
         console.log(`The ranking API has been called. Query:`, request);
-		await new Promise(res => setTimeout(res, 2000));
         return await axios.post<RankingAPIRequest>(`${SERVER}/${ROUTE}`, request);
-		// return { documents: request.documents } as RankingAPIResponse;
 	} catch (error) {
 		console.log("Erro calling the RANKING API:", error);
         return {
