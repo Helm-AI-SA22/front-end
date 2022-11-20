@@ -146,7 +146,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     
     }
 
-    //TODO handle empty string
     function filterRange(labelSection: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, min: number, max: number, errorMinValue: boolean, setErrorMin: React.Dispatch<React.SetStateAction<boolean>>, errorMaxValue: boolean, setErrorMax: React.Dispatch<React.SetStateAction<boolean>>, key: RangedFilters, regex: RegExp){
 
         const handleClick = () => {
@@ -173,8 +172,19 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 }
             }
             else{
-                setErrorMin(true);
-                console.log("Format error");
+                if(value == ""){
+                    props.updateRangeFilter({
+                        filterKey: key,
+                        updateMin: true,
+                        value: min,
+                    } as FilterRangeUpdater);
+                    console.log("Min value set to empty")
+                    setErrorMin(false)
+                }
+                else{
+                    setErrorMin(true);
+                    console.log("Format error");
+                }
             }
         };
 
@@ -193,8 +203,19 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     console.log("Max value set: " + value)
                 }
                 else{
-                    setErrorMax(true);
-                    console.log("Format error");
+                    if(value == ""){
+                        props.updateRangeFilter({
+                            filterKey: key,
+                            updateMin: true,
+                            value: max,
+                        } as FilterRangeUpdater);
+                        console.log("Max value set to empty")
+                        setErrorMax(false)
+                    }
+                    else{
+                        setErrorMax(true);
+                        console.log("Format error");
+                    }
                 }
             }
             else{
