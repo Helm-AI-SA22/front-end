@@ -65,8 +65,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const [errorMinCitCount, setErrorMinCitCount] = React.useState(false);
     const [errorMaxCitCount, setErrorMaxCitCount] = React.useState(false);
 
-    const [availabilityFilterValue, setAvailabilityFilterValue] = React.useState('All');
-    const [preprintFilterValue, setPreprintFilterValue] = React.useState('All');
+    const [availabilityFilterValue, setAvailabilityFilterValue] = React.useState('-1');
+    const [preprintFilterValue, setPreprintFilterValue] = React.useState('-1');
 
     const data = useAppSelector(selectResults) as SearchResults;
     const originalDocs = useAppSelector(selectOriginalDocs) as Paper[];
@@ -302,7 +302,6 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         );
     }
 
-    //TODO change handleClick (bug)
     function filterList(labelSection: string, key: ListedFilters, labelBox: string, states: string[], statesKeys: number[], open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, value: string, setValue: React.Dispatch<React.SetStateAction<string>>){
 
         const handleClick = () => {
@@ -311,12 +310,16 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         const handleChange = (event: SelectChangeEvent) => {
             let selectedValue = event.target.value;
+            console.log("Selected value: " + selectedValue)
             setValue(selectedValue);
-            let elemIdx = states.indexOf(selectedValue);
+            //Cast string into number
+            const numSelectedValue: number = +selectedValue
+            let elemIdx = statesKeys.indexOf(numSelectedValue);
+            console.log("Element index: " + elemIdx)
             console.log(labelSection + ": " + elemIdx);
             props.updateValueFilter({
                 filterKey: key,
-                value: elemIdx
+                value: numSelectedValue
             } as FilterValueUpdater);
         }
         
