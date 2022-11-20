@@ -18,6 +18,7 @@ import Fade from '@mui/material/Fade'
 import LinearProgress from '@mui/material/LinearProgress';
 import { update } from './SearchResultsSlice';
 
+//TODO handle onClick with no keywords
 const SearcBar = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();

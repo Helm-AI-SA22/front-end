@@ -88,7 +88,11 @@ export const filtersSlice = createSlice({
         (state as any)[filterKey] = value;
     },
     clean: (state) => {
-        state = {...initialState};
+        state.topic = [...initialState.topic];
+        state.authors = [...initialState.authors];
+        state.date = {...initialState.date};
+        state.citationCount = {...initialState.citationCount};
+        state.availability = initialState.availability;
     }
   }
 });

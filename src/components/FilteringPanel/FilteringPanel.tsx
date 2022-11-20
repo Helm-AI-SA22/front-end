@@ -54,8 +54,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const [openPublicationYear, setOpenPublicationYear] = React.useState(false);
     const [openCitationCount, setOpenCitationCount] = React.useState(false);
     const [openAuthors, setOpenAuthors] = React.useState(false);
-    const [openAvailability, setAvailability] = React.useState(false);
-    const [openPreprint, setPreprint] = React.useState(false);
+    const [openAvailability, setOpenAvailability] = React.useState(false);
+    const [openPreprint, setOpenPreprint] = React.useState(false);
 
     const [checked, setChecked] = React.useState([] as Array<number>);
 
@@ -406,11 +406,33 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         };
 
         return(
-            <Box sx={{m: 2, alignItems: 'center'}}>
+            <Box>
                 <Button variant="contained"
                 onClick={handleClick}
                 >
                     Apply
+                </Button>
+            </Box>
+        );
+    }
+
+    function buttonClearFilters(setOpenList: React.Dispatch<React.SetStateAction<boolean>>[]){
+
+        const handleClick = async () => {
+            dispatch(clean())
+            setChecked([]);
+            for(let i=0; i<openList.length; i++){
+                let func = setOpenList[i];
+                func(false);
+            }
+        };
+
+        return(
+            <Box>
+                <Button variant="contained"
+                onClick={handleClick}
+                >
+                    Clean
                 </Button>
             </Box>
         );
@@ -424,6 +446,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const statesPreprint = ["All", "Peer reviewed only", "Preprint only"];
     const statesPreprintKeys = [-1, 0, 1];
     const errorsList = [errorMinDate, errorMaxDate, errorMinCitCount, errorMaxCitCount];
+    const openList = [openTopics, openAuthors, openPublicationYear, openCitationCount, openAvailability, openPreprint];
+    const setOpenList = [setOpenTopics, setOpenAuthors, setOpenPublicationYear, setOpenCitationCount, setOpenAvailability, setOpenPreprint];
 
     return (
         <List 
@@ -442,9 +466,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             {filterRange("Citation Count", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
-            {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
+            {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setOpenAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
             {/**filterList("Peer reviewed", ListedFilters.PREPRINT, "Peer reviewed", statesPreprint, statesPreprintKeys, openPreprint, setPreprint, preprintFilterValue, setPreprintFilterValue)*/}
-            {buttonFilter(errorsList)}
+            <Stack spacing={2} direction="row" sx={{m: 3}}>
+                {buttonFilter(errorsList)}
+                {buttonClearFilters(setOpenList)}
+            </Stack>
+            
         </List>
     );
 }
