@@ -8,7 +8,9 @@ export interface SearchResultsState {
   originalDocuments: Paper[],
   searched: boolean;
   filtered: boolean;
+  ranked: boolean; 
   error?: APIError;
+  
 }
 
 const initialState: SearchResultsState = {
@@ -17,7 +19,8 @@ const initialState: SearchResultsState = {
   } as SearchResults,
   originalDocuments: [],
   searched: false,
-  filtered: false
+  filtered: false,
+  ranked: false
 };
 
 export const resultsSlice = createSlice({
@@ -43,7 +46,7 @@ export const resultsSlice = createSlice({
       state.filtered = true;
     },
     rank: (state, action) => { 
-      //TODO define rank and ranking payload
+      state.ranked = true; 
     }
   }
 });

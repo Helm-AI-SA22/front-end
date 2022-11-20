@@ -6,12 +6,22 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { rankingAPI } from '../../utility/api';
+import { RankingAPIRequest, RankingCriteria } from '../../utility/interfaces';
 
 function Rank() {
-    const [rank, setRank] = React.useState('');
+    const [rank, setRank] = React.useState(RankingCriteria.DATE);
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setRank(event.target.value);
+    const handleChange = async (event: SelectChangeEvent) => {
+        setRank(event.target.value as RankingCriteria);
+        const request = { 
+            documents: [], 
+            criteria: rank,
+            ascending: true
+        } as RankingAPIRequest;
+        const rankedResultsResponse = await rankingAPI(request);
+        //TODO update redux state here, duispatch and state mapper may be useful.
+
     };
     return(
         <div className='formC'>
@@ -25,9 +35,9 @@ function Rank() {
                     autoWidth
                     label="Rank"
                 >
-                <MenuItem sx={{height: '4vh'}} value={20}>Recommended</MenuItem>
-                <MenuItem sx={{height: '4vh'}} value={21}>Data</MenuItem>
-                <MenuItem sx={{height: '4vh'}} value={22}>Citation number</MenuItem>
+                <MenuItem sx={{height: '4vh'}} value={RankingCriteria.SIMILARITY}>Recommended</MenuItem>
+                <MenuItem sx={{height: '4vh'}} value={RankingCriteria.DATE}>Data</MenuItem>
+                <MenuItem sx={{height: '4vh'}} value={RankingCriteria.CITATION}>Citation number</MenuItem>
                 </Select>
             </FormControl>
         </div>

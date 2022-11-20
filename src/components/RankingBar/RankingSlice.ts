@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RankingCriteria } from '../../utility/interfaces';
 
-export enum RankingCriteria { 
-    SIMILARITY = 'similarity',
-    DATE = 'date',
-    CITATION = 'citation'
-}
 
 export interface Ranking {
     criteria: RankingCriteria; 
@@ -18,7 +14,7 @@ const initialState: Ranking = {
 
 export const rankingSlice = createSlice({
   name: 'ranking',
-  initialState,
+  initialState, 
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     	update: (state, action: PayloadAction<Ranking>) => {
