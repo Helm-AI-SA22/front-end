@@ -46,7 +46,7 @@ const Dashboard = (props: DashboardProps ) => {
     const reloadSearch = async () => { 
         setLoading(true);
         await callSearchAPI({
-            keywords: [ querytext ], 
+            keywords: querytext , 
             type: speed_str
         } as SearchAPIRequest, dispatch);
         setLoading(false);

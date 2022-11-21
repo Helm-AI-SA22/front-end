@@ -51,7 +51,7 @@ export enum TopicModelingAlgorithm {
     } 
 
 export interface SearchAPIRequest{
-    keywords: string[];
+    keywords: string;
     type: TopicModelingAlgorithm;
 }
 
