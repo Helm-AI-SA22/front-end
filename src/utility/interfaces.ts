@@ -7,6 +7,7 @@ export interface Paper {
     authors: string;
     pdfLink: string;
     openaccess: number;
+    source:Array<string>;
     topics: TopicPaperMap[]; 
 }
 

@@ -6,7 +6,6 @@ import { Box, CircularProgress, IconButton } from '@mui/material';
 import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
-import RightPanel from '../../components/FilteringPanel/FilteringPanel';
 import ResultsList from '../../components/ResultsList/ResultsList';
 import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
@@ -87,9 +86,9 @@ const Dashboard = (props: DashboardProps ) => {
                         </LeftPanel>
                     </Box>
                 </Box>
-                <Box sx={{width: '100%'}}>
-                    {/**<PageFooter></PageFooter>*/}
-                </Box>
+                {/**<Box sx={{width: '100%'}}>
+                    <PageFooter></PageFooter>
+                    </Box>*/}
 
             </Box>
         </div>

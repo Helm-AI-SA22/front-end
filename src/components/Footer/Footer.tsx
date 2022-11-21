@@ -19,7 +19,7 @@ function Copyright() {
 export default function PageFooter() {
   return (
     <Box 
-      sx={{bgcolor: 'lightgrey', p: 2, position:'relative'}} 
+    sx={{bgcolor: 'white', p: 2, position:'sticky'}}
       component="footer">
       <Typography
         variant="caption"

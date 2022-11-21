@@ -1,118 +1,153 @@
 import React, {Component, useState} from 'react';
-import Box from '@mui/material/Box';
-import {CardContent, Container,  Typography} from '@mui/material';
-import {Card, CardHeader, CardActions, Button, Chip} from '@mui/material';
+import { Button, Chip, Card, CardHeader, CardContent, CardActions, Icon } from '@mui/material'
+import {Grid, Box, Container, Typography, Pagination} from '@mui/material';
 import './ResultsList.css';
 import LaunchIcon from '@mui/icons-material/Launch';
-
-import PaperPagination from '../PaperPagination/PaperPagination';
 import { Paper, SearchAPIResponse } from '../../utility/interfaces';
+import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
+import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
+import arxiv from '../../assets/logo/arxiv.png';
+import ieee from '../../assets/logo/ieee.jpeg';
+import scopus from '../../assets/logo/scopus.png';
+import PageFooter from '../../components/Footer/Footer';
 
-{/** 
-const populate = data.documents.map(function (paper) {
-    
-    const populatetopics = paper.topics.map(function(papertopics){
-        return(
-            <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']}></Chip>
-        )
-    });
-
-    return(
-         <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 1}}>
-
-            <CardHeader sx= {{pr: 4, pl: 4, pt:2, pb:0, m:0}} title={paper.title} />
-
-            <CardContent  sx= {{pr: 4, pl: 4, pt:1, pb:0, m:0}}>
-                <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    flexDirection: 'column',
-                    }}
-                >
-                    {/** aggiungere un grid per posizionare meglio i vari attributi 
-                    <Typography variant="caption" color="text.secondary"> 
-                        <Typography variant="caption" sx={{fontWeight:'bold'}}> Authors: </Typography>
-                        {paper.autors}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary"> 
-                        <Typography variant="caption" sx={{fontWeight:'bold'}}> DOI: </Typography>
-                        {paper.id}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary"> 
-                        <Typography variant="caption" sx={{fontWeight:'bold'}}> Year: </Typography>
-                        {paper["publication-year"]}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary"> 
-                        <Typography variant="caption" sx={{fontWeight:'bold'}}> Cited by: </Typography>
-                        {paper["citation-count"]}
-                    </Typography>
-                </Box>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Typography variant="body1">Associated topics</Typography>
-                    {populatetopics}
-                </Box>
-                
-                <Typography variant="body1" sx={{pt:2}}>
-                    <Typography variant="body1" sx={{fontWeight:'bold'}}>
-                        Abstract
-                    </Typography>
-                    {paper.abstract}
-                    {/** aggiungere un read more button 
-                </Typography>
-
-                
-            </CardContent>
-
-            
-            <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0}}>
-                <Button variant="outlined" size="small" href={paper["pdf-link"]}>
-                    <LaunchIcon color="primary" sx={{pr:1}}/>
-                    Full text
-                </Button>
-                <Button variant="outlined" size="small" href={paper["pdf-link"]}>
-                    <LaunchIcon color="primary" sx={{pr:1}}/>
-                    Read abstract
-                </Button>
-                
-                {/** <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-                >
-                <ExpandMoreIcon />
-                </ExpandMore> 
-                
-            </CardActions>
-                    
-            {/** 
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <Typography paragraph>
-                    Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-                    medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-                    occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-                    large plate and set aside, leaving chicken and chorizo in the pan. Add
-                    pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-                    stirring often until thickened and fragrant, about 10 minutes. Add
-                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-                </Typography>
-            </Collapse>
-            
-        
-        </Card>
-    )
-});
-*/}
 
 interface ResultsListProps {
     documents: Array<Paper>
 }
 
-export default function ResultsList(props: ResultsListProps ) { 
+function ReadAbstract (props: string){
+    const [readMore, setReadMore] = useState(false);
+    return (
+        <Box>
+            {readMore ? props : `${props.substring(0, 250)}`}
+            <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => setReadMore(!readMore)}>
+            {readMore ? "Show less" : "... Show more"}
+            </Button>
+        </Box>
+
+    );
+}
+
+export default function ResultsList( props: ResultsListProps){
+    const { documents } = props;
+    console.log(documents)
+    const perPage = 5;
+    const totPaper = documents.length;
+    const countPages = Math.ceil(totPaper / perPage);
+
+    const [page, setPage] = React.useState(1);
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
+    
+    const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
+    
+    const populate = populatePaperPagination.map(function (paper: Paper) {
+    
+        const populatetopics = paper.topics.map(function(papertopics){
+            return(
+                <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']}></Chip>
+            )
+        });
+
+        const populatesources = paper.source.map(function(papersources){
+            return (
+                (papersources =="arxiv") ?  <Box component="img" sx={{height: 20}} alt="source logo" src={arxiv}/>
+                : (papersources =="ieee") ? <Box component="img" sx={{height: 30}} alt="source logo" src={ieee}/>
+                : <Box component="img" sx={{height: 30}} alt="source logo" src={scopus}/>
+                )
+        });
+
         return(
-            <Container className="results-list" disableGutters={true}>
-                <PaperPagination documents= {props.documents} ></PaperPagination>
-            </Container>
+             <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 0}}>
+                <CardHeader sx= {{pr: 4, pl: 4, pt:2, pb:0, m:0, fontSize:12}} title={paper.title} />
+                <CardContent  sx= {{pr: 4, pl: 4, pt:1, pb:0, m:0}}>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={0}>
+
+                            <Grid item xs={12}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Authors </Typography>
+                                    <Typography variant="caption" color="text.secondary">{paper.authors}</Typography> 
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> DOI </Typography>
+                                    <Typography variant="caption" color="text.secondary"> {paper.id} </Typography>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6}>
+                               <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Pubblication year </Typography>
+                                    <Typography variant="caption" color="text.secondary"> {paper.publicationDate} </Typography>
+                                </Box>     
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Availability status</Typography>
+                                    { paper.openaccess ?  <LockTwoToneIcon sx={{fontSize:16}} /> : <LockOpenTwoToneIcon sx={{fontSize:16}} /> }
+                                    { paper.openaccess ?  <Typography variant="caption">Restricted</Typography> : <Typography variant="caption">Free</Typography> }
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
+                                <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Citation count </Typography>
+                                <Typography variant="caption" color="text.secondary"> 
+                                {(paper.citationCount != -1) ? paper.citationCount : "Not available"}
+                                </Typography>
+                                </Box> 
+
+                            </Grid>
+                        </Grid>
+                    </Box>
+                    <Box sx={{mt:1 }}>
+                        <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Abstract </Typography>
+                        <Typography variant="caption" color="text.secondary" align="justify"> 
+                        {ReadAbstract(paper.abstract)}
+                        </Typography>  
+                    </Box> 
+                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1 }}>
+                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Associated topic </Typography>
+                    {populatetopics}
+                    </Box>
+                </CardContent>
+
+                <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0, display:'flex', justifyContent:'space-between'}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1}}>
+                        {populatesources}
+                    </Box>
+                    <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:12}}>
+                        <LaunchIcon color="primary" sx={{pr:1, fontSize:16}}/>
+                        Full text
+                    </Button>
+                </CardActions>
+
+            </Card>
         )
-    }
+    });
+
+    return(
+        <Container className="results-list" disableGutters={true}>
+            <Box>
+                {populate} 
+            </Box>
+            <Box component="span">
+                <Pagination
+                    count={countPages}
+                    page={page}
+                    onChange={handleChange}
+                    defaultPage={1}
+                    color="primary"
+                    size="large"
+                    showFirstButton
+                    showLastButton
+                />
+            </Box>   
+            <Box sx={{width: '100%'}}>
+                <PageFooter></PageFooter>
+            </Box> 
+        </Container>
+    );
+}
