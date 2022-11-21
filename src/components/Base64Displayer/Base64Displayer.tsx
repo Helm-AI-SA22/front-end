@@ -16,9 +16,10 @@ const Base64Displayer = (props: Base64DisplayerProps) => {
     //         <div></div>
     //     )
     // }
-    const decoded: string = Buffer.from(props.source as string, 'base64').toString('utf8');
+
+    const decoded: string =  props.source ? Buffer.from(props.source as string, 'base64').toString('utf8') : '';
     return (
-        <div>{ props.source ? <img src={`data:image/png;base64,${props.source }`}/>: ''}</div>
+        <div>{ props.source ? <img src={`data:image/png;base64,${props.source }`}/>: <span></span> }</div>
     )
     
     // const Example = ({ imageURL }: any) =>  <img src={imageURL} width={props.width} height={props.height}/>
