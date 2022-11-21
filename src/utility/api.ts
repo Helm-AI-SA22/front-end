@@ -1,10 +1,11 @@
 import axios from 'axios';
 import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIRequest, RankingAPIRequest, RankingAPIResponse} from './interfaces';
 
+//TODO add rankinng request in filtering API
 const SERVER = 'http://localhost:5000';
 
 const search = async (request: SearchAPIRequest) => {
-    const ROUTE = '/aggregator'; // The name of this route can be improved BE side.
+    const ROUTE = '/mock'; // The name of this route can be improved BE side.
 
     try {
         console.log(`The search API has been called. Query: ${request}`);

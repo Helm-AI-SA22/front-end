@@ -73,6 +73,7 @@ export const selectErrorState = (state: RootState) => state.results.error;
 export const selectSearched = (state: RootState) => state.results.searched;
 export const selectFiltered = (state: RootState) => state.results.filtered;
 export const selectNoResultsFound = (state: RootState) => state.results.searched && !state.results.data.documents.length;
+export const selectTopicsIndex = (state: RootState) => state.results.data.topics;
 
 export default resultsSlice.reducer;
 
