@@ -74,7 +74,8 @@ const SearcBar = () => {
                 if(value.length){
                   const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
                   /**alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);*/
-                  const keywords = value.reduce((prev, curr) => prev += ';' + curr, '');
+                  const keywords = value.reduce((prev, curr) => prev += curr + ';', '').slice(0,-1);
+                  
                   const response = await searchAPI({
                     keywords: keywords, 
                     type: speed
