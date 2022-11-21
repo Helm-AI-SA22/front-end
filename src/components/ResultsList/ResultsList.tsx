@@ -16,21 +16,9 @@ interface ResultsListProps {
     documents: Array<Paper>
 }
 
-function ReadAbstract (props: string){
-    const [readMore, setReadMore] = useState(false);
-    return (
-        <Box>
-            {readMore ? props : `${props.substring(0, 250)}`}
-            <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => setReadMore(!readMore)}>
-            {readMore ? "Show less" : "... Show more"}
-            </Button>
-        </Box>
-
-    );
-}
-
-export default function ResultsList( props: ResultsListProps){
+const ResultsList = ( props: ResultsListProps) => {
     const { documents } = props;
+    const [readMore, setReadMore] = useState(documents.map( _ => false));
     console.log(documents)
     const perPage = 5;
     const totPaper = documents.length;
@@ -43,24 +31,35 @@ export default function ResultsList( props: ResultsListProps){
     
     const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
     
-    const populate = populatePaperPagination.map(function (paper: Paper) {
+    const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
     
-        const populatetopics = paper.topics.map(function(papertopics){
-            return(
-                <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']} 
-                id={papertopics['id'].toString()} key={papertopics['id'].toString()}></Chip>
-            )
-        });
+        const populatetopics = paper.topics.map((papertopics) => (
+            <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']} 
+                id={papertopics['id'].toString()} key={papertopics['id'].toString()} />
+        ));
 
     
-
-        const populatesources = (paper.source ? paper.source : []).map(function(papersources){
-            return (
+        const populatesources = (paper.source ? paper.source : []).map((papersources) => (
                 (papersources =="arxiv") ?  <Box component="img" sx={{height: 20}} alt="source logo" src={arxiv}/>
                 : (papersources =="ieee") ? <Box component="img" sx={{height: 30}} alt="source logo" src={ieee}/>
                 : <Box component="img" sx={{height: 30}} alt="source logo" src={scopus}/>
-                )
-        });
+            )
+        );
+
+        const readAbstract = (abstract: string, paper_idx: number) => {
+            return (
+                <Box>
+                    { readMore[paper_idx] ? abstract : `${abstract.substring(0, 250)}` }
+                    <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => {
+                            const state_copy = [...readMore] as Array<boolean>                            
+                            state_copy[paper_idx] = !(readMore[paper_idx]) 
+                            setReadMore([...state_copy])}
+                        }>
+                        {readMore ? "Show less" : "... Show more"}
+                    </Button>
+                </Box>
+            );
+        }
 
         return(
              <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 0}} id={paper.id} key={paper.id}>
@@ -108,7 +107,7 @@ export default function ResultsList( props: ResultsListProps){
                     <Box sx={{mt:1 }}>
                         <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Abstract </Typography>
                         <Typography variant="caption" color="text.secondary" align="justify"> 
-                        {ReadAbstract(paper.abstract)}
+                        {readAbstract(paper.abstract, index)}
                         </Typography>  
                     </Box> 
                     <Box sx={{display: 'flex', flexDirection: 'row', mt:1 }}>
@@ -154,3 +153,5 @@ export default function ResultsList( props: ResultsListProps){
         </Container>
     );
 }
+
+export default ResultsList;
