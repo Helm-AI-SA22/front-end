@@ -40,6 +40,7 @@ export interface SearchAPIResponse {
 
 export interface SearchResults {
     documents: Paper[];
+    logs?: string;
     topics: TopicIndex[];
     topicVisualization: LDAChart | BERTChart; 
 }

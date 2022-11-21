@@ -14,6 +14,7 @@ import { updateDocuments, rank } from '../SearchBar/SearchResultsSlice';
 import { Ranking, updateRanking } from './RankingSlice';
 import { connect } from 'react-redux';
 import { Stack } from '@mui/system';
+import { useParams } from 'react-router-dom';
 
 const mapStateToProps = (state: RootState) => ({
     documents: state.results.data.documents,
@@ -29,7 +30,10 @@ interface RankingBarProps {
 
 const RankingBar = (props: RankingBarProps ) => {
     const dispatch = useAppDispatch();
-    
+    const { querytext } = useParams();
+
+    console.log(querytext);
+
     const handleCriteriaChange = async (event: SelectChangeEvent) => {
         const ranking = { 
             criteria: event.target.value as RankingCriteria, 

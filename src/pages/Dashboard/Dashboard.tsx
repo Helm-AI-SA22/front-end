@@ -40,6 +40,7 @@ const Dashboard = (props: DashboardProps ) => {
     const [ loading, setLoading ] = React.useState(false);
 
     const { querytext } = useParams();
+    console.log(querytext);
     const speed_str = useLocation()['pathname'].split('/')[1];
 
     const reloadSearch = async () => { 
