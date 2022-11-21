@@ -104,15 +104,35 @@ export interface FilteringPanelProps extends FilteringState {
 }
 
 export interface Criteria {
-    topic?: string[];
-    authors?: string[];
-    date?: Range;
-    citationCount?: Range;
-    availability?: number;
-    preprint?: number;
+    topic: string[] | null;
+    authors: string[] | null;
+    date: Range | null;
+    citationCount: Range | null;
+    availability: number | null;
+    preprint: number | null;
 }
 
 export interface FilterAPIRequest {
     documents: Paper[];
     criteria: Criteria;
+}
+
+export enum RankingCriteria { 
+    SIMILARITY = 'tfidf',
+    DATE = 'publicationDate',
+    CITATION = 'citationCount'
+}
+
+export interface RankingAPIRequest {
+    documents: Paper[]
+    criteria: RankingCriteria; 
+    ascending: boolean;
+}
+
+export interface RankingAPIResponse {
+    data: {
+        documents: Array<Paper>, 
+        error?: APIError
+    }
+
 }

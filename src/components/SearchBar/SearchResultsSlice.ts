@@ -1,6 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../utility/store';
-import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
+import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults, TopicIndex } from '../../utility/interfaces';
 import { searchAPI } from '../../utility/api';
 
 export interface SearchResultsState {
@@ -8,16 +8,19 @@ export interface SearchResultsState {
   originalDocuments: Paper[],
   searched: boolean;
   filtered: boolean;
+  ranked: boolean; 
   error?: APIError;
 }
 
 const initialState: SearchResultsState = {
   data: {
+    topics: [] as TopicIndex[],
     documents: [] as Array<Paper>
   } as SearchResults,
   originalDocuments: [],
   searched: false,
-  filtered: false
+  filtered: false,
+  ranked: false
 };
 
 export const resultsSlice = createSlice({
@@ -32,18 +35,23 @@ export const resultsSlice = createSlice({
       state.data = action.payload;
       state.searched = true;
     },
+    updateDocuments: (state, action: PayloadAction<Array<Paper>>) => { 
+      state.data.documents = [...action.payload]
+    },
     setError: (state, action: PayloadAction<APIError>) => {
        state.error = { ...action.payload};
     },
     clean: (state) => {
       state.data = { documents: [] as Array<Paper> } as SearchResults;
       state.searched = false;
+      state.filtered = false; 
+      state.ranked = false;
     },
     filter: (state) => {
       state.filtered = true;
     },
-    rank: (state, action) => { 
-      //TODO define rank and ranking payload
+    rank: (state) => { 
+      state.ranked = true; 
     }
   }
 });
@@ -57,7 +65,7 @@ export const callSearchAPI = async (request: SearchAPIRequest, dispatch: Dispatc
   dispatch(update(response.data)); 
 }
 
-export const { update, setError, clean, filter, rank } = resultsSlice.actions;
+export const { update, updateDocuments, setError, clean, filter, rank } = resultsSlice.actions;
 
 export const selectResults = (state: RootState) => state.results.data;
 export const selectOriginalDocs = (state: RootState) => state.results.originalDocuments;

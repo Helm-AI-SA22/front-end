@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RankingCriteria } from '../../utility/interfaces';
 
-export enum RankingCriteria { 
-    SIMILARITY = 'similarity',
-    DATE = 'date',
-    CITATION = 'citation'
-}
 
 export interface Ranking {
     criteria: RankingCriteria; 
@@ -13,21 +9,23 @@ export interface Ranking {
 
 const initialState: Ranking = { 
     criteria: RankingCriteria.SIMILARITY,
-    ascending: true
+    ascending: false
 }
 
 export const rankingSlice = createSlice({
   name: 'ranking',
-  initialState,
+  initialState, 
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    	update: (state, action: PayloadAction<Ranking>) => {
+    	updateRanking: (state, action: PayloadAction<Ranking>) => {
         	state.criteria = action.payload.criteria;
+            state.ascending = action.payload.ascending;
+
     	}
     }
 });
 
-export const { update } = rankingSlice.actions;
+export const { updateRanking } = rankingSlice.actions;
 
 export default rankingSlice.reducer;
 
