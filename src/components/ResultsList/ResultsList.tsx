@@ -47,7 +47,8 @@ export default function ResultsList( props: ResultsListProps){
     
         const populatetopics = paper.topics.map(function(papertopics){
             return(
-                <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']}></Chip>
+                <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']} 
+                id={papertopics['id'].toString()} key={papertopics['id'].toString()}></Chip>
             )
         });
 
@@ -62,7 +63,7 @@ export default function ResultsList( props: ResultsListProps){
         });
 
         return(
-             <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 0}}>
+             <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 0}} id={paper.id} key={paper.id}>
                 <CardHeader sx= {{pr: 4, pl: 4, pt:2, pb:0, m:0, fontSize:12}} title={paper.title} />
                 <CardContent  sx= {{pr: 4, pl: 4, pt:1, pb:0, m:0}}>
                     <Box sx={{ flexGrow: 1 }}>
