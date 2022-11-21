@@ -15,6 +15,8 @@ import { Ranking, updateRanking } from './RankingSlice';
 import { connect } from 'react-redux';
 import { Stack } from '@mui/system';
 import { useParams } from 'react-router-dom';
+import { autoBatchEnhancer } from '@reduxjs/toolkit';
+import { ForkRight } from '@mui/icons-material';
 
 const mapStateToProps = (state: RootState) => ({
     documents: state.results.data.documents,
@@ -72,9 +74,12 @@ const RankingBar = (props: RankingBarProps ) => {
 
     return ( 
         <Box className="ranking-bar">
+            <div className='textR'>
+                <p>1-16 of over 1,000 results for "keyword"</p>
+            </div>
             <div className='formC'>
                 <Stack direction="row" spacing={2}>
-                    <FormControl size='small' sx={{marginLeft: 50,marginTop: 1, minWidth: 130}}>
+                    <FormControl size='small' sx={{marginTop: 1, minWidth: 130}}>
                         <InputLabel size='small' id="demo-simple-select-autowidth-label" sx={{marginTop:0}}>Order by</InputLabel>
                         <Select sx={{height: '4vh'}}
                             value={props.criteria}

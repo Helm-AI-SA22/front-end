@@ -1,9 +1,22 @@
 .ranking-bar{
-    background-color: green;
-    /*min-height: 100%;*/
+    /*background-color: green;*/
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
 }
 
 .formC{
-    
+    /*background-color: blueviolet;*/
     align-self: center;
+    display: inline;
 }
+
+.textR{
+    /*background-color: blue;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+}
+
+
