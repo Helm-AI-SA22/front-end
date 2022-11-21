@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, FilterAPIRequest, RankingAPIRequest, RankingAPIResponse} from './interfaces';
 
+//TODO add rankinng request in filtering API
 const SERVER = 'http://localhost:5000';
 
 const search = async (request: SearchAPIRequest) => {

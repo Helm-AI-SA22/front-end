@@ -12,13 +12,12 @@ import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 
 import { searchAPI } from '../../utility/api';
-import { Paper, SearchAPIResponse, TopicModelingAlgorithm } from '../../utility/interfaces';
+import { SearchAPIRequest, SearchResults, TopicModelingAlgorithm } from '../../utility/interfaces';
 import  suggestions  from '../../assets/suggestions.json';
 import Fade from '@mui/material/Fade'
 import LinearProgress from '@mui/material/LinearProgress';
 import { update } from './SearchResultsSlice';
 
-//TODO handle onClick with no keywords
 const SearcBar = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -75,14 +74,17 @@ const SearcBar = () => {
                 if(value.length){
                   const speed = checked ? TopicModelingAlgorithm.FAST : TopicModelingAlgorithm.SLOW;
                   /**alert(`You are searching: ${value.map((kw => kw + ' '))}.  Research type: ${speed}.`);*/
+                  const keywords = value.reduce((prev, curr) => prev += curr + ';', '').slice(0,-1);
+                  
                   const response = await searchAPI({
-                    keywords: value, 
+                    keywords: keywords, 
                     type: speed
-                  }) as any; //@TODO apply right error handling.
-                  dispatch(update(response.data))
+                  } as SearchAPIRequest); 
+                  dispatch(update(response.data as SearchResults))
                   startLoading(true);
                   console.log(loading);
-                  navigate(`/${speed}/${value[0]}`)
+                 
+                  navigate(`/${speed}/${keywords}`)
                 }
               }}>
                   Search

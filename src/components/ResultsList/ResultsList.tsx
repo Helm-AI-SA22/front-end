@@ -1,15 +1,17 @@
 import React, {Component, useState} from 'react';
-import { Button, Chip, Card, CardHeader, CardContent, CardActions, Icon } from '@mui/material'
+import {Stack, Button, Chip, Card, CardHeader, CardContent, CardActions, Icon } from '@mui/material'
 import {Grid, Box, Container, Typography, Pagination} from '@mui/material';
 import './ResultsList.css';
 import LaunchIcon from '@mui/icons-material/Launch';
-import { Paper, SearchAPIResponse } from '../../utility/interfaces';
+import { Paper, SearchAPIResponse, TopicPaperMap } from '../../utility/interfaces';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import arxiv from '../../assets/logo/arxiv.png';
 import ieee from '../../assets/logo/ieee.jpeg';
 import scopus from '../../assets/logo/scopus.png';
 import PageFooter from '../../components/Footer/Footer';
+import {useAppSelector} from '../../utility/hooks';
+import {selectTopicsIndex}  from '../SearchBar/SearchResultsSlice';
 
 
 interface ResultsListProps {
@@ -19,23 +21,32 @@ interface ResultsListProps {
 const ResultsList = ( props: ResultsListProps) => {
     const { documents } = props;
     const [readMore, setReadMore] = useState(documents.map( _ => false));
-    console.log(documents)
     const perPage = 5;
     const totPaper = documents.length;
     const countPages = Math.ceil(totPaper / perPage);
+
+    const topicsIndexList = useAppSelector(selectTopicsIndex);
 
     const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
     };
+
+    function topicIdToName(paperTopics: TopicPaperMap){
+        for(let i=0; i<topicsIndexList.length; i++){
+            if(topicsIndexList[i].id == paperTopics.id){
+                return topicsIndexList[i].name;
+            }
+        }
+    }
     
     const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
     
         const populatetopics = paper.topics.map((papertopics) => (
-            <Chip sx={{ml:1}} size="small" color="primary" variant="outlined" label={papertopics['id']} 
-                id={papertopics['id'].toString()} key={papertopics['id'].toString()} />
+            <Chip sx={{ml:1}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
+            id={papertopics['id'].toString()} key={papertopics['id'].toString()}/>
         ));
 
     
@@ -74,7 +85,7 @@ const ResultsList = ( props: ResultsListProps) => {
                                     <Typography variant="caption" color="text.secondary">{paper.authors}</Typography> 
                                 </Box>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
                                     <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> DOI </Typography>
                                     <Typography variant="caption" color="text.secondary"> {paper.id} </Typography>
@@ -82,17 +93,17 @@ const ResultsList = ( props: ResultsListProps) => {
                             </Grid>
                             <Grid item xs={6}>
                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
-                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Pubblication year </Typography>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Pubblication </Typography>
                                     <Typography variant="caption" color="text.secondary"> {paper.publicationDate} </Typography>
                                 </Box>     
                             </Grid>
-                            <Grid item xs={6}>
+                            {/**<Grid item xs={6}>
                                 <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
                                     <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Availability status</Typography>
                                     { paper.openaccess ?  <LockTwoToneIcon sx={{fontSize:16}} /> : <LockOpenTwoToneIcon sx={{fontSize:16}} /> }
                                     { paper.openaccess ?  <Typography variant="caption">Restricted</Typography> : <Typography variant="caption">Free</Typography> }
                                 </Box>
-                            </Grid>
+                            </Grid> */}
                             <Grid item xs={6}>
                                 <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
                                 <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Citation count </Typography>
@@ -120,10 +131,14 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Box sx={{display: 'flex', flexDirection: 'row', mt:1}}>
                         {populatesources}
                     </Box>
-                    <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:12}}>
-                        <LaunchIcon color="primary" sx={{pr:1, fontSize:16}}/>
-                        Full text
-                    </Button>
+
+                    <Stack direction="row" spacing={2} sx={{verticalAlign:"middle"}}>
+                        { paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10}}> <LockTwoToneIcon sx={{fontSize:14}} /> Restricted </Typography> : <Typography color="green"  variant="button"  sx={{fontSize:10}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
+                        <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:10, ml:1}}>
+                            <LaunchIcon color="primary" sx={{pr:1, fontSize:14}}/>
+                            Full text
+                        </Button>
+                    </Stack>
                 </CardActions>
 
             </Card>
@@ -135,8 +150,9 @@ const ResultsList = ( props: ResultsListProps) => {
             <Box>
                 {populate} 
             </Box>
-            <Box component="span">
+            <Box component="span" sx={{justifyContent: 'center'}}>
                 <Pagination
+                    sx={{justifyContent: 'center'}}
                     count={countPages}
                     page={page}
                     onChange={handleChange}
