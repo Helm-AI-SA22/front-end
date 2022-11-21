@@ -57,16 +57,16 @@ const ResultsList = ( props: ResultsListProps) => {
             )
         );
 
-        const readAbstract = (abstract: string, paper_idx: number) => {
+        const readAbstract = (abstract: string, index: number) => {
             return (
                 <Box>
-                    { readMore[paper_idx] ? abstract : `${abstract.substring(0, 250)}` }
+                    { readMore[index] ? abstract : `${abstract.substring(0, 250)}` }
                     <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => {
                             const state_copy = [...readMore] as Array<boolean>                            
-                            state_copy[paper_idx] = !(readMore[paper_idx]) 
+                            state_copy[index] = !(readMore[index]) 
                             setReadMore([...state_copy])}
                         }>
-                        {readMore ? "Show less" : "... Show more"}
+                        {readMore[index] ? "Show less" : "... Show more"}
                     </Button>
                 </Box>
             );
