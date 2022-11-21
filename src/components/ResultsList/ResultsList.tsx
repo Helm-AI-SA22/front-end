@@ -51,7 +51,9 @@ export default function ResultsList( props: ResultsListProps){
             )
         });
 
-        const populatesources = paper.source.map(function(papersources){
+    
+
+        const populatesources = (paper.source ? paper.source : []).map(function(papersources){
             return (
                 (papersources =="arxiv") ?  <Box component="img" sx={{height: 20}} alt="source logo" src={arxiv}/>
                 : (papersources =="ieee") ? <Box component="img" sx={{height: 30}} alt="source logo" src={ieee}/>
