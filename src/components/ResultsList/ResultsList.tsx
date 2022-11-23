@@ -128,7 +128,7 @@ const ResultsList = ( props: ResultsListProps) => {
                 </CardContent>
 
                 <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0, display:'flex', justifyContent:'space-between'}}>
-                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1,  mr:3}}>
                         {populatesources}
                     </Box>
 
