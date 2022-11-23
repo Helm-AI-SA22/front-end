@@ -1,25 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import parse from 'html-react-parser';
 import { Buffer } from 'buffer';
+import {Helmet } from 'react-helmet';
 import './Base64Displayer.css';
+import ReactDOM from 'react-dom';
 
 
 interface Base64DisplayerProps{
     source: string | undefined;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
 }
 
 const Base64Displayer = (props: Base64DisplayerProps) => { 
-    // if (!props.source) {
-    //     return (
-    //         <div></div>
-    //     )
-    // }
 
-    const decoded: string =  props.source ? Buffer.from(props.source as string, 'base64').toString('utf8') : '';
+    const decoded: string =  props.source ? Buffer.from(props.source as string, 'base64').toString() : '';
+    console.log(decoded);
+
+
     return (
-        <div>{ props.source ? <img src={`data:image/png;base64,${props.source }`}/>: <span></span> }</div>
+        <div dangerouslySetInnerHTML={{__html: decoded}} />
     )
     
     // const Example = ({ imageURL }: any) =>  <img src={imageURL} width={props.width} height={props.height}/>

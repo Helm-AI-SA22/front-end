@@ -42,7 +42,7 @@ export interface SearchResults {
     documents: Paper[];
     logs?: string;
     topics: TopicIndex[];
-    topicVisualization: LDAChart | BERTChart; 
+    topicsVisualization: LDAChart | BERTChart; 
 }
 
 export enum TopicModelingAlgorithm { 
