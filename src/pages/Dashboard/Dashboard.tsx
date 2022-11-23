@@ -10,7 +10,7 @@ import ResultsList from '../../components/ResultsList/ResultsList';
 import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
 import PageFooter from '../../components/Footer/Footer';
-import { useAppDispatch } from '../../utility/hooks';
+import { useAppDispatch } from  '../../utility/hooks';
 import { useLocation, useParams } from 'react-router-dom';
 import { callSearchAPI, } from '../../components/SearchBar/SearchResultsSlice';
 import { BERTChart, LDAChart, SearchAPIRequest, SearchResults } from '../../utility/interfaces';
@@ -19,7 +19,6 @@ import { RootState } from '../../utility/store';
 import { connect } from 'react-redux';
 import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
 import Base64Displayer from '../../components/Base64Displayer/Base64Displayer';
-import { preProcessFile } from 'typescript';
 
 interface DashboardProps { 
     data: SearchResults;
@@ -57,7 +56,6 @@ const Dashboard = (props: DashboardProps ) => {
         reloadSearch();
     }
 
-
     return (
         <div>
             <AppBar></AppBar>
@@ -87,10 +85,7 @@ const Dashboard = (props: DashboardProps ) => {
                         }
                     </Box>
                     <Box sx={{width: '25%', height: '100%'}}>   
-                        <Base64Displayer source={ (props.data as any)["topic_cluestrs_plot"] } width={400} height={400} />
-                        <LeftPanel>
-
-                        </LeftPanel>
+                        <Base64Displayer source={ props.data.topicsVisualization ? (props.data.topicsVisualization as LDAChart).ldaPlot : undefined } width={400} height={400} /> 
                     </Box>
                 </Box>
                 {/**<Box sx={{width: '100%'}}>

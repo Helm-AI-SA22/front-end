@@ -394,7 +394,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                 const response = await filterAPI(jsonToSend);
                 const payload = response.data as SearchResults;
-                payload.topicVisualization = data.topicVisualization;
+                payload.topicsVisualization = data.topicsVisualization;
                 payload.topics = data.topics;
                 dispatch(filter());
                 dispatch(update(response.data as SearchResults));
