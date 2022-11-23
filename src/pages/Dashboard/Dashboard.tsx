@@ -14,6 +14,7 @@ import { useAppDispatch } from '../../utility/hooks';
 import { useLocation, useParams } from 'react-router-dom';
 import { callSearchAPI, } from '../../components/SearchBar/SearchResultsSlice';
 import { BERTChart, LDAChart, SearchAPIRequest, SearchResults } from '../../utility/interfaces';
+
 import { RootState } from '../../utility/store';
 import { connect } from 'react-redux';
 import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
@@ -69,7 +70,7 @@ const Dashboard = (props: DashboardProps ) => {
                         <FilteringPanel/>
                     </Box>
                     <Box sx={{width: '50%', height: '100%'}}>
-                        { props.searched && !props.isEmpty ? <ResultsList documents={props.data.documents} /> :
+                        { props.searched && !props.isEmpty ? <ResultsList documents={props.data.documents}/> :
                             <div className='empty-results'>
                                 <div>Youy query: " {querytext} " did not produced any result.</div>
                                 <div className='circle-symbol'>

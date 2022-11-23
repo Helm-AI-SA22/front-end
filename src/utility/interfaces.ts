@@ -7,6 +7,7 @@ export interface Paper {
     authors: string;
     pdfLink: string;
     openaccess: number;
+    tfidf: number;
     source:Array<string>;
     topics: TopicPaperMap[]; 
 }
@@ -42,6 +43,7 @@ export interface SearchResults {
     documents: Paper[];
     logs?: string;
     topics: TopicIndex[];
+    max_tfidf: number;
     topicVisualization: LDAChart | BERTChart; 
 }
 

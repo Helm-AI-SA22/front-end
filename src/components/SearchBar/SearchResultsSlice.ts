@@ -1,6 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../utility/store';
-import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults, TopicIndex } from '../../utility/interfaces';
+import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults, TopicIndex} from '../../utility/interfaces';
 import { searchAPI } from '../../utility/api';
 
 export interface SearchResultsState {
@@ -15,6 +15,7 @@ export interface SearchResultsState {
 const initialState: SearchResultsState = {
   data: {
     topics: [] as TopicIndex[],
+    max_tfidf: 0,
     documents: [] as Array<Paper>
   } as SearchResults,
   originalDocuments: [],
@@ -42,7 +43,7 @@ export const resultsSlice = createSlice({
        state.error = { ...action.payload};
     },
     clean: (state) => {
-      state.data = { documents: [] as Array<Paper> } as SearchResults;
+      state.data = { documents: [] as Array<Paper>, max_tfidf:0 } as SearchResults;
       state.searched = false;
       state.filtered = false; 
       state.ranked = false;
@@ -74,6 +75,7 @@ export const selectSearched = (state: RootState) => state.results.searched;
 export const selectFiltered = (state: RootState) => state.results.filtered;
 export const selectNoResultsFound = (state: RootState) => state.results.searched && !state.results.data.documents.length;
 export const selectTopicsIndex = (state: RootState) => state.results.data.topics;
+export const selectMaxTfidf = (state: RootState) => state.results.data.max_tfidf;
 
 export default resultsSlice.reducer;
 

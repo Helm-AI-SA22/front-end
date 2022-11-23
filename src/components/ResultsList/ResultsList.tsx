@@ -3,7 +3,7 @@ import {Stack, Button, Chip, Card, CardHeader, CardContent, CardActions, Icon } 
 import {Grid, Box, Container, Typography, Pagination} from '@mui/material';
 import './ResultsList.css';
 import LaunchIcon from '@mui/icons-material/Launch';
-import { Paper, SearchAPIResponse, TopicPaperMap } from '../../utility/interfaces';
+import { Paper, SearchAPIResponse, TopicPaperMap} from '../../utility/interfaces';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import arxiv from '../../assets/logo/arxiv.png';
@@ -11,14 +11,30 @@ import ieee from '../../assets/logo/ieee.jpeg';
 import scopus from '../../assets/logo/scopus.png';
 import PageFooter from '../../components/Footer/Footer';
 import {useAppSelector} from '../../utility/hooks';
-import {selectTopicsIndex}  from '../SearchBar/SearchResultsSlice';
-
+import {selectTopicsIndex, selectMaxTfidf}  from '../SearchBar/SearchResultsSlice';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material/styles';
+import { maxWidth, minWidth } from '@mui/system';
 
 interface ResultsListProps {
     documents: Array<Paper>
 }
 
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    height: 8,
+    borderRadius: 5,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 5,
+      backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    },
+  }));
+
 const ResultsList = ( props: ResultsListProps) => {
+
+    const maxTfidf = useAppSelector(selectMaxTfidf);
     const { documents } = props;
     const [readMore, setReadMore] = useState(documents.map( _ => false));
     const perPage = 5;
@@ -40,10 +56,11 @@ const ResultsList = ( props: ResultsListProps) => {
         }
     }
     
+
     const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
-    
+        
         const populatetopics = paper.topics.map((papertopics) => (
             <Chip sx={{ml:1}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
             id={papertopics['id'].toString()} key={papertopics['id'].toString()}/>
@@ -51,9 +68,9 @@ const ResultsList = ( props: ResultsListProps) => {
 
     
         const populatesources = (paper.source ? paper.source : []).map((papersources) => (
-                (papersources =="arxiv") ?  <Box component="img" sx={{height: 20}} alt="source logo" src={arxiv}/>
-                : (papersources =="ieee") ? <Box component="img" sx={{height: 30}} alt="source logo" src={ieee}/>
-                : <Box component="img" sx={{height: 30}} alt="source logo" src={scopus}/>
+                (papersources =="arxiv") ?  <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={arxiv}/>
+                : (papersources =="ieee") ? <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={ieee}/>
+                : <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={scopus}/>
             )
         );
 
@@ -74,8 +91,10 @@ const ResultsList = ( props: ResultsListProps) => {
 
         return(
              <Card sx= {{m:1, p:1,  bgcolor: 'background.paper', borderRadius: 0}} id={paper.id} key={paper.id}>
-                <CardHeader sx= {{pr: 4, pl: 4, pt:2, pb:0, m:0, fontSize:12}} title={paper.title} />
+                <CardHeader sx= {{pr: 4, pl: 4, pt:2, pb:0, m:0, fontSize:12}} title = {paper.title}/>
+            
                 <CardContent  sx= {{pr: 4, pl: 4, pt:1, pb:0, m:0}}>
+                
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={0}>
 
@@ -97,13 +116,7 @@ const ResultsList = ( props: ResultsListProps) => {
                                     <Typography variant="caption" color="text.secondary"> {paper.publicationDate} </Typography>
                                 </Box>     
                             </Grid>
-                            {/**<Grid item xs={6}>
-                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
-                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Availability status</Typography>
-                                    { paper.openaccess ?  <LockTwoToneIcon sx={{fontSize:16}} /> : <LockOpenTwoToneIcon sx={{fontSize:16}} /> }
-                                    { paper.openaccess ?  <Typography variant="caption">Restricted</Typography> : <Typography variant="caption">Free</Typography> }
-                                </Box>
-                            </Grid> */}
+    
                             <Grid item xs={6}>
                                 <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}> 
                                 <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Citation count </Typography>
@@ -125,20 +138,41 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Associated topic </Typography>
                     {populatetopics}
                     </Box>
+                    
+                    <Box sx={{ display: 'flex', flexDirection: 'row', minWidth:'100%',  alignItems: 'center'}}>
+                        <Typography variant ="caption" sx={{fontWeight:'bold', mr:1}}>Match</Typography>
+                        <Box sx={{width:'30%'}}>
+                            <BorderLinearProgress
+                                variant="determinate"
+                                value={paper.tfidf*100/maxTfidf}
+                                sx={{verticalAlign:'bottom'}}
+                            />
+                        </Box>
+                        <Typography 
+                            variant="caption" 
+                            component="div" 
+                            color="text.secondary"
+                            sx={{pl:1}}>
+                            {`${Math.round(paper.tfidf*100/maxTfidf)}%`}
+                        </Typography>
+                        
+                    </Box>
                 </CardContent>
 
-                <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0, display:'flex', justifyContent:'space-between'}}>
-                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1}}>
+                <CardActions sx= {{pr: 4, pl: 4, pt:1, pb:2, m:0, display:'flex', flexDirection:"row", justifyContent:'space-between'}}>
+                    
+                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1, verticalAlign:'bottom'}}>
                         {populatesources}
                     </Box>
-
-                    <Stack direction="row" spacing={2} sx={{verticalAlign:"middle"}}>
-                        { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10}}> <LockTwoToneIcon sx={{fontSize:14}} /> Restricted </Typography> : <Typography color="green"  variant="button"  sx={{fontSize:10}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
-                        <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:10, ml:1}}>
-                            <LaunchIcon color="primary" sx={{pr:1, fontSize:14}}/>
-                            Full text
-                        </Button>
-                    </Stack>
+                    <Stack direction="row" spacing={2} sx={{verticalAlign:'middle'}}>
+                            { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10, pt:0.3}}> <LockTwoToneIcon sx={{fontSize:14, pt:0.3}} /> Restricted </Typography> : <Typography color="green"  variant="button"  sx={{fontSize:10, pt:0.1}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
+                            <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:10}}>
+                                <LaunchIcon color="primary" sx={{pr:1, fontSize:14}}/>
+                                Full text
+                            </Button>
+                     </Stack>
+                
+                    
                 </CardActions>
 
             </Card>
