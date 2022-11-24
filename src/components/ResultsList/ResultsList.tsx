@@ -10,15 +10,44 @@ import arxiv from '../../assets/logo/arxiv.png';
 import ieee from '../../assets/logo/ieee.jpeg';
 import scopus from '../../assets/logo/scopus.png';
 import PageFooter from '../../components/Footer/Footer';
-import {useAppSelector} from '../../utility/hooks';
+import {useAppSelector, useAppDispatch} from '../../utility/hooks';
+import {PaginationState, initPagination, updateCurrentPage} from '../ResultsList/PaginationSlice';
+import { RootState } from '../../utility/store';
+import { Dispatch } from 'redux';
+import {selectCurrentPage, selectDocPerPage, selectTotPapers, selectNPages} from '../../components/ResultsList/PaginationSlice'
+import { connect } from 'react-redux';
 import {selectTopicsIndex, selectMaxTfidf}  from '../SearchBar/SearchResultsSlice';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
 import { maxWidth, minWidth } from '@mui/system';
 
-interface ResultsListProps {
-    documents: Array<Paper>
+interface ResultsListHandler {
+    documents: Array<Paper>;
+    docPerPage: number;
+    totPapers: number;
+    nPages: number;
+    currentPage: number;
 }
+
+interface ResultsListProps extends ResultsListHandler{
+    initPagination: (updater: Array<Paper>) => void;
+    updateCurrentPage: (updater: number) => void;
+}
+
+const mapStateToProps = (state: RootState) => ({
+    docPerPage: state.pagination.docPerPage,
+    totPapers: state.pagination.totPapers,
+    nPages: state.pagination.nPages,
+    currentPage: state.pagination.currentPage,
+    documents: state.results.data.documents
+} as PaginationState);
+
+
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    initPagination: (updater: Array<Paper>) => dispatch(initPagination(updater)),
+    updateCurrentPage: (updater: number) => dispatch(updateCurrentPage(updater))
+})
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 8,
@@ -30,10 +59,13 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
       borderRadius: 5,
       backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
     },
-  }));
+}));
 
 const ResultsList = ( props: ResultsListProps) => {
 
+    const dispatch = useAppDispatch();
+    const {totPapers, docPerPage,  nPages,  currentPage } = props
+    dispatch(initPagination(props.documents));
     const maxTfidf = useAppSelector(selectMaxTfidf);
     const { documents } = props;
     const [readMore, setReadMore] = useState(documents.map( _ => false));
@@ -43,9 +75,10 @@ const ResultsList = ( props: ResultsListProps) => {
 
     const topicsIndexList = useAppSelector(selectTopicsIndex);
 
-    const [page, setPage] = React.useState(1);
+    //const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
+        //setPage(value);
+        props.updateCurrentPage(value);
     };
 
     function topicIdToName(paperTopics: TopicPaperMap){
@@ -56,8 +89,7 @@ const ResultsList = ( props: ResultsListProps) => {
         }
     }
     
-
-    const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
+    const populatePaperPagination = props.documents.slice((currentPage - 1) * docPerPage, currentPage * docPerPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
         
@@ -112,7 +144,7 @@ const ResultsList = ( props: ResultsListProps) => {
                             </Grid>
                             <Grid item xs={6}>
                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
-                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Pubblication </Typography>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Publication </Typography>
                                     <Typography variant="caption" color="text.secondary"> {paper.publicationDate} </Typography>
                                 </Box>     
                             </Grid>
@@ -189,8 +221,8 @@ const ResultsList = ( props: ResultsListProps) => {
             <Box component="span" sx={{justifyContent: 'center'}}>
                 <Pagination
                     sx={{justifyContent: 'center'}}
-                    count={countPages}
-                    page={page}
+                    count={nPages}
+                    page={currentPage}
                     onChange={handleChange}
                     defaultPage={1}
                     color="primary"
@@ -206,4 +238,4 @@ const ResultsList = ( props: ResultsListProps) => {
     );
 }
 
-export default ResultsList;
+export default connect(mapStateToProps,mapDispatchToProps)(ResultsList);

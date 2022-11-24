@@ -72,7 +72,7 @@ const Dashboard = (props: DashboardProps ) => {
                     <Box sx={{width: '50%', height: '100%'}}>
                         { props.searched && !props.isEmpty ? <ResultsList documents={props.data.documents}/> :
                             <div className='empty-results'>
-                                <div>Youy query: " {querytext} " did not produced any result.</div>
+                                <div>Your query: " {querytext} " did not produced any result.</div>
                                 <div className='circle-symbol'>
                                     { loading ? <CircularProgress /> : 
                                         <IconButton color="primary" aria-label="upload picture" component="label" onClick={reloadSearch}>
@@ -80,7 +80,7 @@ const Dashboard = (props: DashboardProps ) => {
                                         </IconButton>
                                     }
                                 </div>
-                                { props.searched ? <div>Query altready ran.</div> : <div> Query was not actually executed, try running it again.</div>}
+                                { props.searched ? <div>Query already ran.</div> : <div> Query was not actually executed, try running it again.</div>}
                                 { props.isFiltered ? <div>Try removing too restrictive filters, if any.</div> : <div>No filter was applied.</div>}
                             </div>
                         

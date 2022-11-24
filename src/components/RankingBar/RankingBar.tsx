@@ -21,13 +21,19 @@ import { ForkRight } from '@mui/icons-material';
 const mapStateToProps = (state: RootState) => ({
     documents: state.results.data.documents,
     criteria: state.ranking.criteria, 
-    ascending: state.ranking.ascending
+    ascending: state.ranking.ascending,
+    currentPage: state.pagination.currentPage,
+    totDocs: state.pagination.totPapers,
+    nPages: state.pagination.nPages
 })
 
 interface RankingBarProps {
     documents: Array<Paper>;
     criteria: RankingCriteria;
     ascending: boolean;
+    currentPage: number;
+    totDocs: number;
+    nPages: number;
 }
 
 const RankingBar = (props: RankingBarProps ) => {
@@ -73,10 +79,10 @@ const RankingBar = (props: RankingBarProps ) => {
     };
 
     return ( 
-        <Box className="ranking-bar" alignItems="center" sx={{m:1}}>
-            <Box className='textR'sx={{ml:2}} >
-                <Typography>1-16 of over 1,000 results for "keyword"</Typography>
-            </Box>
+        <Box className="ranking-bar">
+            <div className='textR'>
+                <p>{props.currentPage + "-" + props.nPages + " of over " + props.totDocs + " results for " + querytext?.replace(";", " & ")}</p>
+            </div>
             <div className='formC'>
                 <Stack direction="row" spacing={2}>
                     <FormControl size='small' sx={{marginTop: 1, minWidth: 130}}>
