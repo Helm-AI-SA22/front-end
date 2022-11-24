@@ -30,6 +30,7 @@ import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants';
 import { filter, selectResults, update, selectOriginalDocs } from '../SearchBar/SearchResultsSlice';
 import {useAppSelector, useAppDispatch} from '../../utility/hooks'
 import {filterAPI} from '../../utility/api'
+import {updateCurrentPage} from '../../components/ResultsList/PaginationSlice'
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -397,6 +398,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 payload.topicVisualization = data.topicVisualization;
                 payload.topics = data.topics;
                 dispatch(filter());
+                dispatch(updateCurrentPage(1));
                 dispatch(update(response.data as SearchResults));
                 console.log(jsonToSend);
             }
