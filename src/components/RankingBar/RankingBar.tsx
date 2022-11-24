@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, FormControlLabel, FormGroup, Switch} from '@mui/material';
+import {Box, FormControlLabel, FormGroup, Switch, Typography} from '@mui/material';
 import './RankingBar.css'
 
 import InputLabel from '@mui/material/InputLabel';
