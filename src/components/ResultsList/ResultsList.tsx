@@ -10,26 +10,58 @@ import arxiv from '../../assets/logo/arxiv.png';
 import ieee from '../../assets/logo/ieee.jpeg';
 import scopus from '../../assets/logo/scopus.png';
 import PageFooter from '../../components/Footer/Footer';
-import {useAppSelector} from '../../utility/hooks';
+import {useAppSelector, useAppDispatch} from '../../utility/hooks';
 import {selectTopicsIndex}  from '../SearchBar/SearchResultsSlice';
+import {PaginationState, initPagination, updateCurrentPage} from '../ResultsList/PaginationSlice';
+import { RootState } from '../../utility/store';
+import { Dispatch } from 'redux';
+import {selectCurrentPage, selectDocPerPage, selectTotPapers, selectNPages} from '../../components/ResultsList/PaginationSlice'
+import { connect } from 'react-redux';
 
 
-interface ResultsListProps {
-    documents: Array<Paper>
+interface ResultsListHandler {
+    documents: Array<Paper>;
+    docPerPage: number;
+    totPapers: number;
+    nPages: number;
+    currentPage: number;
 }
 
+interface ResultsListProps extends ResultsListHandler{
+    initPagination: (updater: Array<Paper>) => void;
+    updateCurrentPage: (updater: number) => void;
+}
+
+const mapStateToProps = (state: RootState) => ({
+    docPerPage: state.pagination.docPerPage,
+    totPapers: state.pagination.totPapers,
+    nPages: state.pagination.nPages,
+    currentPage: state.pagination.currentPage,
+    documents: state.results.data.documents
+} as PaginationState);
+
+
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    initPagination: (updater: Array<Paper>) => dispatch(initPagination(updater)),
+    updateCurrentPage: (updater: number) => dispatch(updateCurrentPage(updater))
+})
+
 const ResultsList = ( props: ResultsListProps) => {
-    const { documents } = props;
-    const [readMore, setReadMore] = useState(documents.map( _ => false));
-    const perPage = 5;
-    const totPaper = documents.length;
-    const countPages = Math.ceil(totPaper / perPage);
+
+    const dispatch = useAppDispatch();
+    
+    const {totPapers, docPerPage,  nPages,  currentPage } = props
+    dispatch(initPagination(props.documents));
+    const [readMore, setReadMore] = useState(props.documents.map( _ => false));
+   
 
     const topicsIndexList = useAppSelector(selectTopicsIndex);
 
-    const [page, setPage] = React.useState(1);
+    //const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
+        //setPage(value);
+        props.updateCurrentPage(value);
     };
 
     function topicIdToName(paperTopics: TopicPaperMap){
@@ -40,7 +72,7 @@ const ResultsList = ( props: ResultsListProps) => {
         }
     }
     
-    const populatePaperPagination = documents.slice((page - 1) * perPage, page * perPage)
+    const populatePaperPagination = props.documents.slice((currentPage - 1) * docPerPage, currentPage * docPerPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
     
@@ -52,8 +84,8 @@ const ResultsList = ( props: ResultsListProps) => {
     
         const populatesources = (paper.source ? paper.source : []).map((papersources) => (
                 (papersources =="arxiv") ?  <Box component="img" sx={{height: 20}} alt="source logo" src={arxiv}/>
-                : (papersources =="ieee") ? <Box component="img" sx={{height: 30}} alt="source logo" src={ieee}/>
-                : <Box component="img" sx={{height: 30}} alt="source logo" src={scopus}/>
+                : (papersources =="ieee") ? <Box component="img" sx={{height: 20}} alt="source logo" src={ieee}/>
+                : <Box component="img" sx={{height: 20}} alt="source logo" src={scopus}/>
             )
         );
 
@@ -93,7 +125,7 @@ const ResultsList = ( props: ResultsListProps) => {
                             </Grid>
                             <Grid item xs={6}>
                                <Box sx={{display: 'flex', flexDirection: 'row', mt:0.5}}>
-                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Pubblication </Typography>
+                                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Publication </Typography>
                                     <Typography variant="caption" color="text.secondary"> {paper.publicationDate} </Typography>
                                 </Box>     
                             </Grid>
@@ -131,7 +163,6 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Box sx={{display: 'flex', flexDirection: 'row', mt:1,  mr:3}}>
                         {populatesources}
                     </Box>
-
                     <Stack direction="row" spacing={2} sx={{verticalAlign:"middle"}}>
                         { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10}}> <LockTwoToneIcon sx={{fontSize:14}} /> Restricted </Typography> : <Typography color="green"  variant="button"  sx={{fontSize:10}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
                         <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:10, ml:1}}>
@@ -153,8 +184,8 @@ const ResultsList = ( props: ResultsListProps) => {
             <Box component="span" sx={{justifyContent: 'center'}}>
                 <Pagination
                     sx={{justifyContent: 'center'}}
-                    count={countPages}
-                    page={page}
+                    count={nPages}
+                    page={currentPage}
                     onChange={handleChange}
                     defaultPage={1}
                     color="primary"
@@ -170,4 +201,4 @@ const ResultsList = ( props: ResultsListProps) => {
     );
 }
 
-export default ResultsList;
+export default connect(mapStateToProps,mapDispatchToProps)(ResultsList);

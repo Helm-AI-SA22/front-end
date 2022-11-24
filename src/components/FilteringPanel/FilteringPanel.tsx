@@ -18,12 +18,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { TopicIndex, Paper, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
+import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
 import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI} from './FilteringSlice';
-import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest, Criteria} from '../../utility/interfaces'
+import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
 import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants'; 
@@ -441,7 +441,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const topicsList: TopicIndex[] = data.topics;
 
     let authorsString: string = "";
-    const statesAvailabilityKeys = [-1, 0, 1];
+    const statesAvailabilityKeys = [-1, 1, 0];
     const statesAvailability = ["All", "Yes", "No"];
     const statesPreprint = ["All", "Peer reviewed only", "Preprint only"];
     const statesPreprintKeys = [-1, 0, 1];
@@ -461,9 +461,9 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         }
         >
             {listTopics(topicsList)}
-            {filterRange("Publication Year", openPublicationYear, setOpenPublicationYear, DATE_MIN, DATE_MAX, 
+            {filterRange("Publication year", openPublicationYear, setOpenPublicationYear, DATE_MIN, DATE_MAX, 
             errorMinDate, setErrorMinDate, errorMaxDate, setErrorMaxDate, RangedFilters.DATE, new RegExp('1[0-9]{3}|2[0-9]{3}'))}
-            {filterRange("Citation Count", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
+            {filterRange("Citations", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
             {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setOpenAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
