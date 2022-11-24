@@ -79,11 +79,11 @@ const RankingBar = (props: RankingBarProps ) => {
     };
 
     return ( 
-        <Box className="ranking-bar">
-            <div className='textR'>
+        <Box className="ranking-bar" alignItems='center' sx={{mt:1}}>
+            <Box className='textR'>
                 <p>{props.currentPage + "-" + props.nPages + " of over " + props.totDocs + " results for " + querytext?.replace(";", " & ")}</p>
-            </div>
-            <div className='formC'>
+            </Box>
+            <Box className='formC'>
                 <Stack direction="row" spacing={2}>
                     <FormControl size='small' sx={{marginTop: 1, minWidth: 130}}>
                         <InputLabel size='small' id="demo-simple-select-autowidth-label" sx={{marginTop:0}}>Order by</InputLabel>
@@ -102,7 +102,7 @@ const RankingBar = (props: RankingBarProps ) => {
                         <FormControlLabel control={<Switch defaultChecked value={props.ascending} onChange={handleRankingDirectionhange}  />} label="Descending" />
                     </FormGroup>
                 </Stack>
-            </div>
+            </Box>
         </Box>
     )
 }

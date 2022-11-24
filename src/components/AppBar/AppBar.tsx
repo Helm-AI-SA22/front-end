@@ -9,6 +9,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Logo from '../../assets/logo/white.png';
+import Button from '@mui/material/Button';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -74,7 +75,8 @@ export default function SearchAppBar() {
           >
             Helm
           </Typography>
-
+          
+          {/**
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -83,7 +85,12 @@ export default function SearchAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search>*/}
+          <Button aria-label="search" size="large" href="/search" sx={{ color: 'white' }}  >
+            <SearchIcon sx={{ color: 'white', mr:1 }} /> 
+            search
+          </Button>
+
           
 
         </Toolbar>

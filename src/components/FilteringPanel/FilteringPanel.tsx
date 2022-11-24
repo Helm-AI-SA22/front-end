@@ -11,11 +11,15 @@ import Collapse from '@mui/material/Collapse';
 import ListItem from '@mui/material/ListItem';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import InputLabel from '@mui/material/InputLabel';
+import PeopleIcon from '@mui/icons-material/People';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LockIcon from '@mui/icons-material/Lock';
+import TopicIcon from '@mui/icons-material/Topic';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
@@ -118,9 +122,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <Divider sx={{ml:1}}/>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <TopicIcon sx={{mr:1}}/>
+                        <ListItemText primary= {"Topics"} />
+                    </Box>
                     {openTopics ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {"Topics"} />
                 </ListItemButton>
                 <Collapse in={openTopics} timeout="auto" unmountOnExit>
                     <Box sx={{marginLeft: 3}}>
@@ -245,9 +253,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        {labelSection =="Citations" ? <TrendingUpIcon sx={{mr:1}}/>: <CalendarMonthIcon sx={{mr:1}}/>}
+                        <ListItemText primary= {labelSection} />
+                    </Box>
                     {open ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {labelSection} />
                 </ListItemButton>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box
@@ -309,9 +320,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <PeopleIcon sx={{mr:1}}/>
+                        <ListItemText primary= {'Authors'} />
+                    </Box>
                     {openAuthors ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {'Authors'} />
                 </ListItemButton>
                 <Collapse in={openAuthors} timeout="auto" unmountOnExit>
                     <Box
@@ -363,9 +377,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <LockIcon sx={{mr:1}}/>
+                        <ListItemText primary= {labelSection} />
+                    </Box>
                     {open ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {labelSection} />
                 </ListItemButton>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box sx={{m: 2, width: '75%'}}>
@@ -465,7 +482,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         aria-labelledby="nested-list-subheader"
         subheader={
             <ListSubheader component="div" id="nested-list-subheader">
-            <FilterAltIcon /> Filter by
+            Filter by
             </ListSubheader>
         }
         >

@@ -198,8 +198,9 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Box sx={{display: 'flex', flexDirection: 'row', mt:1, verticalAlign:'bottom'}}>
                         {populatesources}
                     </Box>
-                    <Stack direction="row" spacing={2} sx={{verticalAlign:'middle'}}>
-                            { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10, pt:0.3}}> <LockTwoToneIcon sx={{fontSize:14, pt:0.3}} /> Restricted </Typography> : <Typography color="green"  variant="button"  sx={{fontSize:10, pt:0.1}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
+                    <Stack direction="row" spacing={2} sx={{alignItems:"center"}}>
+                            { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10}}> <LockTwoToneIcon sx={{fontSize:14}} /> Restricted </Typography> 
+                            : <Typography color="green"  variant="button"  sx={{fontSize:10}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
                             <Button variant="outlined" size="small" href={paper.pdfLink} sx={{fontSize:10}}>
                                 <LaunchIcon color="primary" sx={{pr:1, fontSize:14}}/>
                                 Full text
