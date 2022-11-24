@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Dashboard.css';
 
-import { Box, CircularProgress, IconButton, Divider} from '@mui/material';
+import { Box, Button, CircularProgress, Divider, IconButton } from '@mui/material';
 import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
@@ -12,13 +12,13 @@ import RankingBar from '../../components/RankingBar/RankingBar';
 import PageFooter from '../../components/Footer/Footer';
 import { useAppDispatch } from  '../../utility/hooks';
 import { useLocation, useParams } from 'react-router-dom';
-import { callSearchAPI, } from '../../components/SearchBar/SearchResultsSlice';
+import { callSearchAPI } from '../../components/SearchBar/SearchResultsSlice';
 import { BERTChart, LDAChart, SearchAPIRequest, SearchResults } from '../../utility/interfaces';
-
-import { RootState } from '../../utility/store';
-import { connect } from 'react-redux';
 import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
 import Base64Displayer from '../../components/Base64Displayer/Base64Displayer';
+import { RootState } from '../../utility/store';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 interface DashboardProps { 
     data: SearchResults;
@@ -36,6 +36,7 @@ const mapStateToProps = (state: RootState) => ({
 
 
 const Dashboard = (props: DashboardProps ) => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const [ loading, setLoading ] = React.useState(false);
 
@@ -85,8 +86,13 @@ const Dashboard = (props: DashboardProps ) => {
                         
                         }
                     </Box>
-                    <Box sx={{width: '25%', height: '100%'}}>   
-                        <Base64Displayer source={ props.data.topicsVisualization ? (props.data.topicsVisualization as LDAChart).ldaPlot : undefined } width={400} height={400} /> 
+                    <Box sx={{width: '25%', height: '100%'}}>
+                        <Box onClick={ () => {navigate('/chart/lda/vis')}}>ldaPlot </Box>
+                        <Box onClick={ () => {navigate('/chart/bert/cluster')}}>topicClustersPlot </Box>
+                        <Box onClick={ () => {navigate('/chart/bert/hierachical')}}>hierarchicalClusteringPlot </Box>
+                        <Box onClick={ () => {navigate('/chart/bert/words')}}>topicsWordsScorePlot </Box>
+                        <Box onClick={ () => {navigate('/chart/bert/similarity')}}>topicsSimilarityPlot </Box>
+                        <Box onClick={ () => {navigate('/chart/bert/documents')}}>documentClustersPlot </Box>
                     </Box>
                 </Box>
                 {/**<Box sx={{width: '100%'}}>

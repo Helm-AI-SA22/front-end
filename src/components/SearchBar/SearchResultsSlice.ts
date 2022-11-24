@@ -76,6 +76,7 @@ export const selectFiltered = (state: RootState) => state.results.filtered;
 export const selectNoResultsFound = (state: RootState) => state.results.searched && !state.results.data.documents.length;
 export const selectTopicsIndex = (state: RootState) => state.results.data.topics;
 export const selectMaxTfidf = (state: RootState) => state.results.data.max_tfidf;
+export const selectTopicVisualization = (state: RootState) => state.results.data.topicsVisualization
 
 export default resultsSlice.reducer;
 
