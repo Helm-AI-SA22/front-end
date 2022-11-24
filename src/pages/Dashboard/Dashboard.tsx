@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Dashboard.css';
 
-import { Box, CircularProgress, IconButton } from '@mui/material';
+import { Box, CircularProgress, IconButton, Divider} from '@mui/material';
 import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
@@ -60,9 +60,10 @@ const Dashboard = (props: DashboardProps ) => {
         <div>
             <AppBar></AppBar>
             <Box sx={{width: '100%', height:'90vh'}}>
-                <Box sx={{width: '100%', height: '7vh'}}>
+                <Box sx={{width: '100%', height: '7vh'}} >
                         <RankingBar/>
                 </Box>
+                <Divider sx={{ml:2, mr:2}}/>
                 <Box sx={{width: '100%', height: '80vh',  display: 'flex', flexDirection: 'row'} }>
                     <Box sx={{width: '25%', height: '100%'}}>
                         <FilteringPanel/>

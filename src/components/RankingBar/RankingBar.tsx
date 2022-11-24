@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, FormControlLabel, FormGroup, Switch} from '@mui/material';
+import {Box, FormControlLabel, FormGroup, Switch, Typography} from '@mui/material';
 import './RankingBar.css'
 
 import InputLabel from '@mui/material/InputLabel';
@@ -73,10 +73,10 @@ const RankingBar = (props: RankingBarProps ) => {
     };
 
     return ( 
-        <Box className="ranking-bar">
-            <div className='textR'>
-                <p>1-16 of over 1,000 results for "keyword"</p>
-            </div>
+        <Box className="ranking-bar" alignItems="center" sx={{m:1}}>
+            <Box className='textR'sx={{ml:2}} >
+                <Typography>1-16 of over 1,000 results for "keyword"</Typography>
+            </Box>
             <div className='formC'>
                 <Stack direction="row" spacing={2}>
                     <FormControl size='small' sx={{marginTop: 1, minWidth: 130}}>

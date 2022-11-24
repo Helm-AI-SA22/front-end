@@ -62,7 +62,7 @@ const ResultsList = ( props: ResultsListProps) => {
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
         
         const populatetopics = paper.topics.map((papertopics) => (
-            <Chip sx={{ml:1}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
+            <Chip sx={{m:0.5}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
             id={papertopics['id'].toString()} key={papertopics['id'].toString()}/>
         ));
 
@@ -134,12 +134,14 @@ const ResultsList = ( props: ResultsListProps) => {
                         {readAbstract(paper.abstract, index)}
                         </Typography>  
                     </Box> 
-                    <Box sx={{display: 'flex', flexDirection: 'row', mt:1 }}>
-                    <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Associated topic </Typography>
-                    {populatetopics}
+                    <Box sx={{mt:1}}>
+                        <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Associated topic </Typography>
+                        <Box  display="flex" flexWrap="wrap" >
+                        {populatetopics}
+                        </Box>
                     </Box>
                     
-                    <Box sx={{ display: 'flex', flexDirection: 'row', minWidth:'100%',  alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', minWidth:'100%',  alignItems: 'center', mt:1}}>
                         <Typography variant ="caption" sx={{fontWeight:'bold', mr:1}}>Match</Typography>
                         <Box sx={{width:'30%'}}>
                             <BorderLinearProgress

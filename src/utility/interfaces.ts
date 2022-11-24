@@ -44,7 +44,7 @@ export interface SearchResults {
     logs?: string;
     topics: TopicIndex[];
     max_tfidf: number;
-    topicVisualization: LDAChart | BERTChart; 
+    topicsVisualization: LDAChart | BERTChart; 
 }
 
 export enum TopicModelingAlgorithm { 
