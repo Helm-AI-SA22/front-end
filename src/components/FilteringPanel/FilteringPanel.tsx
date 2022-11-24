@@ -11,11 +11,14 @@ import Collapse from '@mui/material/Collapse';
 import ListItem from '@mui/material/ListItem';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { TopicIndex, Paper, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
@@ -141,6 +144,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         })}
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     
@@ -282,6 +286,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -329,6 +334,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -378,6 +384,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     </FormControl>
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -456,7 +463,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         aria-labelledby="nested-list-subheader"
         subheader={
             <ListSubheader component="div" id="nested-list-subheader">
-            Filter by
+            <FilterAltIcon /> Filter by
             </ListSubheader>
         }
         >
