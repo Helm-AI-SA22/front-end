@@ -421,6 +421,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
                 payload.topics = data.topics;
+                payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
                 dispatch(updateCurrentPage(1));
                 dispatch(update(response.data as SearchResults));

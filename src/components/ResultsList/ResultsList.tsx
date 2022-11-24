@@ -88,7 +88,7 @@ const ResultsList = ( props: ResultsListProps) => {
             }
         }
     }
-    
+   
     const populatePaperPagination = props.documents.slice((currentPage - 1) * docPerPage, currentPage * docPerPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
