@@ -1,6 +1,7 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range, Criteria} from '../../utility/interfaces'
 import { CIT_MAX, CIT_MIN, DATE_MAX, DATE_MIN } from '../../utility/constants';
+import { RootState } from '../../utility/store';
 
 export interface Setter{
     key: string,
@@ -96,6 +97,8 @@ export const filtersSlice = createSlice({
     }
   }
 });
+
+export const selectAvailability = (state: RootState) => state.filters.availability;
 
 export const { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean } = filtersSlice.actions;
 
