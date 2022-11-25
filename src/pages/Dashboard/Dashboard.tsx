@@ -15,7 +15,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import { callSearchAPI } from '../../components/SearchBar/SearchResultsSlice';
 import { BERTChart, LDAChart, SearchAPIRequest, SearchResults } from '../../utility/interfaces';
 import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
-import Base64Displayer from '../../components/Base64Displayer/Base64Displayer';
 import { RootState } from '../../utility/store';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
