@@ -7,7 +7,6 @@ import Refresher from '@mui/icons-material/RefreshOutlined';
 import AppBar from '../../components/AppBar/AppBar';
 
 import ResultsList from '../../components/ResultsList/ResultsList';
-import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RankingBar from '../../components/RankingBar/RankingBar';
 import PageFooter from '../../components/Footer/Footer';
 import { useAppDispatch } from  '../../utility/hooks';
