@@ -17,6 +17,13 @@ import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
 import { RootState } from '../../utility/store';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { ChartDisplayer } from '../../components/ChartDisplayer/ChartDisplayer';
+
+import bertcluster from '../../assets/charts/bertcluster.png';
+import berthierachical from '../../assets/charts/berthierachical.png'
+import bertsimilarity from '../../assets/charts/bertsimilarity.png'
+import bertwords from '../../assets/charts/bertwords.png'
+import ldavis from '../../assets/charts/ldavis.png'
 
 interface DashboardProps { 
     data: SearchResults;
@@ -39,8 +46,10 @@ const Dashboard = (props: DashboardProps ) => {
     const [ loading, setLoading ] = React.useState(false);
 
     const { querytext } = useParams();
-    console.log(querytext);
+    
     const speed_str = useLocation()['pathname'].split('/')[1];
+    console.log(speed_str);
+
 
     const reloadSearch = async () => { 
         setLoading(true);
@@ -84,13 +93,24 @@ const Dashboard = (props: DashboardProps ) => {
                         
                         }
                     </Box>
-                    <Box sx={{width: '25%', height: '100%'}}>
-                        <Box onClick={ () => {navigate('/chart/lda/vis')}}>ldaPlot </Box>
-                        <Box onClick={ () => {navigate('/chart/bert/cluster')}}>topicClustersPlot </Box>
-                        <Box onClick={ () => {navigate('/chart/bert/hierachical')}}>hierarchicalClusteringPlot </Box>
-                        <Box onClick={ () => {navigate('/chart/bert/words')}}>topicsWordsScorePlot </Box>
-                        <Box onClick={ () => {navigate('/chart/bert/similarity')}}>topicsSimilarityPlot </Box>
-                        <Box onClick={ () => {navigate('/chart/bert/documents')}}>documentClustersPlot </Box>
+                    <Box sx={{width: '25%', height: '100%', margin:'auto'}}>
+                        { props.searched && !props.isEmpty ? 
+                             <Box>
+                                { speed_str == 'fast' ? 
+                                <>
+                                    <Box onClick={ () => {navigate('/chart/lda/vis')}} component='img' src={ldavis} alt='ldavis' width='90%' padding='5%'></Box>
+                                </>
+                                    : 
+                                <Box>
+                                    <Box onClick={ () => {navigate('/chart/bert/cluster')}} component='img' src={bertcluster} alt='topicClustersPlot' width='90%' padding='5%'></Box>
+                                    <Box onClick={ () => {navigate('/chart/bert/hierachical')}} component='img' src={berthierachical} alt='hierarchicalClusteringPlot' width='90%' padding='5%'></Box>
+                                    <Box onClick={ () => {navigate('/chart/bert/words')}} component='img' src={bertwords} alt='topicsWordsScorePlot' width='90%' padding='5%'></Box>
+                                    <Box onClick={ () => {navigate('/chart/bert/similarity')}} component='img' src={bertsimilarity} alt='topicsSimilarityPlot' width='90%' padding='5%'></Box>
+                                    {/* <Box onClick={ () => {navigate('/chart/bert/documents')}}>documentClustersPlot </Box> */}
+                                </Box>
+                                } 
+                            </Box> : <Box></Box>
+                        } 
                     </Box>
                 </Box>
                 {/**<Box sx={{width: '100%'}}>

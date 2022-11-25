@@ -19,7 +19,6 @@ const plotSelectorMapping = {
 };
 
 
-
 interface ChartPageProps { 
 
 }
