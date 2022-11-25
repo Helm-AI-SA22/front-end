@@ -21,13 +21,19 @@ import { ForkRight } from '@mui/icons-material';
 const mapStateToProps = (state: RootState) => ({
     documents: state.results.data.documents,
     criteria: state.ranking.criteria, 
-    ascending: state.ranking.ascending
+    ascending: state.ranking.ascending,
+    currentPage: state.pagination.currentPage,
+    totDocs: state.pagination.totPapers,
+    nPages: state.pagination.nPages
 })
 
 interface RankingBarProps {
     documents: Array<Paper>;
     criteria: RankingCriteria;
     ascending: boolean;
+    currentPage: number;
+    totDocs: number;
+    nPages: number;
 }
 
 const RankingBar = (props: RankingBarProps ) => {
@@ -73,11 +79,11 @@ const RankingBar = (props: RankingBarProps ) => {
     };
 
     return ( 
-        <Box className="ranking-bar" alignItems="center" sx={{m:1}}>
-            <Box className='textR'sx={{ml:2}} >
-                <Typography>1-16 of over 1,000 results for "keyword"</Typography>
+        <Box className="ranking-bar" sx={{mt:1}}>
+            <Box className='textR' alignItems='left'>
+                <p>{props.currentPage + "-" + props.nPages + " of over " + props.totDocs + " results for " + querytext?.replace(";", " & ")}</p>
             </Box>
-            <div className='formC'>
+            <Box className='formC' alignSelf="center">
                 <Stack direction="row" spacing={2}>
                     <FormControl size='small' sx={{marginTop: 1, minWidth: 130}}>
                         <InputLabel size='small' id="demo-simple-select-autowidth-label" sx={{marginTop:0}}>Order by</InputLabel>
@@ -93,10 +99,10 @@ const RankingBar = (props: RankingBarProps ) => {
                         </Select>
                     </FormControl>
                     <FormGroup>
-                        <FormControlLabel control={<Switch defaultChecked value={props.ascending} onChange={handleRankingDirectionhange}  />} label="Descending" />
+                        <FormControlLabel control={<Switch defaultChecked value={props.ascending} onChange={handleRankingDirectionhange}  />} label="Descending" sx={{mt:1, ml:0.5}}/>
                     </FormGroup>
                 </Stack>
-            </div>
+            </Box>
         </Box>
     )
 }

@@ -11,25 +11,33 @@ import Collapse from '@mui/material/Collapse';
 import ListItem from '@mui/material/ListItem';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
+import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import InputLabel from '@mui/material/InputLabel';
+import PeopleIcon from '@mui/icons-material/People';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LockIcon from '@mui/icons-material/Lock';
+import TopicIcon from '@mui/icons-material/Topic';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { TopicIndex, Paper, SearchAPIResponse, SearchResults } from '../../utility/interfaces';
+import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
 import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI} from './FilteringSlice';
-import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest, Criteria} from '../../utility/interfaces'
+import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
 import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants'; 
 import { filter, selectResults, update, selectOriginalDocs } from '../SearchBar/SearchResultsSlice';
 import {useAppSelector, useAppDispatch} from '../../utility/hooks'
 import {filterAPI} from '../../utility/api'
+import {updateCurrentPage} from '../../components/ResultsList/PaginationSlice'
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -114,9 +122,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <Divider sx={{ml:1}}/>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <TopicIcon sx={{mr:1}}/>
+                        <ListItemText primary= {"Topics"} />
+                    </Box>
                     {openTopics ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {"Topics"} />
                 </ListItemButton>
                 <Collapse in={openTopics} timeout="auto" unmountOnExit>
                     <Box sx={{marginLeft: 3}}>
@@ -141,6 +153,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         })}
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     
@@ -240,9 +253,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        {labelSection =="Citations" ? <TrendingUpIcon sx={{mr:1}}/>: <CalendarMonthIcon sx={{mr:1}}/>}
+                        <ListItemText primary= {labelSection} />
+                    </Box>
                     {open ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {labelSection} />
                 </ListItemButton>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box
@@ -282,6 +298,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -303,9 +320,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <PeopleIcon sx={{mr:1}}/>
+                        <ListItemText primary= {'Authors'} />
+                    </Box>
                     {openAuthors ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {'Authors'} />
                 </ListItemButton>
                 <Collapse in={openAuthors} timeout="auto" unmountOnExit>
                     <Box
@@ -329,6 +349,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -356,9 +377,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         
         return(
             <Box>
-                <ListItemButton onClick={handleClick}>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <LockIcon sx={{mr:1}}/>
+                        <ListItemText primary= {labelSection} />
+                    </Box>
                     {open ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary= {labelSection} />
                 </ListItemButton>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box sx={{m: 2, width: '75%'}}>
@@ -378,6 +402,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     </FormControl>
                     </Box>
                 </Collapse>
+                <Divider sx={{ml:1}}/>
             </Box>
         );
     }
@@ -396,7 +421,9 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
                 payload.topics = data.topics;
+                payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
+                dispatch(updateCurrentPage(1));
                 dispatch(update(response.data as SearchResults));
                 console.log(jsonToSend);
             }
@@ -441,7 +468,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     const topicsList: TopicIndex[] = data.topics;
 
     let authorsString: string = "";
-    const statesAvailabilityKeys = [-1, 0, 1];
+    const statesAvailabilityKeys = [-1, 1, 0];
     const statesAvailability = ["All", "Yes", "No"];
     const statesPreprint = ["All", "Peer reviewed only", "Preprint only"];
     const statesPreprintKeys = [-1, 0, 1];
@@ -461,9 +488,9 @@ const FilteringPanel = (props: FilteringPanelProps) => {
         }
         >
             {listTopics(topicsList)}
-            {filterRange("Publication Year", openPublicationYear, setOpenPublicationYear, DATE_MIN, DATE_MAX, 
+            {filterRange("Publication year", openPublicationYear, setOpenPublicationYear, DATE_MIN, DATE_MAX, 
             errorMinDate, setErrorMinDate, errorMaxDate, setErrorMaxDate, RangedFilters.DATE, new RegExp('1[0-9]{3}|2[0-9]{3}'))}
-            {filterRange("Citation Count", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
+            {filterRange("Citations", openCitationCount, setOpenCitationCount, CIT_MIN, CIT_MAX, 
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
             {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setOpenAvailability, availabilityFilterValue, setAvailabilityFilterValue)}

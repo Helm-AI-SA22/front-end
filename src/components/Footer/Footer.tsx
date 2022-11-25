@@ -8,7 +8,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" textAlign={'center'}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Helm
+        Helm.ai
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

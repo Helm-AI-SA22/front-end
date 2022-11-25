@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {Container, Box, Toolbar} from '@mui/material';
 import {Typography, Divider} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Logo from '../../assets/logo/primary2.png';
+import Logo from '../../assets/logo/primary.png';
 import Helm from '../../assets/logo/helm.png';
 
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -49,13 +49,13 @@ export default class HomePage extends Component {
                     <Box
                         component="img"
                         sx={{
-                        height: 150,
+                        height: 200,
                        
                         }}
                         alt="Your logo."
                         src={Logo}
                     />
-                    <Box
+                    {/**<Box
                         component="img"
                         sx={{
                         height: 50,
@@ -63,8 +63,11 @@ export default class HomePage extends Component {
                         }}
                         alt="Helm.ai"
                         src={Helm}
-                    />
-                    <Typography  variant="h5" align="center"  color="text.secondary" sx={{fontWeight: 'bold', minWidth: '40%', marginTop: 5}} paragraph>
+                    />*/}
+                    <Typography  variant="h1" align="center"  color="#171f5b" sx={{fontWeight: 'bold', fontFamily: 'Helvetica', minWidth: '35%', marginTop: 5}} paragraph>
+                    {'Helm.ai'}
+                    </Typography>   
+                    <Typography  variant="h5" align="center"  color="text.secondary" sx={{fontWeight: 'bold', minWidth: '40%', marginTop: 1}} paragraph>
                     {'Navigate through research oceans'} <br />
                         <Button sx={{pt:2}} variant="text" >Read more about us</Button>
                     </Typography>   
