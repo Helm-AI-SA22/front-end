@@ -29,7 +29,7 @@ import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
-import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI} from './FilteringSlice';
+import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI, selectAvailability} from './FilteringSlice';
 import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
@@ -446,7 +446,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     function buttonClearFilters(setOpenList: React.Dispatch<React.SetStateAction<boolean>>[]){
 
         const handleClick = async () => {
-            dispatch(clean())
+            dispatch(clean());
+            setAvailabilityFilterValue("-1");
             setChecked([]);
             for(let i=0; i<openList.length; i++){
                 let func = setOpenList[i];
