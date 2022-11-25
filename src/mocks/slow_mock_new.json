@@ -1,0 +1,1303 @@
+{
+  "documents": [
+    {
+      "abstract": "The edge channels of the quantum Hall effect provide one dimensional chiral and ballistic wires along which electrons can be guided in optics like setup. Electronic propagation can then be analyzed using concepts and tools derived from optics. After a brief review of electron optics experiments performed using stationary current sources which continuously emit electrons in the conductor, this paper focuses on triggered sources, which can generate on-demand a single particle state. It first outlines the electron optics formalism and its analogies and differences with photon optics and then turns to the presentation of single electron emitters and their characterization through the measurements of the average electrical current and its correlations. This is followed by a discussion of electron quantum optics experiments in the Hanbury-Brown and Twiss geometry where two-particle interferences occur. Finally, Coulomb interactions effects and their influence on single electron states are considered.",
+      "authors": "E. Bocquillon;V. Freulon;F. D. Parmentier;J. -M Berroir;B. Pla\u00e7ais;C. Wahl;J. Rech;T. Jonckheere;T. Martin;C. Grenier;D. Ferraro;P. Degiovanni;G. F\u00e8ve",
+      "citationCount": -1,
+      "id": "10.1002/andp.201300181",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1403.0118v1",
+      "publicationDate": "2014-03-01T18:50:06Z",
+      "source": ["arxiv"],
+      "title": "Electron quantum optics in ballistic chiral conductors",
+      "topics": [{ "affinity": 0.9024333888113002, "id": 1 }]
+    },
+    {
+      "abstract": "In this paper, we review recent developments in the emerging field of electron quantum optics, stressing analogies and differences with the usual case of photon quantum optics. Electron quantum optics aims at preparing, manipulating and measuring coherent single electron excitations propagating in ballistic conductors such as the edge channels of a 2DEG in the integer quantum Hall regime. Because of the Fermi statistics and the presence of strong interactions, electron quantum optics exhibits new features compared to the usual case of photon quantum optics. In particular, it provides a natural playground to understand decoherence and relaxation effects in quantum transport.",
+      "authors": "Charles Grenier;R\u00e9my Herv\u00e9;Gwendal F\u00e8ve;Pascal Degiovanni",
+      "citationCount": -1,
+      "id": "10.1142/S0217984911026772",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1102.0466v1",
+      "publicationDate": "2011-02-02T15:38:35Z",
+      "source": ["arxiv"],
+      "title": "Electron quantum optics in quantum Hall edge channels",
+      "topics": [{ "affinity": 0.901992267680232, "id": 1 }]
+    },
+    {
+      "abstract": "The atom sets an ultimate scaling limit to Moores law in the electronics industry. And while electronics research already explores atomic scales devices, photonics research still deals with devices at the micrometer scale. Here we demonstrate that photonic scaling-similar to electronics-is only limited by the atom. More precisely, we introduce an electrically controlled single atom plasmonic switch. The switch allows for fast and reproducible switching by means of the relocation of an individual or at most -- a few atoms in a plasmonic cavity. Depending on the location of the atom either of two distinct plasmonic cavity resonance states are supported. Experimental results show reversible digital optical switching with an extinction ration of 10 dB and operation at room temperature with femtojoule (fJ) power consumption for a single switch operation. This demonstration of a CMOS compatible, integrated quantum device allowing to control photons at the single-atom level opens intriguing perspectives for a fully integrated and highly scalable chip platform -- a platform where optics, electronics and memory may be controlled at the single-atom level.",
+      "authors": "Alexandros Emboras;Jens Niegemann;Ping Ma;Christian Haffner;Mathieu Luisier;Christian Hafner;Thomas Schimmel;Juerg Leuthold",
+      "citationCount": -1,
+      "id": "10.1021/acs.nanolett.5b04537",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1508.07748v2",
+      "publicationDate": "2015-08-31T10:09:25Z",
+      "source": ["arxiv"],
+      "title": "Single Atom Plasmonic Switch",
+      "topics": [{ "affinity": 0.9368557524520484, "id": 1 }]
+    },
+    {
+      "abstract": "We report the design and implementation of a complete electronics platform for conducting a quantum optics experiment that will be operated on board a 1U CubeSat (a 10 x 10 x 10 cm satellite). The quantum optics experiment is designed to produce polarization-entangled photon pairs using non-linear optical crystals and requires opto-electronic components such as a pump laser, single photon detectors and liquid crystal based polarization rotators in addition to passive optical elements. The platform provides mechanical support for the optical assembly. It also communicates autonomously with the host satellite to provide experiment data for transmission to a ground station. A limited number of commands can be transmitted from ground to the platform enabling it to switch experimental modes. This platform requires less than 1.5W for all operations, and is space qualified. The implementation of this electronics platform is a major step on the road to operating quantum communication experiments using nanosatellites.",
+      "authors": "Cliff Cheng;Rakhitha Chandrasekara;Yue Chuan Tan;Alexander Ling",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1505.06523v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1505.06523v1",
+      "publicationDate": "2015-05-25T02:05:52Z",
+      "source": ["arxiv"],
+      "title": "Space qualified nanosatellite electronics platform for photon pair   experiments",
+      "topics": [{ "affinity": 0.9619795678092949, "id": 1 }]
+    },
+    {
+      "abstract": "The following topics are dealt with: laser biomedicine and chemistry; physics and engineering of nanostructures; nonlinear, singular optics and fiber optical vortices; optical communication; optical measurement techniques; organic coherent optics; crystal resonators theory; crystal oscillators theory and noise; and timekeeping and applications",
+      "authors": "",
+      "citationCount": 0,
+      "id": "10.1109/CAOL.2003.1250498",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1250498",
+      "publicationDate": "16-20 Sept. 2003",
+      "source": ["ieee"],
+      "title": "Proceedings of CAOL'2003. 1st International Conference on Advanced Optoelectronics and Lasers. Jontly with 1st Workshop on Precision Oscillations in Electronics and Optics (IEEE Cat. No.03EX715)",
+      "topics": [{ "affinity": 0.9230075438152565, "id": 1 }]
+    },
+    {
+      "abstract": "The following topics are dealt with: laser biomedicine and chemistry; physics and engineering of nanostructures; nonlinear, singular optics and fiber optical vortices; optical communication; optical measurement techniques; organic coherent optics; crystal resonators theory; crystal oscillators theory and noise; and timekeeping and applications.",
+      "authors": "",
+      "citationCount": 0,
+      "id": "10.1109/CAOL.2003.1251237",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1251237",
+      "publicationDate": "16-20 Sept. 2003",
+      "source": ["ieee"],
+      "title": "Proceedings of CAOL'2003. 1st International Conference on Advanced Optoelectronics and Lasers. Jontly with 1st Workshop on Precision Oscillations in Electronics and Optics (IEEE Cat. No.03EX715)",
+      "topics": [{ "affinity": 0.9256114475466186, "id": 1 }]
+    },
+    {
+      "abstract": "For electron optics in graphene, the propagation effect has so far been the only physical mechanism available. The resulting electron-optics-based components are large in size and operate at low temperatures to avoid violating the ballistic transport limits. In this paper, Dirac fermion metasurfaces, electronic counterparts of optical metasurfaces, are introduced for graphene electronics. By a metasurface, formally a linear array of gate-bias-controlled circular quantum dots, the wavefront of electron beams can be shaped within a one-quantum-dot-diameter distance, far below the ballistic limits at room temperature. This provides opportunities to create electron-optics-based devices that operate under ambient conditions. Moreover, unlike optical metasurfaces, Dirac fermion metasurfaces have near-perfect operating efficiencies and their high tunability allows for free and fast switching among functionalities. The concept of metasurface electron optics might open up a promising avenue for improving the performance of quantum devices in Dirac fermion materials.",
+      "authors": "Ruihuang Zhao;Pengcheng Wan;Ling Zhou;Di Huang;Haiqin Guo;Hao Xia;Junjie Du",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2201.02415v2",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2201.02415v2",
+      "publicationDate": "2022-01-07T11:55:21Z",
+      "source": ["arxiv"],
+      "title": "Metasurface electron optics in graphene",
+      "topics": [
+        { "affinity": 0.7270536766700393, "id": 0 },
+        { "affinity": 0.10337689635172455, "id": 1 },
+        { "affinity": 0.16956942697823618, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "This paper gives a personal global point of view on two sciences: electronics and photonics towards plasmonics and solar energy conversion. The new research directions in these two sciences are pointed out by comparison and in the perspective of future new solar devices. A parallel and the equivalence between electronics and photonics are presented. Starting from electron in electronics, photon, solitons and plasmons in photonics, electrical cables - optical fibers, plasmonic wave guides, electrical circuits - optical circuits, electrical transistors - optical transistors, plasmonster, electrical generators - pulsed lasers and spasers, photonics gets step by step all the tools already existing in electronics. Solar energy could be converted in many ways, the most known is the conversion in electricity. Today we need that the energy is in form of electricity because most of the apparatus that we use are based on electricity: informatics, motors, etc. However, the progress in photonics with optical circuits, optical transistors etc., shows that the photonics informatics could be possible. Also the optical manipulation and optical engines concept were already demonstrated experimentally. If the laser propulsion will be achieved, and the optical engines will work, the question that will rise tomorrow is: \"Shall we still use the electricity in the future? What will be the solar devices tomorrow?\"",
+      "authors": "M. Girtan",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1209.3337v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1209.3337v1",
+      "publicationDate": "2012-09-14T22:21:38Z",
+      "source": ["arxiv"],
+      "title": "Electronics and photonics: two sciences in the benefit of solar energy   conversion",
+      "topics": [
+        { "affinity": 0.8132274737737536, "id": 1 },
+        { "affinity": 0.11006595401078967, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "The recent developments of electron quantum optics in quantum Hall edge channels have given us new ways to probe the behavior of electrons in quantum conductors. It has brought new quantities called electronic coherences under the spotlight. In this paper, we explore the relations between electron quantum optics and signal processing through a global review of the various methods for accessing single- and two-electron coherences in electron quantum optics. We interpret electron quantum optics interference experiments as analog signal processing converting quantum signals into experimentally observable quantities such as current averages and correlations.   This point of view also gives us a procedure to obtain quantum information quantities from electron quantum optics coherences. We illustrate these ideas by discussing two mode entanglement in electron quantum optics. We also sketch how signal processing ideas may open new perspectives for representing electronic coherences in quantum conductors and understand the properties of the underlying many-body electronic state.",
+      "authors": "B. Roussel;C. Cabart;G. F\u00e8ve;E. Thibierge;P. Degiovanni",
+      "citationCount": -1,
+      "id": "10.1002/pssb.201600621",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1610.02086v3",
+      "publicationDate": "2016-10-06T22:04:33Z",
+      "source": ["arxiv"],
+      "title": "Electron quantum optics as quantum signal processing",
+      "topics": [{ "affinity": 0.9021413297843046, "id": 1 }]
+    },
+    {
+      "abstract": "The planned IceCube-Upgrade will enhance the capability of IceCube in the detection of GeV-scale neutrino physics and enable an improved measurement of the properties of the glacial ice. Three types of new optical sensors will be deployed during the Upgrade: PDOM, D-Egg, and mDOM. Since the design of the PDOM and D-Egg are very similar, the development of the front-end electronics for the two optical sensors has been merged. The photo-electron signals detected by the PMTs are digitized with high-speed ultra-low power ADCs and processed in an FPGA, before being sent to the data acquisition system located on the surface of the South-Pole glacier. The almost final revision of the front-end electronics is equipped with the common microcontroller unit and the communication daughter board for simplifying the communication scheme for the three different modules. This contribution focuses on the design of the front-end electronics and presents first results from the performance tests.",
+      "authors": "Ryo Nagai;Aya Ishihara",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1908.11564v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1908.11564v1",
+      "publicationDate": "2019-08-30T06:49:28Z",
+      "source": ["arxiv"],
+      "title": "Electronics Development for the New Photo-Detectors (PDOM and D-Egg) for   IceCube-Upgrade",
+      "topics": [
+        { "affinity": 0.10047652889005686, "id": 0 },
+        { "affinity": 0.5556673495875, "id": 1 },
+        { "affinity": 0.34385612152244316, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Electron optics in the solid state promises new functionality in electronics through the possibility of realizing micrometer-sized interferometers, lenses, collimators and beam splitters that manipulate electrons instead of light. Until now, however, such functionality has been demonstrated exclusively in one-dimensional devices, such as in nanotubes, and in graphene-based devices operating with p-n junctions. In this work, we describe a novel mechanism for realizing electron optics in two dimensions. By studying a two-dimensional Fabry-P '{e}rot interferometer based on a resonant cavity formed in an InAs/GaSb double quantum well using p-n junctions, we establish that electron-hole hybridization in band-inverted systems can facilitate coherent interference. With this discovery, we expand the field of electron optics to encompass materials that exhibit band inversion and hybridization, with the promise to surpass the performance of current state-of-the-art devices.",
+      "authors": "Matija Karalic;Antonio \u0160trkalj;Michele Masseroni;Wei Chen;Christopher Mittag;Thomas Tschirky;Werner Wegscheider;Thomas Ihn;Klaus Ensslin;Oded Zilberberg",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevX.10.031007",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1911.00424v1",
+      "publicationDate": "2019-11-01T15:28:20Z",
+      "source": ["arxiv"],
+      "title": "Electron-Hole Interference in an Inverted-Band Semiconductor Bilayer",
+      "topics": [
+        { "affinity": 0.7296816047987875, "id": 0 },
+        { "affinity": 0.10074896822297619, "id": 1 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Electron optics exploits the analogies between rays in geometrical optics and electron trajectories, leading to interesting insights and potential applications. Graphene, with its two-dimensionality and photon-like behavior of its charge carriers, is the perfect candidate for the exploitation of electron optics. We show that a circular gate-controlled region in the presence of Rashba spin-orbit interaction in graphene may indeed behave as a Veselago electronic lens but with two different indices of refraction. We demonstrate that this birefringence results in complex caustics patterns for a circular gate, selective focusing of different spins, and the possible direct measurement of the Rashba coupling strength in scanning probe experiments.",
+      "authors": "Mahmoud M. Asmar;Sergio E. Ulloa",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevB.87.075420",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1209.4415v2",
+      "publicationDate": "2012-09-20T04:01:51Z",
+      "source": ["arxiv"],
+      "title": "Rashba Spin Orbit Interaction and Birefringent Electron Optics in   Graphene",
+      "topics": [
+        { "affinity": 0.7314544365799207, "id": 0 },
+        { "affinity": 0.1695694269782364, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "As artificial neural networks (ANNs) continue to make strides in wide-ranging and diverse fields of technology, the search for more efficient hardware implementations beyond conventional electronics is gaining traction. In particular, optical implementations potentially offer extraordinary gains in terms of speed and reduced energy consumption due to intrinsic parallelism of free-space optics. At the same time, a physical nonlinearity, a crucial ingredient of an ANN, is not easy to realize in free-space optics, which restricts the potential of this platform. This problem is further exacerbated by the need to perform the nonlinear activation also in parallel for each data point to preserve the benefit of linear free-space optics. Here, we present a free-space optical ANN with diffraction-based linear weight summation and nonlinear activation enabled by the saturable absorption of thermal atoms. We demonstrate, via both simulation and experiment, image classification of handwritten digits using only a single layer and observed 6-percent improvement in classification accuracy due to the optical nonlinearity compared to a linear model. Our platform preserves the massive parallelism of free-space optics even with physical nonlinearity, and thus opens the way for novel designs and wider deployment of optical ANNs.",
+      "authors": "Albert Ryou;James Whitehead;Maksym Zhelyeznyakov;Paul Anderson;Cem Keskin;Michal Bajcsy;Arka Majumdar",
+      "citationCount": -1,
+      "id": "10.1364/PRJ.415964",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2102.04464v1",
+      "publicationDate": "2021-02-08T17:52:00Z",
+      "source": ["arxiv"],
+      "title": "Free-space optical neural network based on thermal atomic nonlinearity",
+      "topics": [{ "affinity": 0.9460780040344091, "id": 1 }]
+    },
+    {
+      "abstract": "Metamaterials are beginning to transform optics and microwave technology thanks to their versatile properties that, in many cases, can be tailored according to practical needs and desires. Although metamaterials are surely not the answer to all engineering problems, they have inspired a series of significant technological developments and also some imaginative research, because they invite researchers and inventors to dream. Imagine there were no practical limits on the electromagnetic properties of materials. What is possible? And what is not? If there are no practical limits, what are the fundamental limits? Such questions inspire taking a fresh look at the foundations of optics and at connections between optics and other areas of physics. In this article we discuss such a connection, the relationship between optics and general relativity, or, expressed more precisely, between geometrical ideas normally applied in general relativity and the propagation of light, or electromagnetic waves in general, in materials. We also discuss how this connection is applied: in invisibility devices, perfect lenses, the optical Aharonov-Bohm effect of vortices and in analogues of the event horizon.",
+      "authors": "Ulf Leonhardt;Thomas G. Philbin",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/0805.4778v2",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/0805.4778v2",
+      "publicationDate": "2008-05-30T14:39:00Z",
+      "source": ["arxiv"],
+      "title": "Transformation Optics and the Geometry of Light",
+      "topics": [{ "affinity": 0.959385912452117, "id": 1 }]
+    },
+    {
+      "abstract": "We show that carbon-doped hexagonal boron nitride (h-BN) has extraordinary properties with many possible applications. We demonstrate that the substitution-induced impurity states, associated with carbon atoms, and their interactions dictate the electronic structure and properties of C-doped h-BN. Furthermore, we show that stacking of localized impurity states in small C clusters embedded in h-BN forms a set of discrete energy levels in the wide gap of h-BN. The electronic structures of these C clusters have a plethora of applications in optics, magneto-optics, and opto-electronics.",
+      "authors": "Hyoungki Park;Amita Wadehra;John W. Wilkins;Antonio H. Castro Neto",
+      "citationCount": -1,
+      "id": "10.1063/1.4730392",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1205.3477v1",
+      "publicationDate": "2012-05-15T19:01:05Z",
+      "source": ["arxiv"],
+      "title": "Magnetic states and optical properties of single-layer carbon-doped   hexagonal boron nitride",
+      "topics": [
+        { "affinity": 0.25037627071816126, "id": 0 },
+        { "affinity": 0.11449002819586342, "id": 1 },
+        { "affinity": 0.6351337010859753, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Non-Euclidean geometry combined with transformation optics has recently led to the proposal of an invisibility cloak that avoids optical singularities and therefore can work, in principle, in a broad band of the spectrum [U. Leonhardt and T. Tyc, Science 323, 110 (2009)]. Such a cloak is perfect in the limit of geometrical optics, but not in wave optics. Here we analyze, both analytically and numerically, full wave propagation in non-Euclidean cloaking. We show that the cloaking device performs remarkably well even in a regime beyond geometrical optics where the device is comparable in size with the wavelength. In particular, the cloak is nearly perfect for a spectrum of frequencies that are related to spherical harmonics. We also show that for increasing wavenumber the device works increasingly better, approaching perfect behavior in the limit of geometrical optics.",
+      "authors": "Tomas Tyc;Huanyang Chen;Che Ting Chan;Ulf Leonhardt",
+      "citationCount": -1,
+      "id": "10.1109/JSTQE.2009.2032514",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/0906.4491v1",
+      "publicationDate": "2009-06-24T14:44:47Z",
+      "source": ["arxiv"],
+      "title": "Non-Euclidean cloaking for light waves",
+      "topics": [
+        { "affinity": 0.794023267204629, "id": 1 },
+        { "affinity": 0.1322001493096584, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Although electrons and photons are intrinsically different, importing useful concepts in optics to electronics performing similar functions has been actively pursued over the last two decades. In particular, collimation of an electron beam is a long-standing goal. We show that ballistic propagation of an electron beam with virtual no spatial spreading or diffraction, without a waveguide or external magnetic field, can be achieved in graphene under an appropriate class of experimentally feasible one-dimensional external periodic potentials. The novel chiral quasi-one-dimensional metallic state that the charge carriers are in originates from a collapse of the intrinsic helical nature of the charge carriers in graphene owing to the superlattice potential. Beyond providing a new way to constructing chiral one-dimensional states in two dimensions, our findings should be useful in graphene-based electronic devices (e.g., for information processing) utilizing some of the highly developed concepts in optics.",
+      "authors": "Cheol-Hwan Park;Young-Woo Son;Li Yang;Marvin L. Cohen;Steven G. Louie",
+      "citationCount": -1,
+      "id": "10.1021/nl801752r",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/0808.3198v1",
+      "publicationDate": "2008-08-23T15:27:15Z",
+      "source": ["arxiv"],
+      "title": "Electron Beam Supercollimation in Graphene Superlattices",
+      "topics": [
+        { "affinity": 0.744749765055327, "id": 0 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "These are the lecture notes for a course that I am teaching at Zhiyuan College of Shanghai Jiao Tong University (available at https://www.youtube.com/derekkorg), though the first draft was created for a previous course I taught at the University of Erlangen-Nuremberg in Germany. It has been designed for students who have only had basic training on quantum mechanics, and hence, the course is suited for people at all levels. The notes are a work in progress, meaning that some proofs and many figures are still missing. However, I've tried my best to write everything in such a way that a reader can follow naturally all arguments and derivations even with these missing bits. Quantum optics treats the interaction between light and matter. We may think of light as the optical part of the electromagnetic spectrum, and matter as atoms. However, modern quantum optics covers a wild variety of systems, including superconducting circuits, confined electrons, excitons in semiconductors, defects in solid state, or the center-of-mass motion of micro-, meso-, and macroscopic systems. Moreover, quantum optics is at the heart of the field of quantum information. The ideas and experiments developed in quantum optics have also allowed us to take a fresh look at many-body problems and even high-energy physics. In addition, quantum optics holds the promise of testing foundational problems in quantum mechanics as well as physics beyond the standard model in table-sized experiments. Quantum optics is therefore a topic that no future researcher in quantum physics should miss.",
+      "authors": "Carlos Navarrete-Benlloch",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2203.13206v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2203.13206v1",
+      "publicationDate": "2022-03-20T14:42:46Z",
+      "source": ["arxiv"],
+      "title": "Introduction to Quantum Optics",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Recently, a lot of effort has been dedicated to developing next-generation optoelectronic devices based on two-dimensional materials, thanks to their unique optical properties that are significantly different from those of their bulk counterparts. In order to implement high-performance nanoscale optical devices, an in-depth study of how linear and non-linear propagation occurs in two-dimensional materials is required. Here, we focus on the theory behind the propagation of electromagnetic waves in two-dimensional materials as well as emerging applications in the fields of electronics, optics, sensors, which are summarized and discussed in the paper.",
+      "authors": "Nicola Curreli;Alessandro Fanti;Giuseppe Mazzarella;Ilka Kriegel",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2103.13884v2",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2103.13884v2",
+      "publicationDate": "2021-03-25T14:46:05Z",
+      "source": ["arxiv"],
+      "title": "Linear and Nonlinear Optical Propagation in 2D Materials",
+      "topics": [{ "affinity": 0.9495818728144062, "id": 1 }]
+    },
+    {
+      "abstract": "This paper presents an overview of research and development programs at AFRL/VS in micro-opto-electro-mechanical systems (MOEMS) for adaptive optics. Adaptive optic systems typically consist of a wavefront phase sensor, focusing optics, a spatial light modulator (SLM) for correcting phase errors, imaging sensors, and the control and processing electronics. These systems have a simple purpose: they improve image quality by reducing the phase aberrations introduced when the wavefront travels through turbulent atmosphere or aberrations introduced by the optical system itself. As will be shown, aberration correction and controllable focus can also enable new system functions. Adaptive optic systems are becoming practical for space, missile, and man-portable applications. Comparisons are made between current macro-optical aberration correction systems and the micromirror based systems currently under development. These comparisons show how micromirrors are the crucial enabling technology for compacting these systems down to a size where their use in space can be contemplated. As an example of a space application, a proposed star tracker system is used as an example of a complete micro-optical system that employs not only a micromirror based SLM, but also a novel wavefront sensor, analog processing electronics, and new sensor electronics. Research on surface-micromachined polycrystalline silicon micromirrors will be reported, including work on several fabrication technologies for piston micromirrors and also for highly advanced micromirrors with tilting as well as piston motion. Design techniques for both individual micromirrors and arrays of micromirrors will be detailed for both the most advanced of these processes, the Sandia Ultra-planar Multi-level MEMS Technology (SUMMiT) process, and for the most widely available process, the Multi-User MEMS Process (MUMPS). Results of characterization testing and device modeling will be presented to show the advantages of each of the various design approaches.",
+      "authors": "J.H. Comtois;M.A. Michalicek;N. Clark;W. Cowan",
+      "citationCount": 6,
+      "id": "10.1109/LEOSST.1998.689742",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=689742",
+      "publicationDate": "20-24 July 1998",
+      "source": ["ieee"],
+      "title": "MOEMS for adaptive optics",
+      "topics": [{ "affinity": 0.9769299851794888, "id": 1 }]
+    },
+    {
+      "abstract": "Recent interest in the role of quantum mechanics in the primary events of photosynthetic energy transfer has led to a convergence of nonlinear optical spectroscopy and quantum optics on the topic of energy-transfer dynamics in pigment-protein complexes. The convergence of these two communities has unveiled a mismatch between the background and terminology of the respective fields. To make connections, we provide a pedagogical guide to understanding the basics of two-dimensional electronic spectra aimed at researchers with a background in quantum optics.",
+      "authors": "Agata M. Branczyk;Daniel B. Turner;Gregory D. Scholes",
+      "citationCount": -1,
+      "id": "10.1002/andp.201300153",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1307.5855v1",
+      "publicationDate": "2013-07-22T20:00:07Z",
+      "source": ["arxiv"],
+      "title": "Two-dimensional electronic spectroscopy for the quantum-optics   enthusiast",
+      "topics": [{ "affinity": 0.9766159663034097, "id": 1 }]
+    },
+    {
+      "abstract": "The analog of two seminal quantum optics experiments are considered in a condensed matter setting with single electron sources injecting electronic wave packets on edge states coupled through a quantum point contact. When only one electron is injected, the measurement of noise correlations at the output of the quantum point contact corresponds to the Hanbury-Brown and Twiss setup. When two electrons are injected on opposite edges, the equivalent of the Hong-Ou-Mandel collision is achieved, exhibiting a dip as in the coincidence measurements of quantum optics. The Landauer-Buttiker scattering theory is used to first review these phenomena in the integer quantum Hall effect, next, to focus on two more exotic systems: edge states of two dimensional topological insulators, where new physics emerges from time reversal symmetry and three electron collisions can be achieved; and edges states of a hybrid Hall/superconducting device, which allow to perform electron quantum optics experiments with Bogoliubov quasiparticles.",
+      "authors": "D. Ferraro;T. Jonckheere;J. Rech;T. Martin",
+      "citationCount": -1,
+      "id": "10.1002/pssb.201600531",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1610.01043v1",
+      "publicationDate": "2016-10-04T15:21:34Z",
+      "source": ["arxiv"],
+      "title": "Electronic quantum optics beyond the integer quantum Hall effect",
+      "topics": [{ "affinity": 0.9018016877101792, "id": 1 }]
+    },
+    {
+      "abstract": "One of the proposed Medium-Sized Telescopes for the Cherenkov Telescope Array is the dual mirror optics Schwarzschild\u2013Couder Telescope (SCT). The prototype SCT camera is currently equipped with 24 SiPM modules each one made of 64 pixels. The upgrade of the current camera is in progress, with the aim of fully equipping the 177 SiPM modules. A new front-end electronics is being developed and tested in order to improve the noise performance and match CTA requirements. In this process, 11328 SiPMs and the related electronics will be tested in the laboratories before the assembly on the telescope camera. The SiPM Multichannel ASIC for high Resolutions Cherenkov Telescope (SMART) has been developed by INFN to amplify the SiPM signals to be digitized and inserted in the trigger logic based on the TeV Array with GSa/s sampling and Experimental Trigger Application Specific Integrated Circuit (TARGET ASICs). An experimental setup has been devised to test about 750 SMART, which will be used to equip the full camera of the prototype SCT. Each SMART was tested for proper operation in response to a laser pulse. In this contribution we present a detailed scheme of the test bench and the first results obtained on the quality control measurements.",
+      "authors": "Aramo C.;Bissaldi E.;Bitossi M.;Bonavolont\u00e0 C.;De Robertis G.;Di Venere L.;Giordano F.;Incardona S.;Licciulli F.;Loporchio S.;Marsella G.;Pantaleo F.R.;Paoletti R.;Tripodo G.",
+      "citationCount": "0",
+      "id": "10.1016/j.nima.2022.167605",
+      "openaccess": "0",
+      "pdfLink": "https://api.elsevier.com/content/abstract/scopus_id/85140318786?field=author,affiliation",
+      "publicationDate": "2023-01-01",
+      "source": ["scopus"],
+      "title": "Quality control tests on the new front-end electronics for the Schwarzschild\u2013Couder Telescope",
+      "topics": [
+        { "affinity": 0.10089856910902681, "id": 0 },
+        { "affinity": 0.55524530936853, "id": 1 },
+        { "affinity": 0.34385612152244316, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Nonlinear interactions between ultrashort optical waveforms and solids can be used to induce and steer electric current on a femtosecond (fs) timescale, holding promise for electronic signal processing at PHz frequencies [Nature 493, 70 (2013)]. So far, this approach has been limited to insulators, requiring extremely strong peak electric fields and intensities. Here, we show all-optical generation and control of directly measurable electric current in a semiconductor relevant for high-speed and high-power (opto)electronics, gallium nitride (GaN), within an optical cycle and on a timescale shorter than 2 fs, at intensities at least an order of magnitude lower than those required for dielectrics. Our approach opens the door to PHz electronics and metrology, applicable to low-power (non-amplified) laser pulses, and may lead to future applications in semiconductor and photonic integrated circuit technologies.",
+      "authors": "Tim Paasch-Colberg;Stanislav Yu. Kruchinin;\u00d6zge Sa\u011flam;Stefan Kapser;Stefano Cabrini;Sascha Muehlbrandt;Joachim Reichert;Johannes V. Barth;Ralph Ernstorfer;Reinhard Kienberger;Vladislav S. Yakovlev;Nicholas Karpowicz;Agustin Schiffrin",
+      "citationCount": -1,
+      "id": "10.1364/OPTICA.3.001358",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1608.01854v2",
+      "publicationDate": "2016-08-05T12:23:03Z",
+      "source": ["arxiv"],
+      "title": "Sub-cycle optical control of current in a semiconductor: from the   multiphoton to the tunneling regime",
+      "topics": [
+        { "affinity": 0.6964339761308049, "id": 1 },
+        { "affinity": 0.2267886113766544, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "The ability to manipulate plasmons is driving new developments in electronics, optics, sensing, energy, and medicine. Despite the massive momentum of experimental research in this direction, a predictive quantum-mechanical framework for describing electron-plasmon interactions in real materials is still missing. Here, starting from a many-body Green's function approach, we develop an ab initio approach for investigating electron-plasmon coupling in solids. As a first demonstration of this methodology, we show that electron-plasmon scattering is the primary mechanism for the cooling of hot carriers in doped silicon, it is key to explain measured electron mobilities at high doping, and it leads to a quantum zero-point renormalization of the band gap in agreement with experiment.",
+      "authors": "Fabio Caruso;Feliciano Giustino",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevB.94.115208",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1609.02843v1",
+      "publicationDate": "2016-09-09T15:57:30Z",
+      "source": ["arxiv"],
+      "title": "Theory of electron-plasmon coupling in semiconductors",
+      "topics": [{ "affinity": 0.9743977126989433, "id": 1 }]
+    },
+    {
+      "abstract": "ARC Centre of Excellence for Quantum-Atom Optics, Centre for Atom Optics and Ultrafast Spectroscopy, Swinburne University of Technology, Melbourne 3122, Australia",
+      "authors": "Xia-Ji Liu;Hui Hu",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevA.85.033622",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1201.5663v1",
+      "publicationDate": "2012-01-26T22:23:10Z",
+      "source": ["arxiv"],
+      "title": "Topological superfluid in one-dimensional spin-orbit coupled atomic   Fermi gases",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Nonlinear optics, especially frequency mixing, underpins modern optical technology and scientific exploration in quantum optics, materials and life sciences, and optical communications. Since nonlinear effects are weak, efficient frequency mixing must accumulate over large interaction lengths restricting the integration of nonlinear photonics with electronics and establishing limitations on mixing processes due to the requirement of phase matching. In this work we report efficient four-wave mixing over micron-scale interaction lengths at telecoms wavelengths. We use an integrated plasmonic gap waveguide on silicon that strongly confines light within a nonlinear organic polymer in the gap. Our approach is so effective because the gap waveguide intensifies light by efficiently nanofocusing it to a mode cross-section of a few tens of nanometres, generating a nonlinear response so strong that efficient four-wave mixing accumulates in just a micron. This is significant as our technique opens up nonlinear optics to a regime where phase matching and dispersion considerations are relaxed, giving rise to the possibility of compact, broadband, and efficient frequency mixing on a platform that can be integrated with silicon photonics.",
+      "authors": "Michael P. Nielsen;Xingyuan Shi;Paul Dichtl;Stefan A. Maier;Rupert F. Oulton",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1706.04814v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1706.04814v1",
+      "publicationDate": "2017-06-15T11:06:16Z",
+      "source": ["arxiv"],
+      "title": "Efficient four-wave mixing at the nanofocus of integrated organic gap   plasmon waveguides on silicon",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "The research area of plasmonics promises devices with ultrasmall footprint operating at ultrafast speeds and with lower energy consumption compared to conventional electronics. These devices will operate with light and bridge the gap between microscale dielectric photonic systems and nanoscale electronics. Recent research advancements in nanotechnology and optics have led to the creation of a plethora of new plasmonic designs. Among the most promising are nanoscale antennas operating at optical frequencies, called nanoantennas. Plasmonic nanoantennas can provide enhanced and controllable light-matter interactions and strong coupling between far-field radiation and localized sources at the nanoscale. After a brief introduction of several plasmonic nanoantenna designs and their well-established radio-frequency antenna counterparts, we review several linear and nonlinear applications of different nanoantenna configurations. In particular, the possibility to tune the scattering response of linear nanoantennas and create robust optical wireless links is presented. In addition, the nonlinear and photodynamic responses of different linear and nonlinear nanoantenna systems are reported. Several future optical devices are envisioned based on these plasmonic nanoantenna configurations, such as low-power nanoswitches, compact ultrafast light sources, nanosensors and efficient energy harvesting systems.",
+      "authors": "Shobhit K. Patel;Christos Argyropoulos",
+      "citationCount": -1,
+      "id": "10.1051/epjam/2015006",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1511.03140v1",
+      "publicationDate": "2015-11-10T15:30:41Z",
+      "source": ["arxiv"],
+      "title": "Plasmonic nanoantennas: enhancing light-matter interactions at the   nanoscale",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "We review the electronic level structure of the nitrogen-vacancy in diamond and some common experimental techniques to study its optical properties at low temperatures. We then summarize several recent experiments and advances in using nitrogen-vacancy centers for quantum optics.",
+      "authors": "Yiwen Chu;Mikhail D. Lukin",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1504.05990v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1504.05990v1",
+      "publicationDate": "2015-04-22T21:24:25Z",
+      "source": ["arxiv"],
+      "title": "Quantum optics with nitrogen-vacancy centers in diamond",
+      "topics": [{ "affinity": 0.9456932391682159, "id": 1 }]
+    },
+    {
+      "abstract": "The 9600 channels of the multi-wire proportional chamber of the H1 experiment at HERA have to be read out within 96 ns and made available to the trigger system. The tight spatial conditions at the rear end flange require a compact bidirectional readout electronics with minimal power consumption and dead material.   A solution using 40 identical optical link modules, each transferring the trigger information with a physical rate of 4 x 832 Mbps via optical fibers, has been developed and commisioned. The analog pulses from the chamber can be monitored and the synchronization to the global HERA clock signal is ensured.",
+      "authors": "S. Luders",
+      "citationCount": -1,
+      "id": "10.1016/S0168-9002(01)02024-1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/hep-ex/0107064v1",
+      "publicationDate": "2001-07-23T17:03:42Z",
+      "source": ["arxiv"],
+      "title": "Compact Frontend-Electronics and Bidirectional 3.3 Gbps Optical Datalink   for Fast Proportional Chamber Readout",
+      "topics": [{ "affinity": 0.9711369017690662, "id": 1 }]
+    },
+    {
+      "abstract": "Nonlinear photonic chips are capable of generating and processing signals all-optically with performance far superior to that possible electronically - particularly with respect to speed. Although silicon has been the leading platform for nonlinear optics, its high two-photon absorption at telecommunications wavelengths poses a fundamental limitation. We review recent progress in CMOS-compatible platforms for nonlinear optics, focusing on Hydex glass and silicon nitride and briefly discuss the promising new platform of amorphous silicon. These material systems have opened up many new capabilities such as on-chip optical frequency comb generation, ultrafast optical pulse generation and measurement. We highlight their potential future impact as well as the challenges to achieving practical solutions for many key applications.",
+      "authors": "David J. Moss;Roberto Morandotti",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1410.7713v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1410.7713v1",
+      "publicationDate": "2014-10-28T17:47:19Z",
+      "source": ["arxiv"],
+      "title": "Platforms for integrated nonlinear optics compatible with silicon   integrated circuits",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Photonic integrated circuits that exploit nonlinear optics in order to generate and process signals all-optically have achieved performance far superior to that possible electronically - particularly with respect to speed. Although silicon-on-insulator has been the leading platform for nonlinear optics for some time, its high two-photon absorption at telecommunications wavelengths poses a fundamental limitation. We review the recent achievements based in new CMOS-compatible platforms that are better suited than SOI for nonlinear optics, focusing on amorphous silicon and Hydex glass. We highlight their potential as well as the challenges to achieving practical solutions for many key applications. These material systems have opened up many new capabilities such as on-chip optical frequency comb generation and ultrafast optical pulse generation and measurement.",
+      "authors": "Roberto Morandotti;David Moss",
+      "citationCount": -1,
+      "id": "10.1117/12.2180669",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1505.02846v1",
+      "publicationDate": "2015-05-12T01:09:20Z",
+      "source": ["arxiv"],
+      "title": "Hydex Glass and Amorphous Silicon for Integrated Nonlinear Optical   Signal Processing",
+      "topics": [{ "affinity": 0.9897305909330137, "id": 1 }]
+    },
+    {
+      "abstract": "Optical systems are becoming increasingly important by resolving many bottlenecks in today's communication, electronics, and biomedical systems. However, given the continuous nature of optics, the inability to efficiently analyze optical system models using traditional paper-and-pencil and computer simulation approaches sets limits especially in safety-critical applications. In order to overcome these limitations, we propose to employ higher-order-logic theorem proving as a complement to computational and numerical approaches to improve optical model analysis in a comprehensive framework. The proposed framework allows formal analysis of optical systems at four abstraction levels, i.e., ray, wave, electromagnetic, and quantum.",
+      "authors": "Sanaz Khan-Afshar;Umair Siddique;Mohamed Yousri Mahmoud;Vincent Aravantinos;Ons Seddiki;Osman Hasan;Sofiene Tahar",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1403.3039v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1403.3039v1",
+      "publicationDate": "2014-03-11T11:03:03Z",
+      "source": ["arxiv"],
+      "title": "Formal Analysis of Optical Systems",
+      "topics": [
+        { "affinity": 0.15467736264269266, "id": 0 },
+        { "affinity": 0.7656486970958303, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "Optical stochastic cooling (OSC) is expected to enable fast cooling of dense particle beams. Transition from microwave to optical frequencies enables an achievement of stochastic cooling rates which are orders of magnitude higher than ones achievable with the classical microwave based stochastic cooling systems. A subsytem critical to the OSC scheme is the focusing optics used to image radiation from the upstream \"pickup\" undulator to the downstream \"kicker\" undulator. In this paper, we present simulation results using wave-optics calculation carried out with the { sc Synchrotron Radiation Workshop} (SRW). Our simulations are performed in support to a proof-of-principle experiment planned at the Integrable Optics Test Accelerator (IOTA) at Fermilab. The calculations provide an estimate of the energy kick received by a 100-MeV electron as it propagates in the kicker undulator and interacts with the electromagnetic pulse it radiated at an earlier time while traveling through the pickup undulator.",
+      "authors": "M. B. Andorf;V. A. Lebedev;P. Piot;J. Ruan",
+      "citationCount": -1,
+      "id": "10.1016/j.nima.2017.11.094",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1711.07726v1",
+      "publicationDate": "2017-11-21T11:31:06Z",
+      "source": ["arxiv"],
+      "title": "Wave-Optics Modeling of the Optical-Transport Line for Passive Optical   Stochastic Cooling",
+      "topics": [{ "affinity": 0.9385549577912472, "id": 1 }]
+    },
+    {
+      "abstract": "Using the coupled-mode theory in guided-wave optics and electronics, we explore a directional coupling structure composed of two parallel waveguides electrostatically induced by the split-gate technique in bulk graphene. Our results show that Klein tunneling can greatly enhance the coupling strength of the structure. By adjusting a gate voltage, the probability density of Dirac electron wave function initially in one waveguide can be completely transferred into the other waveguide within several hundred nanometers. Our findings could not only lead to functional coherent coupling devices for quantum-based electronic signal processing and on-chip device integration in graphene, but also shrink the size of the devices to facilitate the fabrication of graphene-based large-scale integrated logic circuits.",
+      "authors": "L. Zhao;Wenhui Duan",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1103.5375v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1103.5375v1",
+      "publicationDate": "2011-03-28T14:36:37Z",
+      "source": ["arxiv"],
+      "title": "Klein-tunneling-enhanced directional coupler for Dirac electron wave in   graphene",
+      "topics": [
+        { "affinity": 0.7573908034780105, "id": 0 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Optics offers unique opportunities for reducing energy in information processing and communications while resolving the problem of interconnect bandwidth density inside machines. Such energy dissipation overall is now at environmentally significant levels; the source of that dissipation is progressively shifting from logic operations to interconnect energies. Without the prospect of substantial reduction in energy per bit communicated, we cannot continue the exponential growth of our use of information. The physics of optics and optoelectronics fundamentally addresses both interconnect energy and bandwidth density, and optics may be the only scalable solution to such problems. Here we summarize the corresponding background, status, opportunities, and research directions for optoelectronic technology and novel optics, including sub-femtojoule devices in waveguide and novel 2D array optical systems. We compare different approaches to low-energy optoelectronic output devices and their scaling, including lasers, modulators and LEDs, optical confinement approaches (such as resonators) to enhance effects, and the benefits of different material choices, including 2D materials and other quantum-confined structures. Beyond the elimination of line charging by the use optical connections, the next major interconnect dissipations are in the electronic circuits for receiver amplifiers, timing recovery and multiplexing. We can address these through the integration of photodetectors to reduce or eliminate receiver circuit energies, free-space optics to eliminate the need for timing and multiplexing circuits (while solving bandwidth density problems), and using optics generally to save power by running large synchronous systems. One target concept is interconnects from ~ 1 cm to ~ 10 m that have the same energy (~ 10fJ/bit) and simplicity as local electrical wires on chip.",
+      "authors": "David A. B. Miller",
+      "citationCount": -1,
+      "id": "10.1109/JLT.2017.2647779",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1609.05510v3",
+      "publicationDate": "2016-09-18T16:18:10Z",
+      "source": ["arxiv"],
+      "title": "Attojoule Optoelectronics for Low-Energy Information Processing and   Communications: a Tutorial Review",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Graphene, being an ultrathin, durable, flexible, transparent material with superior conductivity and unusual optical properties, promises many novel applications in electronics, photonics and optoelectronics. For applications in electronics, patterning and modification of electrical properties is very desirable since pristine graphene has no band gap. Here we demonstrate a simple all-optical patterning method for graphene, based on laser induced two-photon oxidation. By tuning the intensity of irradiation and the number of pulses the level of oxidation can be controlled to high precision and, therefore, a band gap can be introduced and electrical and optical properties can be continuously tuned. Arbitrary complex patterning can be performed for air-suspended monolayer graphene or for graphene on substrates. The method works at room temperature in ambient air and no additional processing step is needed. The presented concept allows development of all-graphene electronic and optoelectronic devices and complex circuits with an all-optical method.",
+      "authors": "Jukka Aumanen;Andreas Johansson;Juha Koivistoinen;Pasi Myllyperki\u00f6;Mika Pettersson",
+      "citationCount": -1,
+      "id": "10.1039/c4nr05207b",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1408.0905v1",
+      "publicationDate": "2014-08-05T09:45:09Z",
+      "source": ["arxiv"],
+      "title": "Patterning and tuning of electrical and optical properties of graphene   by laser induced two-photon oxidation",
+      "topics": [
+        { "affinity": 0.8247393331580393, "id": 0 },
+        { "affinity": 0.16524352193807967, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Summary form only given. Our recent research focuses on the development and use of rubber stamping (microcontact printing-/spl mu/CP), optical near-field methods that use conformable photomasks, and molding techniques that rely on elastomeric transfer elements. We explore, in particular, their applicability to the fabrication of certain systems in integrated optics and organic electronics. In this talk, I provide an overview of these soft lithographic techniques by highlighting their advantages and disadvantages compared to more established methods. The fidelity of the molding procedures are demonstrated through the fabrication of working plastic lasers that use molded distributed feedback (DFB), distributed Bragg reflector (DBR), and photonic crystal resonators with features as small as 100 nm. photolithographic methods.",
+      "authors": "J.A. Rogers;Z. Bao;A. Dodabalapur",
+      "citationCount": 0,
+      "id": "10.1109/CLEOE.2000.910183",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=910183",
+      "publicationDate": "10-15 Sept. 2000",
+      "source": ["ieee"],
+      "title": "Elastomeric molding, stamping and near-field photolithographic methods for integrated optics and electronics",
+      "topics": [{ "affinity": 0.9365326572008883, "id": 1 }]
+    },
+    {
+      "abstract": "In optics, mode conversion is an elegant way to switch between Hermite Gaussian and Laguerre Gaussian beam profiles and thereby impart orbital angular momentum onto the beam and to create vortices. In optics such vortex beams can be produced in a setup consisting of two identical cylinder lenses. In electron optics, quadrupole lenses can be used for the same purpose. Here we investigate generalized asymmetric designs of a quadrupole mode converter that may be realized within the constraints of existing electron microscopes and can steer the development of dedicated vortex generators for high brilliance electron vortex probes of atomic scale.",
+      "authors": "Christian Kramberger;Stefan L\u00f6ffler;Thomas Schachinger;Peter Hartel;Joachim Zach;Peter Schattschneider",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1902.05368v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1902.05368v1",
+      "publicationDate": "2018-11-22T13:12:05Z",
+      "source": ["arxiv"],
+      "title": "$\u03c0$/2 Mode Converters and Vortex Generators for Electrons",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Some developments to the Electron Optics Simulator (EOS) in high-Performance Computing (HPC) are illustrated in this paper, including LU decomposition, 64-bit Computing and multicore Parallel Computing.",
+      "authors": "Tao Huang;MingHua Yang;Quan Hu;ZhongHai Yang;JianQing Li;XiaoLin Jin;XiaoFang Zhu;Bin Li",
+      "citationCount": 0,
+      "id": "10.1109/IVEC.2011.5746877",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5746877",
+      "publicationDate": "21-24 Feb. 2011",
+      "source": ["ieee"],
+      "title": "High-Performance Computing to the Electron Optics Simulator",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Fermilab's Integrable Optics Test Accelerator is an electron storage ring designed for testing advanced accelerator physics concepts, including implementation of nonlinear integrable beam optics and experiments on optical stochastic cooling. The machine is currently under construction at the Advanced Superconducting Test Accelerator facility. In this report we present the goals and the current status of the project, and describe the details of machine design. In particular, we concentrate on numerical simulations setting the requirements on the design and supporting the choice of machine parameters.",
+      "authors": "S. Nagaitsev;A. Valishev;V. V. Danilov;D. N. Shatilov",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1301.6671v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1301.6671v1",
+      "publicationDate": "2013-01-28T20:53:39Z",
+      "source": ["arxiv"],
+      "title": "Beam Physics of Integrable Optics Test Accelerator at Fermilab",
+      "topics": [{ "affinity": 0.9359649815950734, "id": 1 }]
+    },
+    {
+      "abstract": "We report two kinds of new applications of adaptive fiber-optics collimator, a wavefront tip/tilt corrector, in fields of fiber coupling and beam pointing, respectively.",
+      "authors": "Chao Geng;Xinyang Li;Wen Luo;Yi Tan;Hongmei Liu;Jinbo Mu",
+      "citationCount": 1,
+      "id": "10.1109/LO.2014.6886310",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6886310",
+      "publicationDate": "30 June-4 July 2014",
+      "source": ["ieee"],
+      "title": "New applications of adaptive fiber-optics collimator in fiber coupling and beam pointing",
+      "topics": [{ "affinity": 0.9645306259628398, "id": 1 }]
+    },
+    {
+      "abstract": "An electron lens is planned for the Fermilab Integrable Optics Test Accelerator as a nonlinear element for integrable dynamics, as an electron cooler, and as an electron trap to study space-charge compensation in rings. We present the main design principles and constraints for nonlinear integrable optics. A magnetic configuration of the solenoids and of the toroidal section is laid out. Single-particle tracking is used to optimize the electron path. Electron beam dynamics at high intensity is calculated with a particle-in-cell code to estimate current limits, profile distortions, and the effects on the circulating beam. In the conclusions, we summarize the main findings and list directions for further work.",
+      "authors": "Daniel Noll;Giulio Stancari",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1511.04507v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1511.04507v1",
+      "publicationDate": "2015-11-14T04:47:13Z",
+      "source": ["arxiv"],
+      "title": "Field calculations, single-particle tracking, and beam dynamics with   space charge in the electron lens for the Fermilab Integrable Optics Test   Accelerator",
+      "topics": [{ "affinity": 0.9369073011177478, "id": 1 }]
+    },
+    {
+      "abstract": "A serial of two dimensional titanium and zirconium trichalcogenides nanosheets MX3 (M=Ti, Zr; X=S, Se, Te) are investigated based on first-principles calculations. The evaluated low cleavage energy indicates that stable two dimensional monolayers can be exfoliated from their bulk crystals in experiment. Electronic studies reveal very rich electronic properties in these monolayers, including metallic TiTe3 and ZrTe3, direct band gap semiconductor TiS3 and indirect band gap semiconductors TiSe3, ZrS3 and ZrSe3. The band gaps of all the semiconductors are between 0.57~1.90 eV, which implies their potential applications in nano-electronics. And the calculated effective masses demonstrate highly anisotropic conduction properties for all the semiconductors. Optically, TiS3 and TiSe3 monolayers exhibit good light absorption in the visible and near-infrared region respectively, indicating their potential applications in optical devices. In particular, the highly anisotropic optical absorption of TiS3 monolayer suggests it could be used in designing nano optical waveguide polarizers.",
+      "authors": "Yingdi Jin;Xingxing Li;Jinlong Yang",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1502.05108v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1502.05108v1",
+      "publicationDate": "2015-02-18T03:29:08Z",
+      "source": ["arxiv"],
+      "title": "Single layer of MX3 (M=Ti, Zr; X=S, Se, Te): a new platform for   nano-electronics and optics",
+      "topics": [
+        { "affinity": 0.13096922715308126, "id": 0 },
+        { "affinity": 0.8690307728469187, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "We present a formalism for light optics starting with the Maxwell equations and casting them into an exact matrix form taking into account the spatial and temporal variations of the permittivity and permeability. This $8  times 8$ matrix representation is used to construct the optical Hamiltonian. This has a close analogy with the algebraic structure of the Dirac equation, enabling the use of the rich machinery of the Dirac electron theory. We get interesting wavelength-dependent contributions which can not be obtained in any of the traditional approaches.",
+      "authors": "Sameen Ahmed Khan",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/physics/0205084v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/physics/0205084v1",
+      "publicationDate": "2002-05-29T16:26:19Z",
+      "source": ["arxiv"],
+      "title": "Maxwell Optics: II. An Exact Formalism",
+      "topics": [
+        { "affinity": 0.10772854762997454, "id": 0 },
+        { "affinity": 0.6927487180530918, "id": 1 },
+        { "affinity": 0.19952273431693368, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Ultrafast light-matter interactions lead to optical-field-driven photocurrents with an attosecond-level temporal response. These photocurrents can be used to detect the carrier-envelope-phase (CEP) of short optical pulses, and could be utilized to create optical-frequency, petahertz (PHz) electronics for information processing. Despite recent reports on optical-field-driven photocurrents in various nanoscale solid-state materials, little has been done in examining the large-scale integration of these devices. In this work, we demonstrate enhanced, on-chip CEP detection via optical-field-driven photocurrent in a monolithic array of electrically-connected plasmonic bow-tie nanoantennas that are contained within an area of hundreds of square microns. The technique is scalable and could potentially be used for shot-to-shot CEP tagging applications requiring orders of magnitude less pulse energy compared to alternative ionization-based techniques. Our results open new avenues for compact time-domain, on-chip CEP detection, and inform the development of integrated circuits for PHz electronics as well as integrated platforms for attosecond and strong-field science.",
+      "authors": "Yujia Yang;Marco Turchetti;Praful Vasireddy;William P. Putnam;Oliver Karnbach;Alberto Nardi;Franz X. K\u00e4rtner;Karl K. Berggren;Phillip D. Keathley",
+      "citationCount": -1,
+      "id": "10.1038/s41467-020-17250-0",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1912.07130v1",
+      "publicationDate": "2019-12-15T23:10:08Z",
+      "source": ["arxiv"],
+      "title": "Light Phase Detection with On-Chip Petahertz Electronic Networks",
+      "topics": [{ "affinity": 0.9755129083701235, "id": 1 }]
+    },
+    {
+      "abstract": "Laser-induced optical potentials for atoms have led to remarkable advances in precision measurement, quantum information, and towards addressing fundamental questions in condensed matter physics. Here, we describe analogous optical potentials for electrons in quantum wells and wires that can be generated by optically driving the transition between a single electron and a three-body electron-exciton bound state, known as a trion. The existence of a bound trion state adds a term to the ac Stark shift of the material proportional to the light intensity at the position of the electron. According to our theoretical calculations, this shift can be large relative to the thermal equilibrium temperature of the electron, resulting in a relatively strong optical potential that could be used to trap, guide, and manipulate individual electrons within a semiconductor quantum well or wire. These potentials can be thought of as artificial nano-structures on the scale of 100 nm that can be spin-dependent and reconfigurable in real-time. Our results suggest the possibility of integrating ultrafast optics and gate voltages in new resolved-carrier semiconductor opto-electronic devices, with potential applications in fields such as nano-electronics, spintronics, and quantum information processing",
+      "authors": "Martin J. A. Schuetz;Michael G. Moore;Carlo Piermarocchi",
+      "citationCount": -1,
+      "id": "10.1038/nphys1775",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1011.2477v1",
+      "publicationDate": "2010-11-10T20:01:09Z",
+      "source": ["arxiv"],
+      "title": "Trionic Optical Potential for Electrons in Semiconductors",
+      "topics": [
+        { "affinity": 0.11452619686362553, "id": 0 },
+        { "affinity": 0.840141411851998, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "A nanofocusing optical system referred to as $ textit{100 exa}$ for an X-ray free-electron laser (XFEL) was developed to generate an extremely high intensity of 100 EW/cm$^2$ (10$^2$$^0$ W/cm$^2$) using total reflection mirrors. The system is based on Kirkpatrick-Baez geometry, with 250 mm long elliptically figured mirrors optimized for the SPring-8 Angstrom Compact Free-Electron Laser (SACLA) XFEL facility. The nano-precision surface employed is coated with rhodium and offers a high reflectivity of 80%, with a photon energy of up to 12 keV, under total reflection conditions. Incident X-rays on the optics are reflected with a large spatial acceptance of over 900 $ mu$m. The focused beam is 210 nm $ times$ 120 nm (full width at half maximum) and was evaluated at a photon energy of 10 keV. The optics developed for $ textit{100 exa}$ efficiently achieved an intensity of 1 $ times$ 10$^2$$^0$ W/cm$^2$ with a pulse duration of 7 fs and a pulse energy of 150 $ mu$J (25% of the pulse energy generated at the light source). The experimental chamber, which can provide varied stage arrangements and sample conditions, including vacuum environments and atmospheric pressure helium, was set up with the focusing optics to meet the experimental requirements.",
+      "authors": "Hirokatsu Yumoto;Yuichi Inubushi;Taito Osaka;Ichiro Inoue;Takahisa Koyama;Kensuke Tono;Makina Yabashi;Haruhiko Ohashi",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2003.10246v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2003.10246v1",
+      "publicationDate": "2020-03-23T12:54:56Z",
+      "source": ["arxiv"],
+      "title": "Nanofocusing optics for an X-ray free-electron laser generating an   extreme intensity of 100 EW/cm$^2$ using total reflection mirrors",
+      "topics": [{ "affinity": 0.9743115710298783, "id": 1 }]
+    },
+    {
+      "abstract": "Organic materials with high second order optical nonlinearities have attracted a lot of attention because of their potential for optical frequency conversion, THz generation, electro-optical and integrated optics applications. However, the theoretical limits for the macroscopic second-order nonlinearities in organic crystals are still far from being achieved. In addition, the growth of high quality nonlinear optical bulk or thin film organic crystals such as DAST remains a big challenge.",
+      "authors": "Blanca Ruiz;Zhou Yang;Mojca Jazbinsek;Peter Gunter",
+      "citationCount": 0,
+      "id": "10.1109/CLEOE-IQEC.2007.4386243",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4386243",
+      "publicationDate": "17-22 June 2007",
+      "source": ["ieee"],
+      "title": "New Organic Salts for Electro-optics and THz Generation",
+      "topics": [
+        { "affinity": 0.15052655312754365, "id": 0 },
+        { "affinity": 0.8494734468724564, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "We describe a new electron cooler being developed for 2.5 MeV protons at the Integrable Optics Test Accelerator (IOTA), which is a highly re-configurable storage ring at Fermilab. This system would enable the study of magnetized electron cooling in the presence of intense space-charge with transverse tune shifts approaching -0.5 as well as highly nonlinear focusing optics in the IOTA ring. We present an overview of the design, simulations and hardware to be used for this project.",
+      "authors": "N. Banerjee;M. K. Bossard;J. Brandt;Y-K. Kim;B. Cathey;S. Nagaitsev;G. Stancari",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2201.10363v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2201.10363v1",
+      "publicationDate": "2022-01-25T14:44:18Z",
+      "source": ["arxiv"],
+      "title": "Electron Cooling with Space-Charge Dominated Proton Beams at Iota",
+      "topics": [{ "affinity": 0.9369501741814964, "id": 1 }]
+    },
+    {
+      "abstract": "Terahertz wave is an important band for 6G communication in the future and has become a hot issue studied in the optics and electronics fields. However, the terahertz source, especially the integrated terahertz source based on micro-nano optics, gets a lot of attention. In this paper, a broadband terahertz radiation source is proposed, and it is based on the plasmonic resonant characteristics of the nano-antenna array. Using Maxwell's equation and a hydrodynamic equation of the metal plasma, this paper studies the terahertz time-domain wave generation from the nano-antenna array excited by a pulsed laser. The results show that the polarization of the generated terahertz radiation is perpendicular to the polarization of the incident light, and the terahertz emission bandwidth is closely related to the pulse width of the exciting laser. A nano-antenna array is designable and easy to integrate, and thus it is expected to be better applied in integrated terahertz source devices. This paper will provide a theoretical basis for the design of terahertz source based on surface plasmonics in the future.",
+      "authors": "Jin Y.;Yang Y.;Xu X.",
+      "citationCount": "0",
+      "id": "10.3788/AOS202242.1506001",
+      "openaccess": "0",
+      "pdfLink": "https://api.elsevier.com/content/abstract/scopus_id/85136667093?field=author,affiliation",
+      "publicationDate": "2022-08-10",
+      "source": ["scopus"],
+      "title": "Terahertz Radiation Characteristics Based on Nonlinear Optical Effect of Nano-Antenna Array",
+      "topics": [
+        { "affinity": 0.13628340052880722, "id": 0 },
+        { "affinity": 0.8637165994711928, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "Graphene is an ideal 2D material system bridging electronic and photonic devices. It also breaks the fundamental speed and size limits by electronics and photonics, respectively. Graphene offers multiple functions of signal transmission, emission, modulation, and detection in a broad band, high speed, compact size, and low loss. Here, we have a brief view of graphene based functional devices at microwave, terahertz, and optical frequencies. Their fundamental physics and computational models were discussed as well.",
+      "authors": "Rong Wang;Xingang Ren;Ze Yan;Lijun Jiang;Wei E. I. Sha;Guangcun Shan",
+      "citationCount": -1,
+      "id": "10.1007/s11467-018-0859-y",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1810.07487v2",
+      "publicationDate": "2018-10-17T11:48:36Z",
+      "source": ["arxiv"],
+      "title": "Graphene based functional devices: A short review",
+      "topics": [{ "affinity": 1.0, "id": 0 }]
+    },
+    {
+      "abstract": "With the advent of high mobility encapsulated graphene devices, new electronic components ruled by Dirac fermions optics have been envisioned and realized. The main building blocks of electron-optics devices are gate-defined p-n junctions, which guide, transmit and refract graphene charge carriers, just like prisms and lenses in optics. The reflection and transmission are governed by the p-n junction smoothness, a parameter difficult to tune in conventional devices. Here we create p-n junctions in graphene, using the polarized tip of a scanning gate microscope, yielding Fabry-P 'erot interference fringes in the device resistance. We control the p-n junctions smoothness using the tip-to-graphene distance, and show increased interference contrast using smoother potential barriers. Extensive tight-binding simulation reveal that smooth potential barriers induce a pronounced quasi-confinement of Dirac fermions below the tip, yielding enhanced interference contrast. On the opposite, sharp barriers are excellent Dirac fermions transmitters and lead to poorly contrasted interferences. Our work emphasizes the importance of junction smoothness for relativistic electron optics devices engineering.",
+      "authors": "Boris Brun;Nicolas Moreau;Sowmya Somanchi;Viet-Hung Nguyen;Alina Mre\u0144ca-Kolasi\u0144ska;Kenji Watanabe;Takashi Taniguchi;Jean-Christophe Charlier;Christoph Stampfer;Benoit Hackens",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1911.12031v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1911.12031v1",
+      "publicationDate": "2019-11-27T09:09:43Z",
+      "source": ["arxiv"],
+      "title": "Optimizing Dirac fermions quasi-confinement by potential smoothness   engineering",
+      "topics": [
+        { "affinity": 0.7397080911303389, "id": 0 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "To combine the advantages of ultrafast femtosecond optics with an on-chip communcation scheme, optical signals with a frequency of several hundreds of THz need to be down-converted to coherent electronic signals of GHz or less. So far, this has not been achieved because of the impedance mismatch within electronic circuits and their overall slow response-time. Here, we demonstrate that 14 fs optical pulses in the near-infrared (NIR) can drive electronic on-chip circuits with a bandwidth up to 10 THz. The corresponding electronic pulses propagate in microscopic striplines on a millimeter scale. We exploit femtosecond photoswitches based on tunneling barriers in nanoscale metal junctions to drive the pulses. The non-linear ultrafast response is based on a combination of plasmonically enhanced, multi-photon absorption and quantum tunneling, and gives rise to a field emission of ballistic electrons propagating across the nanoscale junctions. Our results pave the way towards femtosecond electronics integrated in waferscale quantum circuits.",
+      "authors": "Christopher Karnetzky;Philipp Zimmermann;Christopher Trummer;Carolina Duque-Sierra;Martin W\u00f6rle;Reinhard Kienberger;Alexander Holleitner",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1708.00262v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1708.00262v1",
+      "publicationDate": "2017-08-01T11:48:55Z",
+      "source": ["arxiv"],
+      "title": "Towards femtosecond on-chip electronics",
+      "topics": [{ "affinity": 0.9777967859008903, "id": 1 }]
+    },
+    {
+      "abstract": "Optical computing accelerators may help alleviate bandwidth and power consumption bottlenecks in electronics. We show an approach to implementing logarithmic-type analog co-processors in silicon photonics and use it to perform the exponentiation operation. The function is realized by exploiting nonlinear-absorption-enhanced Raman amplification saturation in a silicon waveguide.",
+      "authors": "Yunshan Jiang;Peter T. S. DeVore;Bahram Jalali",
+      "citationCount": -1,
+      "id": "10.1364/OL.41.001273",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1510.00489v1",
+      "publicationDate": "2015-10-02T04:44:27Z",
+      "source": ["arxiv"],
+      "title": "Analog Optical Computing Primitives in Silicon Photonics",
+      "topics": [{ "affinity": 0.9630641958777969, "id": 1 }]
+    },
+    {
+      "abstract": "It is reported that [Z. Huang et al., Phys. Rev. Lett. 109, 204801 (2012)], high-gain free-electron laser (FEL) can be generated by transverse-dispersed electron beams from laser-plasma accelerators (LPAs) using transverse-gradient undulator (TGU) assuming an ideal constant dispersion function without focusing optics. The constant dispersion function keeps electrons beyond the resonant energy bandwidth still being on resonant with the FEL radiation. Instead, in this paper, the case with focusing optics in an LPA-driven FEL using TGU is numerically studied, in which the dispersion function should be monotonously decreasing along the undulator. Even though the FEL resonance is not always satisfied for off-energy electrons in this case, through subtly optimizing the initial dispersion and focusing parameters, it is feasible to achieve a similar radiation power to the case assuming an ideal constant dispersion function without focusing optics, and meanwhile, to attain a good transverse coherence. Moreover, higher radiation power could be expected if longitudinally tapering, transverse-gradient variation in different sections are systematically conducted, which is demonstrated with intense global multiparameters optimizations based on GENESIS simulation.",
+      "authors": "G. Zhou;Y. Jiao;J. Wu;T. Zhang",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1608.03067v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1608.03067v1",
+      "publicationDate": "2016-08-10T07:52:21Z",
+      "source": ["arxiv"],
+      "title": "Improving the energy-extraction efficiency of laser-plasma accelerator   driven free-electron laser using transverse-gradient undulator with focusing   optics and longitudinal tapering",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "A simple, practical method based on electro-optic gating is experimentally shown to improve the temporal resolution of single-photon detection by more than 16 times. Delay times between ultrafast single photons and a reference clock are stretched by a desired programmable sampling gate factor, allowing reconstruction of delay histograms with \u22480.001 photons per pulse to within 60\u00a0ps. By transferring the bandwidth of RF electronics to single-photon counting, complex single-photon signals with large time-bandwidth products >\u00a02000 are temporally stretched up so that they can be resolved by slow detectors, irrespective of the quality of the detector instrument response function. This method is also applied to biphotons, in order to reconstruct the 2D histogram of joint detection delays with 15 times better resolution. The phenomenon of nonlocal dispersion, which is not resolvable directly with the slow detectors, is then observable to within the 98\u00a0ps level. The proof-of-concept demonstration uses off-the-shelf commercial fiber-integrated LiNbO3 modulators and RF electronics, and the method is readily integrable on-chip and to speeds >100\u00a0GHz, offering a practical solution to ultrafast time-correlated single-photon counting beyond the research laboratory.",
+      "authors": "Crockett B.;van Howe J.;Montaut N.;Morandotti R.;Aza\u00f1a J.",
+      "citationCount": "0",
+      "id": "10.1002/lpor.202100635",
+      "openaccess": "1",
+      "pdfLink": "https://api.elsevier.com/content/abstract/scopus_id/85135037429?field=author,affiliation",
+      "publicationDate": "2022-10-01",
+      "source": ["scopus"],
+      "title": "High-Resolution Time-Correlated Single-Photon Counting Using Electro-Optic Sampling",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "We show that tilted Weyl semimetals with a spatially varying tilt of the Weyl cones provide a platform for studying analogues to problems in anisotropic optics as well as curved spacetime. Considering particular tilting profiles, we numerically evaluate the time evolution of electronic wave packets and their current densities. We demonstrate that electron trajectories in such systems can be obtained from Fermat's principle in the presence of an inhomogeneous, anisotropic effective refractive index. On the other hand, we show how the electrons dynamics reveal gravitational features and use them to simulate gravitational lensing around a synthetic black hole. These results bridge optical and gravitational analogies in Weyl semimetals, suggesting novel pathways for experimental solid-state electron optics.",
+      "authors": "Viktor K\u00f6nye;Lotte Mertens;Corentin Morice;Dmitry Chernyavsky;Ali G. Moghaddam;Jasper van Wezel;Jeroen van den Brink",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2210.16145v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2210.16145v1",
+      "publicationDate": "2022-10-28T14:16:10Z",
+      "source": ["arxiv"],
+      "title": "Anisotropic optics and gravitational lensing of tilted Weyl fermions",
+      "topics": [
+        { "affinity": 0.15540344587157504, "id": 0 },
+        { "affinity": 0.6670524207105127, "id": 1 },
+        { "affinity": 0.1775441334179122, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Accelerating and colliding particles has been a key strategy to explore the texture of matter. Strong lightwaves can control and recollide electronic wavepackets, generating high-harmonic (HH) radiation which encodes the structure and dynamics of atoms and molecules and lays the foundations of attosecond science. The recent discovery of HH generation in bulk solids combines the idea of ultrafast acceleration with complex condensed matter systems and sparks hope for compact solid-state attosecond sources and electronics at optical frequencies. Yet the underlying quantum motion has not been observable in real time. Here, we study HH generation in a bulk solid directly in the time-domain, revealing a new quality of strong-field excitations in the crystal. Unlike established atomic sources, our solid emits HH radiation as a sequence of subcycle bursts which coincide temporally with the field crests of one polarity of the driving terahertz waveform. We show that these features hallmark a novel non-perturbative quantum interference involving electrons from multiple valence bands. The results identify key mechanisms for future solid-state attosecond sources and next-generation lightwave electronics. The new quantum interference justifies the hope for all-optical bandstructure reconstruction and lays the foundation for possible quantum logic operations at optical clock rates.",
+      "authors": "M. Hohenleutner;F. Langer;O. Schubert;M. Knorr;U. Huttner;S. W. Koch;M. Kira;R. Huber",
+      "citationCount": -1,
+      "id": "10.1038/nature14652",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1604.03768v1",
+      "publicationDate": "2016-04-13T13:46:21Z",
+      "source": ["arxiv"],
+      "title": "Real-time observation of interfering crystal electrons in high-harmonic   generation",
+      "topics": [{ "affinity": 0.9660635415592493, "id": 1 }]
+    },
+    {
+      "abstract": "The effects of edge covalent functionalization on the structural, electronic and optical properties of elongated armchair graphene nanoflakes (AGNFs) are analyzed in detail for a wide range of terminations, within the ramework of Hartree-Fock-based semi-empirical methods. The chemical features of the functional groups, their distribution and the resulting system symmetry are identified as the key factors that determine the modification of structural and optoelectronic features. While the electronic gap is always reduced in presence of substituents, functionalization-induced distortions contribute to the observed lowering by about 35-55%. This effect is paired with a red shift of the first optical peak, corresponding to about 75% of the total optical gap reduction. Further, the functionalization pattern and the specific features of the edge-substituent bond are found to influence the strength and the character of the low energy excitations. All these effects are discussed for flakes of different width, representing the three families of AGNFs.",
+      "authors": "Caterina Cocchi;Deborah Prezzi;Alice Ruini;Marilia J. Caldas;Elisa Molinari",
+      "citationCount": -1,
+      "id": "10.1021/jp300657k",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1208.4228v1",
+      "publicationDate": "2012-08-21T09:45:22Z",
+      "source": ["arxiv"],
+      "title": "Electronics and Optics of Graphene Nanoflakes: Edge Functionalization   and Structural Distortions",
+      "topics": [{ "affinity": 1.0, "id": 0 }]
+    },
+    {
+      "abstract": "Ballistic heterojunctions of Dirac materials offer the opportunity of exploring optics-like phenomena in electronic systems. In this paper, a new perfect lens through special positive refraction is predicted with omnidirectional Klein tunneling of massless Dirac fermions. The novel optics component called a super-diverging lens (SDL) is the counterpart of a Veselago lens (VL). The use of SDL and VL creates a device that simulates the ocular vision. This atypical refraction is due to electrons obeying different Snell's laws of pseudo-spin and group velocity in heterojunctions with elliptical Dirac cones. These findings pave the way for an electron elliptical Dirac optics and open up new possibilities for the guiding of electrons.",
+      "authors": "Y. Betancur-Ocampo",
+      "citationCount": -1,
+      "id": "10.1088/1361-648X/aae28a",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1806.01970v2",
+      "publicationDate": "2018-06-06T00:56:31Z",
+      "source": ["arxiv"],
+      "title": "Controlling electron flow in anisotropic Dirac materials   heterojunctions: a super-diverging lens",
+      "topics": [
+        { "affinity": 0.45174693886893336, "id": 0 },
+        { "affinity": 0.46288673788943935, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "The co-packaging of optics and electronics provides a potential path forward to achieving beyond 50 Tbps top of rack switch packages. In a co-packaged design, the scaling of bandwidth, cost, and energy is governed by the number of optical transceivers (TxRx) per package as opposed to transistor shrink. Due to the large footprint of optical components relative to their electronic counterparts, the vertical stacking of optical TxRx chips in a co-packaged optics design will become a necessity. As a result, development of efficient, dense, and wide alignment tolerance chip-to-chip optical couplers will be an enabling technology for continued TxRx scaling. In this paper, we propose a novel scheme to vertically couple into standard 220 nm silicon on insulator waveguides from 220 nm silicon nitride on glass waveguides using overlapping, inverse double tapers. Simulation results using Lumerical's 3D Finite Difference Time Domain solver solver are presented, demonstrating insertion losses below -0.13 dB for an inter-chip spacing of 1 $ mu$m, 1 dB vertical and lateral alignment tolerances of approximately $ pm$ 2.7 $ mu$m, a greater than 300 nm 1 dB bandwidth, and 1 dB twist and tilt tolerance of approximately 2.3 degrees and 0.4 degrees, respectively. These results demonstrate the potential of our coupler for use in co-packaged designs requiring high performance, high density, CMOS compatible out of plane optical connections.",
+      "authors": "Drew Weninger;Samuel Serna;Achint Jain;Lionel Kimerling;Anuradha Agarwal",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2206.09125v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2206.09125v1",
+      "publicationDate": "2022-06-18T05:57:42Z",
+      "source": ["arxiv"],
+      "title": "High Density Vertical Optical Interconnects for Passive Assembly",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Optical logic has the potential to replace electronics with photonic circuits in applications for which optic-to-electronic conversion is impractical and for integrated all-optical circuits. Nonlinear optics in whispering gallery mode resonators provides low power, scalable methods to achieve optical logic. We demonstrate, for the first time, an all-optical, universal logic gate using counterpropagating light in which all signals have the same operating optical frequency. Such a device would make possible the routing of optical signals without the need for conversion into the electronic domain, thus reducing latency. The operating principle of the device is based on the Kerr interaction between counter-propagating beams in a whispering gallery mode resonator which induces a splitting between the resonance frequencies for the two propagating directions. Our gate uses a fused silica microrod resonator with a  textit{Q}-factor of $ SI{2e8}{}$. This method of optical logic gives a practical solution to the on-chip routing of light.",
+      "authors": "Niall Moroney;Leonardo Del Bino;Michael T. M. Woodley;George N. Ghalanos;Jonathan M. Silver;Andreas \u00d8 Svela;Shuangyou Zhang;Pascal Del'Haye",
+      "citationCount": -1,
+      "id": "10.1109/JLT.2020.2975119",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2004.13578v1",
+      "publicationDate": "2020-04-28T15:09:37Z",
+      "source": ["arxiv"],
+      "title": "Logic Gates based on Interaction of Counterpropagating Light in   Microresonators",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "An electron behaves as both a particle and a wave. On account of this it can be controlled in a similar way to a photon and electronic devices can be designed in analogy to those based on light when there is minimal excitation of the underlying Fermi sea. Here splitting of the electron wavefunction is explored for systems supporting Dirac type physics, with a focus on graphene but being equally applicable to electronic states in topological insulators, liquid helium, and other systems described relativistically. Electron beam-splitters and superfocusers are analysed along with propagation through nanoribbons, demonstrating that the waveform, system geometry, and energies all need to balance to maximise the probability density and hence lifetime of the flying electron. These findings form the basis for novel quantum electron optics.",
+      "authors": "Michael Forrester;Fedor Kusmartsev",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2204.08305v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2204.08305v1",
+      "publicationDate": "2022-04-18T13:24:06Z",
+      "source": ["arxiv"],
+      "title": "Electron quantum optics with beam splitters and waveguides in Dirac   Matter",
+      "topics": [
+        { "affinity": 0.7284075959175618, "id": 0 },
+        { "affinity": 0.10202297710420195, "id": 1 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Recently, the study of integrable Hamiltonian systems has led to nonlinear accelerator lattices with one or two transverse invariants and wide stable tune spreads. These lattices may drastically improve the performance of high-intensity machines, providing Landau damping to protect the beam from instabilities, while preserving dynamic aperture. The Integrable Optics Test Accelerator (IOTA) is being built at Fermilab to study these concepts with 150-MeV pencil electron beams (single-particle dynamics) and 2.5-MeV protons (dynamics with self fields). One way to obtain a nonlinear integrable lattice is by using the fields generated by a magnetically confined electron beam (electron lens) overlapping with the circulating beam. The required parameters are similar to the ones of existing devices. In addition, the electron lens will be used in cooling mode to control the brightness of the proton beam and to measure transverse profiles through recombination. More generally, it is of great interest to investigate whether nonlinear integrable optics allows electron coolers to exceed limitations set by both coherent or incoherent instabilities excited by space charge.",
+      "authors": "G. Stancari;A. Burov;V. Lebedev;S. Nagaitsev;E. Prebys;A. Valishev",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1511.01812v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1511.01812v1",
+      "publicationDate": "2015-11-05T16:51:06Z",
+      "source": ["arxiv"],
+      "title": "Electron lenses and cooling for the Fermilab Integrable Optics Test   Accelerator",
+      "topics": [{ "affinity": 0.9356922277482285, "id": 1 }]
+    },
+    {
+      "abstract": "In preparation for a demonstration of optical stochastic cooling in the Cornell Electron Storage Ring (CESR) we have developed a particle tracking simulation to study the relevant beam dynamics. Optical radiation emitted in the pickup undulator gives a momentum kick to that same particle in the kicker undulator. The optics of the electron bypass from pickup to kicker couples betatron amplitude and momentum offset to path length so that the momentum kick reduces emittance and momentum spread. Nearby electrons contribute an incoherent noise. Layout of the bypass line is presented that accommodates optics with a range of transverse and longitudinal cooling parameters. The simulation is used to determine cooling rates and their dependence on bunch and lattice parameters for bypass optics with distinct emittance and momentum acceptance.",
+      "authors": "S. T. Wang;M. B. Andorf;I. V. Bazarov;W. F. Bergan;V. Khachatryan;J. M. Maxson;D. L. Rubin",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevAccelBeams.24.064001",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2103.16419v2",
+      "publicationDate": "2021-03-30T15:17:46Z",
+      "source": ["arxiv"],
+      "title": "Simulation of the transit-time optical stochastic cooling process in the   Cornell Electron Storage Ring",
+      "topics": [{ "affinity": 0.940795752600266, "id": 1 }]
+    },
+    {
+      "abstract": "MXenes are two-dimensional materials with a rich set of remarkable chemical and electromagnetic properties, the latter including saturable absorption and intense surface plasmon resonances. To fully harness the functionality of MXenes for applications in optics, electronics and sensing, it is important to understand the interaction of light with MXenes on atomic and femtosecond dimensions. Here, we use ultrafast electron diffraction and high-resolution electron microscopy to investigate the laser-induced structural dynamics of Ti3C2Tx nanosheets. We find an exceptionally fast lattice response with an electron-phonon coupling time of 230 femtoseconds. Repetitive femtosecond laser excitation transforms Ti3C2Tx through a structural transition into a metamaterial with deeply sub-wavelength nanoripples that are aligned with the laser polarization. By a further laser illumination, the material is reversibly photo-switchable between a flat and rippled morphology. The resulting nanostructured MXene metamaterial with directional nanoripples is expected to exhibit an anisotropic optical and electronic response as well as an enhanced chemical activity that can be switched on and off by light.",
+      "authors": "Mikhail Volkov;Elena Willinger;Denis A. Kuznetsov;Christoph R. Mueller;Alexey Fedorov;Peter Baum",
+      "citationCount": -1,
+      "id": "10.1021/acsnano.1c03635",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2104.13703v1",
+      "publicationDate": "2021-04-28T11:04:24Z",
+      "source": ["arxiv"],
+      "title": "Photo-switchable nanoripples in Ti3C2Tx MXene",
+      "topics": [
+        { "affinity": 0.14544647583786416, "id": 0 },
+        { "affinity": 0.8545535241621358, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "Dielectric metasurfaces are two-dimensional structures composed of nano-scatterers that manipulate phase and polarization of optical waves with subwavelength spatial resolution, enabling ultra-thin components for free-space optics. While high performance devices with various functionalities, including some that are difficult to achieve using conventional optical setups have been shown, most demonstrated components have a fixed functionality. Here we demonstrate highly tunable metasurface devices based on subwavelength thick silicon nano-posts encapsulated in a thin transparent elastic polymer. As proof of concept, we demonstrate a metasurface microlens operating at 915 nm, with focal distance tuning from 600 $ mu$m to 1400 $ mu$m through radial strain, while maintaining a diffraction limited focus and a focusing efficiency above 50$ %$. The demonstrated tunable metasurface concept is highly versatile for developing ultra-slim, multi-functional and tunable optical devices with widespread applications ranging from consumer electronics to medical devices and optical communications.",
+      "authors": "Seyedeh Mahsa Kamali;Ehsan Arbabi;Amir Arbabi;Yu Horie;Andrei Faraon",
+      "citationCount": -1,
+      "id": "10.1002/lpor.201670067",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1604.03597v1",
+      "publicationDate": "2016-04-12T21:45:00Z",
+      "source": ["arxiv"],
+      "title": "Highly tunable elastic dielectric metasurface lenses",
+      "topics": [{ "affinity": 0.9710197219202048, "id": 1 }]
+    },
+    {
+      "abstract": "Wide and ultrawide-bandgap semiconductors lie at the heart of next-generation high-power, high-frequency electronics. Here, we report the growth of ultrawide-bandgap boron nitride (BN) thin films on wide-bandgap gallium nitride (GaN) by pulsed laser deposition. Comprehensive spectroscopic (core level and valence band x-ray photoelectron spectroscopy, Fourier-transform infrared spectroscopy, and Raman) and microscopic (atomic force microscopy and scanning transmission electron microscopy) characterizations confirm the growth of BN thin films on GaN. Optically, we observed that the BN/GaN heterostructure is second-harmonic generation active. Moreover, we fabricated the BN/GaN heterostructure-based Schottky diode that demonstrates rectifying characteristics, lower turn-on voltage, and an improved breakdown capability (\u223c234 V) as compared to GaN (\u223c168 V), owing to the higher breakdown electrical field of BN. Our approach is an early step toward bridging the gap between wide and ultrawide-bandgap materials for potential optoelectronics as well as next-generation high-power electronics.",
+      "authors": "Biswas A.;Xu M.;Fu K.;Zhou J.;Xu R.;Puthirath A.B.;Hachtel J.A.;Li C.;Iyengar S.A.;Kannan H.;Zhang X.;Gray T.;Vajtai R.;Glen Birdwell A.;Neupane M.R.;Ruzmetov D.A.;Shah P.B.;Ivanov T.;Zhu H.;Zhao Y.;Ajayan P.M.",
+      "citationCount": "0",
+      "id": "10.1063/5.0092356",
+      "openaccess": "0",
+      "pdfLink": "https://api.elsevier.com/content/abstract/scopus_id/85137447812?field=author,affiliation",
+      "publicationDate": "2022-08-29",
+      "source": ["scopus"],
+      "title": "Properties and device performance of BN thin films grown on GaN by pulsed laser deposition",
+      "topics": [
+        { "affinity": 0.17066168041866148, "id": 0 },
+        { "affinity": 0.7298098076891237, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "The implementation of log-pol transformation has recently introduced a new boost in electron optics with charged matter vortices, allowing to map conformally between linear and orbital angular momentum (OAM) states and to measure them. That coordinate change belongs to the general framework of Hossack's transformations and it has been recently realized efficiently by means of electrostatic elements. In this letter we show that it is a general property of those conformal transformations to be produced by harmonic phase elements and therefore to admit an electrostatic implementation in the electron optics scenario. We consider a new kind of conformal mapping, the circular-sector transformation, which has been recently introduced for OAM multiplication and division in optics, and discuss how it represents a general solution of Laplace's equation, showing the analogy of the generating phase elements with projected multipole fields and linear charge distributions. Moreover, we demonstrate its capability to perform the sorting of multipole wavefronts, discovering a novel and effective method to measure the strength and orientation of a dipole field in a fast, compact and direct way.",
+      "authors": "Gianluca Ruffato;Enzo Rotunno;Vincenzo Grillo",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevApplied.15.054028",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2003.09635v1",
+      "publicationDate": "2020-03-21T11:41:32Z",
+      "source": ["arxiv"],
+      "title": "A general framework for conformal transformations in electron optics",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "We provide a design and use of Si photonic-wire waveguides for on chip-nonlinear-waveguide pulse control functionality.",
+      "authors": "R.M. Osgood;X.-G. Chen;I.-W. Hsieh;J. Dadap;Nicolae Panoiu;Frank Eric Dulkeith;Sharre McNab;Yurii Vlasov",
+      "citationCount": 0,
+      "id": "10.1109/CLEO.2006.4628981",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4628981",
+      "publicationDate": "21-26 May 2006",
+      "source": ["ieee"],
+      "title": "Fiber on a chip: Nonlinear optics in silicon photonic wires",
+      "topics": [{ "affinity": 0.9905977788640578, "id": 1 }]
+    },
+    {
+      "abstract": "As the continual experimental advances made in Electron energy loss spectroscopy (EELS) and cathodoluminescence (CL) open the door to practical exploitations of plasmonic effects in metal nanoparticles, there is an increasing need for precise interpretation and guidance of such experiments. Numerical simulations are available but lack physical insight, while traditional analytical approaches are rare and limited to studying specific, simple structures. Here, we propose a versatile and efficient method based on transformation optics which can fully characterize and model the EELS problems of nanoparticles of complex geometries. Detailed discussions are given on 2D and 3D nanoparticle dimers, where the frequency and time domain responses under electron beam excitations are derived.",
+      "authors": "Yu Luo;Matthias Kraft;J. B. Pendry",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1605.09319v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1605.09319v1",
+      "publicationDate": "2016-05-30T16:52:16Z",
+      "source": ["arxiv"],
+      "title": "Harnessing transformation optics for understanding electron energy loss   and cathodoluminescence",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Nonlinear photonic chips have succeeded in generating and processing signals all-optically with performance far superior to that possible electronically - particularly with respect to speed. Although silicon-on-insulator has been the leading platform for nonlinear optics, its high two-photon absorption at telecommunications wavelengths poses a fundamental limitation. This paper reviews some of the recent achievements in CMOS-compatible platforms for nonlinear optics, focusing on amorphous silicon and Hydex glass, highlighting their potential future impact as well as the challenges to achieving practical solutions for many key applications. These material systems have opened up many new capabilities such as on-chip optical frequency comb generation and ultrafast optical pulse generation and measurement.",
+      "authors": "D. J. Moss;R. Morandotti",
+      "citationCount": -1,
+      "id": "10.1117/12.2081582",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1410.1046v1",
+      "publicationDate": "2014-10-04T12:58:23Z",
+      "source": ["arxiv"],
+      "title": "New CMOS Compatible Platforms for Integrated Nonlinear Optical Signal   Processing",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Reduction in the operating voltage of electrooptic modulators is needed in order to remove the bottleneck in the flow of data between electronics and optical interconnects. We report experimental demonstration of a 10 fold reduction in an electrooptic modulator's half-wave voltage up to 50 GHz. This was achieved by employing optical sideband-only amplification.",
+      "authors": "David Borlaug;Peter T. S. DeVore;Ali Rostami;Ozdal Boyraz;Bahram Jalali",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1407.7462v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1407.7462v1",
+      "publicationDate": "2014-07-28T16:16:48Z",
+      "source": ["arxiv"],
+      "title": "Demonstration of Vpi Reduction in Electrooptic Modulators using   Modulation Instability",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Scalar theory of quantum electron beam optics, at the single-particle level, derived from the Dirac equation using a Foldy-Wouthuysen-like transformation technique is considered. Round magnetic electron lenses with Glaser and power law models for the axial magnetic field $B(z)$ are studied. Paraxial quantum propagator for the Glaser model lens is obtained in terms of the well known fundamental solutions of its paraxial equation of motion. In the case of lenses with the power law model for $B(z)$ the well known fundamental solutions of the paraxial equations, obtained by solving the differential equation, are constructed using the Peano-Baker series also. Quantum mechanics of aberrations is discussed briefly. Role of quantum uncertainties in aberrations, and in the nonlinear part of the equations of motion for a nonparaxial beam, is pointed out. The main purpose of this article is to understand the quantum mechanics of electron beam optics though the influence of quantum effects on the optics of present-day electron beam devices might be negligible.",
+      "authors": "Sameen Ahmed Khan;Ramaswamy Jagannathan",
+      "citationCount": -1,
+      "id": "10.1016/j.ijleo.2021.166303",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2009.13943v2",
+      "publicationDate": "2020-09-29T11:59:30Z",
+      "source": ["arxiv"],
+      "title": "Quantum mechanics of round magnetic electron lenses with Glaser and   power law models of $B(z)$",
+      "topics": [{ "affinity": 0.9785605100043807, "id": 1 }]
+    },
+    {
+      "abstract": "Nonlinear photonic chips have enabled the generation and processing of signals using only light, with performance far superior to that possible electronically - particularly with respect to speed. Although silicon-on-insulator has been the leading platform for nonlinear optics, its high two-photon absorption at telecommunications wavelengths poses a fundamental limitation. We review recent progress in non-silicon CMOS-compatible platforms for nonlinear optics, with a focus on Si3N4 and Hydex. These material systems have opened up many new capabilities such as on-chip optical frequency comb generation and ultrafast optical pulse generation and measurement. This review highlights their potential impact as well as the challenges to achieving practical solutions for many key applications.",
+      "authors": "Roberto Morandotti;David J. Moss;Alexander L. Gaeta;Michal Lipson",
+      "citationCount": -1,
+      "id": "10.1038/NPHOTON.2013.183",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1404.3775v5",
+      "publicationDate": "2014-04-14T23:09:41Z",
+      "source": ["arxiv"],
+      "title": "All-optical signal processing platforms for CMOS compatible integrated   nonlinear optics",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Nonlinear spatio-temporal systems are the basis for countless physical phenomena in such diverse fields as ecology, optics, electronics and neuroscience. The canonical approach to unify models originating from different fields is the normal form description, which determines the generic dynamical aspects and different bifurcation scenarios. Realizing different types of dynamical systems via one experimental platform that enables continuous transition between normal forms through tuning accessible system parameters is therefore highly relevant. Here, we show that a transmissive, optically-addressed spatial light modulator under coherent optical illumination and optical feedback coupling allows tuning between pitchfork, transcritical and saddle-node bifurcations of steady states. We demonstrate this by analytically deriving the system's normal form equations and confirm these results via extensive numerical simulations. Our model describes a nematic liquid crystal device using nano-dimensional dichalcogenide (a-As$_2$S$_3$) glassy thin-films as photo sensors and alignment layers, and we use device parameters obtained from experimental characterization. Optical coupling, for example using diffraction, holography or integrated unitary maps allow implementing a variety of system topologies of technological relevance for neural networks and potentially XY-Hamiltonian models with ultra low energy consumption.",
+      "authors": "Vladimir Semenov;Xavier Porte;Ibrahim Abdulhalim;Laurent Larger;Daniel Brunner",
+      "citationCount": -1,
+      "id": "10.1063/5.0076846",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2111.01423v2",
+      "publicationDate": "2021-11-02T08:31:18Z",
+      "source": ["arxiv"],
+      "title": "Two-color optically-addressed spatial light modulator as generic   spatio-temporal systems",
+      "topics": [{ "affinity": 0.9610136938026411, "id": 1 }]
+    },
+    {
+      "abstract": "Electron energy loss spectroscopy (EELS) and Cathodoluminescence (CL) play a pivotal role in many of the cutting edge experiments in plasmonics. EELS and CL experiments are usually supported by numerical simulations, which, whilst accurate, may not provide as much physical insight as analytical calculations do. Fully analytical solutions to EELS and CL systems in plasmonics are rare and difficult to obtain. This paper aims to narrow this gap by introducing a new method based on Transformation optics that allows to calculate the quasi-static frequency and time-domain response of plasmonic particles under electron beam excitation.",
+      "authors": "Matthias Kraft;Yu Luo;J. B. Pendry",
+      "citationCount": -1,
+      "id": "10.1021/acs.nanolett.6b02100",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1605.09325v1",
+      "publicationDate": "2016-05-30T16:59:42Z",
+      "source": ["arxiv"],
+      "title": "Transformation optics: a time- and frequency-domain analysis of   electron-energy loss spectroscopy",
+      "topics": [{ "affinity": 0.9799362007177801, "id": 1 }]
+    },
+    {
+      "abstract": "Optical interconnects are becoming attractive alternatives to electrical wiring in intra- and inter-chip communication links. Particularly, the integration with silicon complementary metal-oxide-semiconductor (CMOS) technology has received considerable interest due to the ability of cost-effective integration of electronics and optics on a single chip. While silicon enables the realization of optical waveguides and passive components, the integration of another, optically absorbing, material is required for photodetection. Germanium or compound semiconductors are traditionally used for this purpose; their integration with silicon technology, however, faces major challenges. Recently, graphene has emerged as a viable alternative for optoelectronic applications, including photodetection. Here, we demonstrate an ultra-wideband CMOS-compatible photodetector based on graphene. We achieve multi-gigahertz operation over all fiber-optic telecommunication bands, beyond the wavelength range of strained germanium photodetectors, whose responsivity is limited by their bandgap. Our work complements the recent demonstration of a CMOS-integrated graphene electro-optical modulator, paving the way for carbon-based optical interconnects.",
+      "authors": "Andreas Pospischil;Markus Humer;Marco M. Furchi;Dominic Bachmann;Romain Guider;Thomas Fromherz;Thomas Mueller",
+      "citationCount": -1,
+      "id": "10.1038/NPHOTON.2013.240",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1302.3854v2",
+      "publicationDate": "2013-02-15T19:38:23Z",
+      "source": ["arxiv"],
+      "title": "CMOS-compatible graphene photodetector covering all optical   communication bands",
+      "topics": [
+        { "affinity": 0.7579561342307677, "id": 0 },
+        { "affinity": 0.22464187470263752, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "The emission optics of a Steigerwald type electron gun is re-examined. The virtual and real points of divergence, divergence angles and beam-widths of the electron beams at different telefocusing strength are measured in detail for first time . Two different Wehnelt cylinders are used to establish a contrasting viewpoint. The original `focusing' curves measured by Braucks are reconstructed and will be explained only through a `new' interpretation which is different from the conventional views. While the image of the emitting surface in front of the filament is indeed telefocused beyond the anode, the envelope of the beam does not `focus' as expected. A new model for the emission mechanism is established based on our results.",
+      "authors": "Chong-Yu Ruan;Manfred Fink",
+      "citationCount": -1,
+      "id": "10.1063/1.1150053",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/physics/9905031v1",
+      "publicationDate": "1999-05-12T21:27:30Z",
+      "source": ["arxiv"],
+      "title": "Emission Optics of the Steigerwald Type Electron Gun",
+      "topics": [{ "affinity": 0.9615458793613372, "id": 1 }]
+    },
+    {
+      "abstract": "Surface-bound porphyrins are promising candidates for molecular switches, electronics and spintronics. Here, we studied the structural and the electronic properties of Fe-tetra-pyridil-porphyrin adsorbed on Au(111) in the monolayer regime. We combined scanning tunneling microscopy/spectroscopy, ultraviolet photoemission, and two-photon photoemission to determine the energy levels of the frontier molecular orbitals. We also resolved an excitonic state with a binding energy of 420 meV, which allowed us to compare the electronic transport gap with the optical gap.",
+      "authors": "Arnulf Stein;Daniela Rolf;Christian Lotze;Constantin Czekelius;Katharina J. Franke;Petra Tegeder",
+      "citationCount": -1,
+      "id": "10.1088/1361-648X/aaf296",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1811.10098v1",
+      "publicationDate": "2018-11-25T21:21:58Z",
+      "source": ["arxiv"],
+      "title": "Electronic Structure of an Iron-Porphyrin Derivative on Au(111)",
+      "topics": [{ "affinity": 0.9531659700399887, "id": 1 }]
+    },
+    {
+      "abstract": "Interest in nanomaterials and especially nanoparticles has exploded in the past decades primarily due to their novel or enhanced physical and chemical properties compared to bulk material. These extraordinary properties have created a multitude of innovative applications in the fields of medicine and pharma, electronics, agriculture, chemical catalysis, food industry, and many others. More recently, nanoparticles are also being synthesized \u2018biologically\u2019 through the use of plant- or microorganism-mediated processes, as an environmentally friendly alternative to the expensive, energy-intensive, and potentially toxic physical and chemical synthesis methods. This transdisciplinary approach to nanoparticle synthesis requires that biologists and biotechnologists understand and learn to use the complex methodology needed to properly characterize these processes. This review targets a bio-oriented audience and summarizes the physico\u2013chemical properties of nanoparticles, and methods used for their characterization. It highlights why nanomaterials are different compared to micro- or bulk materials. We try to provide a comprehensive overview of the different classes of nanoparticles and their novel or enhanced physicochemical properties including mechanical, thermal, magnetic, electronic, optical, and catalytic properties. A comprehensive list of the common methods and techniques used for the characterization and analysis of these properties is presented together with a large list of examples for biogenic nanoparticles that have been previously synthesized and characterized, including their application in the fields of medicine, electronics, agriculture, and food production. We hope that this makes the many different methods more accessible to the readers, and to help with identifying the proper methodology for any given nanoscience problem.",
+      "authors": "Joudeh N.;Linke D.",
+      "citationCount": "6",
+      "id": "10.1186/s12951-022-01477-8",
+      "openaccess": "1",
+      "pdfLink": "https://api.elsevier.com/content/abstract/scopus_id/85131483092?field=author,affiliation",
+      "publicationDate": "2022-12-01",
+      "source": ["scopus"],
+      "title": "Nanoparticle classification, physicochemical properties, characterization, and applications: a comprehensive review for biologists",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "We have realized a quantum optics like Hanbury Brown and Twiss (HBT) experiment by partitioning, on an electronic beam-splitter, single elementary electronic excitations produced one by one by an on-demand emitter. We show that the measurement of the output currents correlations in the HBT geometry provides a direct counting, at the single charge level, of the elementary excitations (electron/hole pairs) generated by the emitter at each cycle. We observe the antibunching of low energy excitations emitted by the source with thermal excitations of the Fermi sea already present in the input leads of the splitter, which suppresses their contribution to the partition noise. This effect is used to probe the energy distribution of the emitted wave-packets.",
+      "authors": "E. Bocquillon;F. D. Parmentier;C. Grenier;J. -M. Berroir;P. Degiovanni;D. C. Glattli;B. Pla\u00e7ais;A. Cavanna;Y. Jin;G. F\u00e8ve",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevLett.108.196803",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1202.6243v1",
+      "publicationDate": "2012-02-28T14:59:13Z",
+      "source": ["arxiv"],
+      "title": "Electron quantum optics : partitioning electrons one by one",
+      "topics": [{ "affinity": 0.9040570987344165, "id": 1 }]
+    },
+    {
+      "abstract": "The majority of silicon photonics is built on silicon-on-insulator (SOI) wafers while the majority of electronics, including CPUs and memory, are built on bulk silicon wafers, limiting broader acceptance of silicon photonics. This discrepancy is a result of silicon photonics's requirement for a single-crystalline silicon (c-Si) layer and a thick undercladding for optical guiding that bulk silicon wafers to not provide. While the undercladding problem can be partially addressed by substrate removal techniques, the complexity of co-integrating photonics with state-of-the-art transistors and real estate competition between electronics and photonics remain problematic. We show here a platform for deposited GHz silicon photonics based on polycrystalline silicon with high optical quality suitable for high performance electro-optic devices. We demonstrate 3 Gbps polysilicon electro-optic modulator fabricated on a deposited polysilicon layer fully compatible with CMOS backend integration. These results open up an array of possibilities for silicon photonics including photonics on DRAM and flexible substrates.",
+      "authors": "Yoon Ho Daniel Lee;Michael O. Thompson;Michal Lipson",
+      "citationCount": -1,
+      "id": "10.1364/OE.21.026688",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1306.0796v1",
+      "publicationDate": "2013-06-04T14:06:35Z",
+      "source": ["arxiv"],
+      "title": "Deposited low temperature silicon GHz modulator",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Electrons transmitted across a ballistic semiconductor junction undergo refraction, analogous to light rays across an optical boundary. A pn junction theoretically provides the equivalent of a negative index medium, enabling novel electron optics such as negative refraction and perfect (Veselago) lensing. In graphene, the linear dispersion and zero-gap bandstructure admit highly transparent pn junctions by simple electrostatic gating, which cannot be achieved in conventional semiconductors. Moreover ballistic transport over micron length scales at ambient temperature has been realized, providing an ideal platform to realize a new generation of device based on electron lensing. Robust demonstration of these effects, however, has not been forthcoming. Here we employ transverse magnetic focusing to probe propagation across an electrostatically defined graphene junction. We find perfect agreement with the predicted Snells law for electrons, including observation of both positive and negative refraction. Resonant transmission across the pn junction provides a direct measurement of the angle dependent transmission coefficient, and we demonstrate good agreement with theory. Comparing experimental data with simulation reveals the crucial role played by the effective junction width, providing guidance for future device design. Our results pave the way for realizing novel electron optics based on graphene pn junctions.",
+      "authors": "Shaowen Chen;Zheng Han;Mirza M. Elahi;K. M. Masum Habib;Lei Wang;Bo Wen;Yuanda Gao;Takashi Taniguchi;Kenji Watanabe;James Hone;Avik W. Ghosh;Cory R. Dean",
+      "citationCount": -1,
+      "id": "10.1126/science.aaf5481",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1602.08182v1",
+      "publicationDate": "2016-02-26T02:54:13Z",
+      "source": ["arxiv"],
+      "title": "Electron optics with ballistic graphene junctions",
+      "topics": [
+        { "affinity": 0.7327483671096683, "id": 0 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Ballistic semiconductor structures have allowed the realization of optics-like phenomena in electronics, including magnetic focusing and lensing. An extension that appears unique to graphene is to use both n and p carrier types to create electronic analogs of optical devices having both positive and negative indices of refraction. Here, we use gate-controlled density with both p and n carrier types to demonstrate the analog of the fiber-optic guiding in graphene. Two basic effects are investigated: (1) bipolar p-n junction guiding, based on the principle of angle-selective transmission though the graphene p-n interface, and (2) unipolar fiber-optic guiding, using total internal reflection controlled by carrier density. Modulation of guiding efficiency through gating is demonstrated and compared to numerical simulations, which indicates that interface roughness limits guiding performance, with few-nanometer effective roughness extracted. The development of p-n and fiber-optic guiding in graphene may lead to electrically reconfigurable wiring in high-mobility devices.",
+      "authors": "J. R. Williams;Tony Low;M. S. Lundstrom;C. M. Marcus",
+      "citationCount": -1,
+      "id": "10.1038/nnano.2011.3",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1008.3704v4",
+      "publicationDate": "2010-08-22T16:08:41Z",
+      "source": ["arxiv"],
+      "title": "Gate-controlled Guiding of Electrons in Graphene",
+      "topics": [
+        { "affinity": 0.7476888749909585, "id": 0 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "In analogy with quantum optics, short time correlations of the current fluctuations are used to characterize an on-demand electron source consisting of a quantum dot connected to a conductor via a tunable tunnel barrier. We observe a new fundamental noise for electrons associated with the quantum fluctuations of the electron emission time, which we call quantum jitter. In optimum operating conditions of the source, the noise reduces to the quantum jitter limit, which demonstrates single particle emission. Combined with the coherent manipulations of single electrons in a quantum conductor, this electron quantum optics experiment opens the way to explore new problems including quantum statistics and interactions at the single electron level.",
+      "authors": "A. Mah\u00e9;F. D. Parmentier;E. Bocquillon;J. -M. Berroir;D. C. Glattli;T. Kontos;B. Pla\u00e7ais;G. F\u00e8ve;A. Cavanna;Y. Jin",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevB.82.201309",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1004.1985v2",
+      "publicationDate": "2010-04-12T15:06:21Z",
+      "source": ["arxiv"],
+      "title": "Current correlations of an on-demand electron source as an evidence of   single particle emission",
+      "topics": [{ "affinity": 0.9047933491560642, "id": 1 }]
+    },
+    {
+      "abstract": "Magnetic effects at optical frequencies are notoriously weak. This is evidenced by the fact that the magnetic permeability of nearly all materials is unity in the optical frequency range, and that magneto-optical devices (such as Faraday isolators) must be large in order to allow for a sufficiently strong effect. In graphene, however, it has been shown that inhomogeneous strains can induce 'pseudomagnetic fields' that behave very similarly to real fields. Here, we show experimentally and theoretically that, by properly structuring a dielectric lattice, it is possible to induce a pseudomagnetic field at optical frequencies in a photonic lattice, where the propagation dynamics is equivalent to the evolution of an electronic wavepacket in graphene. To our knowledge, this is the first realization of a pseudomagnetic field in optics. The induced field gives rise to multiple photonic Landau levels (singularities in the density of states) separated by band gaps. We show experimentally and numerically that the gaps between these Landau levels give rise to transverse confinement of the optical modes. The use of strain allows for the exploration of magnetic effects in a non-resonant way that would be otherwise inaccessible in optics. Employing inhomogeneous strain to induce pseudomagnetism suggests the possibility that aperiodic photonic crystal structures can achieve greater field-enhancement and slow-light effects than periodic structures via the high density-of-states at Landau levels. Generalizing these concepts to other systems beyond optics, for example with matter waves in optical potentials, offers new intriguing physics that is fundamentally different from that in purely periodic structures.",
+      "authors": "Mikael C. Rechtsman;Julia M. Zeuner;Andreas T\u00fcnnermann;Stefan Nolte;Mordechai Segev;Alexander Szameit",
+      "citationCount": -1,
+      "id": "10.1038/nphoton.2012.302",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1207.3596v1",
+      "publicationDate": "2012-07-16T08:17:16Z",
+      "source": ["arxiv"],
+      "title": "Strain-induced pseudomagnetic field and Landau levels in photonic   structures",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Optical metasurfaces are two-dimensional arrays of nano-scatterers that modify optical wavefronts at subwavelength spatial resolution. They are poised to revolutionize optics by enabling complex low-cost systems where multiple metasurfaces are lithographically stacked and integrated with electronics. For imaging applications, metasurface stacks can perform sophisticated image corrections and can be directly integrated with image sensors. Here, we demonstrate this concept with a miniature flat camera integrating a monolithic metasurface lens doublet corrected for monochromatic aberrations, and an image sensor. The doublet lens, which acts as a fisheye photographic objective, has a small $f$-number of 0.9, an angle-of-view larger than 60$^ circ times$60$^ circ$, and operates at 850 nm wavelength with 70% focusing efficiency. The camera exhibits nearly diffraction-limited image quality, which indicates the potential of this technology in the development of optical systems for microscopy, photography, and computer vision.",
+      "authors": "Amir Arbabi;Ehsan Arbabi;Seyedeh Mahsa Kamali;Yu Horie;Seunghoon Han;Andrei Faraon",
+      "citationCount": -1,
+      "id": "10.1038/ncomms13682",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1604.06160v2",
+      "publicationDate": "2016-04-21T02:24:08Z",
+      "source": ["arxiv"],
+      "title": "Miniature optical planar camera based on a wide-angle metasurface   doublet corrected for monochromatic aberrations",
+      "topics": [{ "affinity": 0.9693592921206018, "id": 1 }]
+    },
+    {
+      "abstract": "In this paper we explore the desirability of a transmission electron microscope in which the phase of the electron wave can be freely controlled. We discuss different existing methods to manipulate the phase of the electron wave and their limitations. We show how with the help of current techniques the electron wave can already be crafted into specific classes of waves each having their own peculiar properties. Assuming a versatile phase modulation device is feasible, we explore possible benefits and methods that could come into existence borrowing from light optics where so-called spatial light modulators provide programmable phase plates for quite some time now. We demonstrate that a fully controllable phase plate building on Harald Rose's legacy in aberration correction and electron optics in general would open an exciting field of research and applications.",
+      "authors": "Giulio Guzzinati;Laura Clark;Armand B\u00e9ch\u00e9;Roeland Juchtmans;Ruben Van Boxem;Michael Mazilu;Jo Verbeeck",
+      "citationCount": -1,
+      "id": "10.1016/j.ultramic.2014.10.007",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1504.07294v2",
+      "publicationDate": "2015-04-27T22:30:12Z",
+      "source": ["arxiv"],
+      "title": "Prospects for versatile phase manipulation in the TEM: beyond aberration   correction",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Optimizing the system performance metric directly is an important method for correcting wave-front distortions in adaptive optics(AO) systems. Appropriate stochastic parallel optimization control algorithm is the key to correcting distorted wave front successfully. Based on several stochastic parallel optimization control algorithms, an adaptive optics system with a 32-element deformable mirror was simulated Genetic algorithm (GA), ALogrithm Of Pattern Extraction (Alopex), the single perturbation stochastic parallel gradient descent (SPGD), the double perturbation SPGD and simulated annealing (SA) were compared in convergence speed, correction capability and local maximum. The results are: because of low convergence speed, GA and Alopex are not suitable for the control of real-time AO system; and the double perturbation SPGD and SA hold significant promise for the control of AO system.",
+      "authors": "Huizhen Yang;Dongmei Cai;Xinyang Li;Wenhan Jiang",
+      "citationCount": 2,
+      "id": "10.1109/WCICA.2008.4593628",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4593628",
+      "publicationDate": "25-27 June 2008",
+      "source": ["ieee"],
+      "title": "Application analysis of several stochastic optimal algorithms in adaptive optics system control",
+      "topics": [{ "affinity": 0.9528970666430802, "id": 1 }]
+    },
+    {
+      "abstract": "Coulomb blockade is a fundamental phenomenon in physics enabling transfer of individual electrons one by one into electrically isolated nanostructures such as nanowires or quantum dots and thereby creation of sources of single electrons. Nowadays, solid-state single-electron sources are key elements of the emerging new technologies of quantum information processing and single-electron electronics. Moreover, advanced research in free-electron quantum optics and developments in electron microscopy require the point sources of free electrons in vacuum, which can be controlled on a single electron level. However, up to now, single-electron vacuum guns were not realized in practice. The problems to be solved include the formation of stable tip-shaped heterostructured emitters and control of liberated electrons in time and energy domain. Here we overcome these challenges by creating a field emission (FE) electron source based on a carbon nanowire coupled to an ultra-sharp diamond tip by a tunnel junction. Using energy spectroscopy, we directly observe Coulomb oscillations of the electron Fermi level in the nanowire at room temperature and FE currents up to 1 $ mu$A. We reveal that the oscillations are suppressed at high FE current either by Joule heating or due to the high tunneling resistance, depending on the nanowire charging time, ranging from about 25 fs to 1 ps. We anticipate that the combination of introduced carbon single-electron sources with laser-induced gating is highly promising for the creation of coherent ultrashort free-electron bunches of interest for low-energy electron holography and ultrafast electron or X-ray imaging and spectroscopy.",
+      "authors": "Victor I. Kleshch;Vitali Porshyn;Anton S. Orekhov;Andrey S. Orekhov;Dirk L\u00fctzenkirchen-Hecht;Alexander N. Obraztsov",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2005.02358v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2005.02358v1",
+      "publicationDate": "2020-05-05T17:44:12Z",
+      "source": ["arxiv"],
+      "title": "Coulomb-blockade-controlled single-electron point source",
+      "topics": [{ "affinity": 0.9556280511299579, "id": 1 }]
+    },
+    {
+      "abstract": "We present the optical data links for the ATLAS liquid argon calorimeter. The current status of the vertical cavity surface emitting laser failures, the up-to-date results in searching for the failure cause, experiences gained in the searching process, possible backup plans for the optical transmitters and the lessons learned are also discussed.",
+      "authors": "Tiankuan Liu",
+      "citationCount": -1,
+      "id": "10.1088/1748-0221/6/01/C01013",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2202.05733v1",
+      "publicationDate": "2022-02-11T16:10:37Z",
+      "source": ["arxiv"],
+      "title": "Optical Links for ATLAS Liquid Argon Calorimeter Front-end Electronics   Readout",
+      "topics": [
+        { "affinity": 0.5102068125303933, "id": 1 },
+        { "affinity": 0.40057028998988187, "id": -1 }
+      ]
+    },
+    {
+      "abstract": "Comment on Phys. Rev. Lett. 86, 2086 (2001)",
+      "authors": "R. T. Clay;S. Mazumdar",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevLett.89.039701",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/cond-mat/0105595v1",
+      "publicationDate": "2001-05-30T16:39:15Z",
+      "source": ["arxiv"],
+      "title": "Comment on \"Origin of Giant Optical Nonlinearity in   Charge-Transfer--Mott Insulators: A New Paradigm for Nonlinear Optics\"",
+      "topics": [{ "affinity": 0.9672249071145513, "id": 1 }]
+    },
+    {
+      "abstract": "A dielectric material's response to light is macroscopically described by electric displacement fields due to polarization and susceptibility, but the atomistic origin is light-cycle-driven motion of electron densities in the restoring forces of the atomic environment. Here we report how the macroscopic nonlinear-optical response of a heteronuclear crystal relates to the alignment and orientation of its chemical bonds. Substantial nonlinear emission is only observed if the electric field of an optical single-cycle pulse points from the less electronegative to the more electronegative element and not vice versa. This asymmetry is a consequence of the unbalanced real-space motion of valence charges along the direction of the bonds. These results connect a material's chemical structure to the optical response and may facilitate the comprehension and design of novel materials for applications in optics and lasers on basis of the atoms and how they connect.",
+      "authors": "Yuya Morimoto;Yasushi Shinohara;Mizuki Tani;Bo-Han Chen;Kenichi L. Ishikawa;Peter Baum",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/1910.11821v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1910.11821v1",
+      "publicationDate": "2019-10-25T16:03:54Z",
+      "source": ["arxiv"],
+      "title": "Asymmetric nonlinear optics of a polar chemical bond",
+      "topics": [
+        { "affinity": 0.1770893011741874, "id": 0 },
+        { "affinity": 0.8229106988258125, "id": 1 }
+      ]
+    },
+    {
+      "abstract": "The optical and electronic properties of crystalline Li2TeO3, which is a tellurite glass, is studied in the framework of density functional theory (DFT) implemented software SIESTA. The material has monoclinic symmetrized structure and the unit or primitive cell of the material, periodic in all directions has been taken to study the properties. The electronic structures show that it is a wide-gap semiconductor and the property changes to metallic when subjected to electric field. This tunable property can be used in various fields of electronics. The optical properties studied tells that Li2TeO3 can be a promising material to be used as a hole transport material (HTM) for developing efficient perovskite solar cell including other applications as well.",
+      "authors": "Aditya Dey",
+      "citationCount": -1,
+      "id": "10.3103/S1068335621050031",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2005.08194v1",
+      "publicationDate": "2020-05-17T08:41:45Z",
+      "source": ["arxiv"],
+      "title": "First principles study of optical and tunable electronic properties of   crystalline Li2TeO3",
+      "topics": [{ "affinity": 1.0, "id": 1 }]
+    },
+    {
+      "abstract": "Fiber optic communication is the backbone of our modern information society, offering high bandwidth, low loss, weight, size and cost, as well as an immunity to electromagnetic interference. Microwave photonics lends these advantages to electronic sensing and communication systems, but - unlike the field of nonlinear optics - electro-optic devices so far require classical modulation fields whose variance is dominated by electronic or thermal noise rather than quantum fluctuations. Here we present a cavity electro-optic transceiver operating in a millikelvin environment with a mode occupancy as low as 0.025 $ pm$ 0.005 noise photons. Our system is based on a lithium niobate whispering gallery mode resonator, resonantly coupled to a superconducting microwave cavity via the Pockels effect. For the highest continuous wave pump power of 1.48 mW we demonstrate bidirectional single-sideband conversion of X band microwave to C band telecom light with a total (internal) efficiency of 0.03 % (0.7 %) and an added output conversion noise of 5.5 photons. The high bandwidth of 10.7 MHz combined with the observed very slow heating rate of 1.1 noise photons s$^{-1}$ puts quantum limited pulsed microwave-optics conversion within reach. The presented device is versatile and compatible with superconducting qubits, which might open the way for fast and deterministic entanglement distribution between microwave and optical fields, for optically mediated remote entanglement of superconducting qubits, and for new multiplexed cryogenic circuit control and readout strategies.",
+      "authors": "William Hease;Alfredo Rueda;Rishabh Sahu;Matthias Wulf;Georg Arnold;Harald G. L. Schwefel;Johannes M. Fink",
+      "citationCount": -1,
+      "id": "10.1103/PRXQuantum.1.020315",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2005.12763v1",
+      "publicationDate": "2020-05-26T14:35:27Z",
+      "source": ["arxiv"],
+      "title": "Cavity quantum electro-optics: Microwave-telecom conversion in the   quantum ground state",
+      "topics": [{ "affinity": 0.9823920153097228, "id": 1 }]
+    },
+    {
+      "abstract": "A classical wave optics realization of the two-site Hubbard model, describing the dynamics of interacting fermions in a double-well potential, is proposed based on light transport in evanescently-coupled optical waveguides.",
+      "authors": "S. Longhi;G. Della Valle;V. Foglietti",
+      "citationCount": -1,
+      "id": "10.1103/PhysRevB.84.033102",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/1111.3460v1",
+      "publicationDate": "2011-11-15T09:16:09Z",
+      "source": ["arxiv"],
+      "title": "Classical realization of two-site Fermi-Hubbard systems",
+      "topics": [{ "affinity": 0.923476412805288, "id": 1 }]
+    },
+    {
+      "abstract": "Building on the scientific understanding and technological infrastructure of single-mode fibers, multimode fibers are being explored as a means of adding new degrees of freedom to optical technologies such as telecommunications, fiber lasers, imaging, and measurement. Here, starting from a baseline of single-mode nonlinear fiber optics, we introduce the growing topic of multimode nonlinear fiber optics. We demonstrate a new numerical solution method for the system of equations that describes nonlinear multimode propagation, the generalized multimode nonlinear Schr\u00f6dinger equation. This numerical solver is freely available, implemented in MATLAB and includes a number of multimode fiber analysis tools. It features a significant parallel computing speed-up on modern graphical processing units, translating to orders-of-magnitude speed-up over the conventionally-used split-step Fourier method. We demonstrate its use with several examples in graded- and step-index multimode fibers. Finally, we discuss several key open directions and questions, whose answers could have significant scientific and technological impact.",
+      "authors": "Logan G. Wright;Zachary M. Ziegler;Pavel M. Lushnikov;Zimu Zhu;M. Amin Eftekhar;Demetrios N. Christodoulides;Frank W. Wise",
+      "citationCount": 66,
+      "id": "10.1109/JSTQE.2017.2779749",
+      "openaccess": 0,
+      "pdfLink": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8141863",
+      "publicationDate": "May-June 2018",
+      "source": ["ieee"],
+      "title": "Multimode Nonlinear Fiber Optics: Massively Parallel Numerical Solver, Tutorial, and Outlook",
+      "topics": [{ "affinity": 0.9714219057114541, "id": 1 }]
+    },
+    {
+      "abstract": "The relativistic charge carriers in monolayer graphene can be manipulated in manners akin to conventional optics (electron-optics): angle-dependent Klein tunneling collimates an electron beam (analogous to a laser), while a Veselago refraction process focuses it (analogous to an optical lens). Both processes have been previously investigated, but the collimation and focusing efficiency have been reported to be relatively low even in state-of-the-art ballistic pn-junction devices. These limitations prevented the realization of more advanced quantum devices based on electron-optical interference, while understanding of the underlying physics remains elusive. Here, we present a novel device architecture of a graphene microcavity defined by carefully-engineered local strain and electrostatic fields. We create a controlled electron-optic interference process at zero magnetic field as a consequence of consecutive Veselago refractions in the microcavity and provide direct experimental evidence through low-temperature electrical transport measurements. The experimentally observed first-, second-, and third-order interference peaks agree quantitatively with the Veselago physics in a microcavity. In addition, we demonstrate decoherence of the interference by an external magnetic field, as the cyclotron radius becomes comparable to the interference length scale. For its application in electron-optics, we utilize Veselago interference to localize uncollimated electrons and characterize its contribution in further improving collimation efficiency. Our work sheds new light on relativistic single-particle physics and provides important technical improvements toward next-generation quantum devices based on the coherent manipulation of electron momentum and trajectory.",
+      "authors": "Xi Zhang*;Wei Ren*;Elliot Bell;Ziyan Zhu;Kenji Watanabe;Takashi Taniguchi;Efthimios Kaxiras;Mitchell Luskin;Ke Wang",
+      "citationCount": -1,
+      "id": "http://arxiv.org/abs/2106.09651v1",
+      "openaccess": 1,
+      "pdfLink": "http://arxiv.org/pdf/2106.09651v1",
+      "publicationDate": "2021-06-17T16:55:16Z",
+      "source": ["arxiv"],
+      "title": "Gate-tunable Veselago Interference in a Bipolar Graphene Microcavity",
+      "topics": [
+        { "affinity": 0.7282272844194582, "id": 0 },
+        { "affinity": 0.10220328860230558, "id": 1 },
+        { "affinity": 0.1695694269782363, "id": -1 }
+      ]
+    }
+  ]
+}

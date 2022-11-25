@@ -8,7 +8,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" textAlign={'center'}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Helm
+        Helm.ai
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -19,7 +19,7 @@ function Copyright() {
 export default function PageFooter() {
   return (
     <Box 
-      sx={{bgcolor: 'lightgrey', mt: 4, p: 2, position:'relative'}} 
+    sx={{bgcolor: 'white', p: 2, position:'sticky'}}
       component="footer">
       <Typography
         variant="caption"
