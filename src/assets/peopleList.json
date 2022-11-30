@@ -1,0 +1,86 @@
+[
+    {
+        "fullName": "Davide Amadei",
+        "description": "d.amadei@studenti.unipi.it",
+        "image_source": "../../assets/images/davide_amadei.jpg",
+        "linkedin_url": "https://www.linkedin.com",
+        "github_url": "https://github.com/davideamadei"
+    },
+    {
+        "fullName": "Diego Arcelli",
+        "description": "d.arcelli@studenti.unipi.it",
+        "image_source": "../../assets/images/diego_arcelli.jpg",
+        "linkedin_url": "https://www.linkedin.com",
+        "github_url": "https://github.com/DiegoArcelli"
+    },
+    {
+        "fullName": "Alessandro Capurso",
+        "description": "a.capurso1@studenti.unipi.it",
+        "image_source": "../../assets/images/alessandro_capurso.png",
+        "linkedin_url": "https://www.linkedin.com/in/alessandro-capurso-460b081b7/",
+        "github_url": "https://github.com/Jek9884"
+    },
+    {
+        "fullName": "Giacomo Cignoni",
+        "description": "g.cignoni3@studenti.unipi.it",
+        "image_source": "../../assets/images/giacomo_cignoni.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/giacomo-cignoni-927887232/",
+        "github_url": "https://github.com/giacomo-cgn"
+    },
+    {
+        "fullName": "Roberto Esposito",
+        "description": "r.esposito8@studenti.unipi.it",
+        "image_source": "../../assets/images/roberto_esposito.jpeg",
+        "linkedin_url": "https://www.linkedin.com/in/roberto-esposito-964a46176/",
+        "github_url": "https://github.com/robbespo00"
+    },
+    {
+        "fullName": "Pietro Francaviglia",
+        "description": "p.francaviglia1@studenti.unipi.it",
+        "image_source": "../../assets/images/pietro_francaviglia.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/frankpietro/",
+        "github_url": "https://github.com/frankpietro"
+    },
+    {
+        "fullName": "Sergio Latrofa",
+        "description": "s.latrofa1@studenti.unipi.it",
+        "image_source": "../../assets/images/sergio_latrofa.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/sergio-latrofa-3b4948194/",
+        "github_url": "https://github.com/Sergio-Ltr"
+    },
+    {
+        "fullName": "Alberto Marinelli",
+        "description": "a.marinelli9@studenti.unipi.it",
+        "image_source": "../../assets/images/alberto_marinelli.jpeg",
+        "linkedin_url": "https://www.linkedin.com",
+        "github_url": "https://github.com/AlbertoMarinellim"
+    },
+    {
+        "fullName": "Gabriele Marino",
+        "description": "g.marino37@studenti.unipi.it",
+        "image_source": "../../assets/images/gabriele_marino.png",
+        "linkedin_url": "https://www.linkedin.com/in/gmarino862001/",
+        "github_url": "https://github.com/GM862001"
+    },
+    {
+        "fullName": "Luca Moroni",
+        "description": "l.moroni5@studenti.unipi.it",
+        "image_source": "../../assets/images/luca_moroni.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/luca-moroni-464513192/",
+        "github_url": "https://github.com/Andrew-Wyn"
+    },
+    {
+        "fullName": "Irene Pisani",
+        "description": "i.pisani1@studenti.unipi.it",
+        "image_source": "../../assets/images/irene_pisani.png",
+        "linkedin_url": "https://www.linkedin.com/in/irene-pisani-012b7916a/",
+        "github_url": "https://github.com/irenepisani"
+    },
+    {
+        "fullName": "Veronica Pistolesi",
+        "description": "v.pistolesi6@studenti.unipi.it",
+        "image_source": "../../assets/images/veronica_pistolesi.png",
+        "linkedin_url": "https://www.linkedin.com",
+        "github_url": "https://github.com/VeronicaPistolesi"
+    }
+]

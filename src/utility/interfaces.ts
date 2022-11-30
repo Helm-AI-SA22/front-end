@@ -139,3 +139,11 @@ export interface RankingAPIResponse {
     }
 
 }
+
+export interface Person {
+    fullName: string;
+    description: string;
+    image_source: string;
+    linkedin_url: string; 
+    github_url: string;
+}
