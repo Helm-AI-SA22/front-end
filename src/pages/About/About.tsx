@@ -86,7 +86,7 @@ export default class AboutPage extends Component {
                         color="text.primary"
                         gutterBottom
                     >
-                        I 12 Trimoni
+                        
                     </Typography>
                 </Container>
             </Container>
