@@ -3,7 +3,17 @@ import {Stack, Button, Chip, Card, CardHeader, CardContent, CardActions, Icon } 
 import {Grid, Box, Container, Typography, Pagination} from '@mui/material';
 import './ResultsList.css';
 import LaunchIcon from '@mui/icons-material/Launch';
+import CiteIcon from '@mui/icons-material/NoteAdd';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import { Paper, SearchAPIResponse, TopicPaperMap} from '../../utility/interfaces';
+import { bibFileAPI } from '../../utility/api';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import arxiv from '../../assets/logo/arxiv.png';
@@ -72,8 +82,21 @@ const ResultsList = ( props: ResultsListProps) => {
     const perPage = 5;
     const totPaper = documents.length;
     const countPages = Math.ceil(totPaper / perPage);
+    const [bib, setBib] = React.useState('')
 
     const topicsIndexList = useAppSelector(selectTopicsIndex);
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = async (doi: string) => {
+        const rebib = (await bibFileAPI(doi) as any)['data']
+        setBib(rebib)
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     //const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -88,7 +111,21 @@ const ResultsList = ( props: ResultsListProps) => {
             }
         }
     }
-   
+
+    const [toastOpen, setToastOpen] = React.useState(false);
+
+    const openToast = () => {
+        setToastOpen(true);
+    };
+  
+    const handleToastClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setToastOpen(false);
+    };
+
     const populatePaperPagination = props.documents.slice((currentPage - 1) * docPerPage, currentPage * docPerPage)
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
@@ -198,6 +235,31 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Box sx={{display: 'flex', flexDirection: 'row', mt:1, verticalAlign:'bottom'}}>
                         {populatesources}
                     </Box>
+                    <Button variant="outlined" size="small" sx={{fontSize:10}} onClick={() => handleClickOpen(paper.id)}>
+                        <CiteIcon color="secondary" sx={{pr:1, fontSize:14 }} />
+                        Cite this paper
+                    </Button>
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>BibTeX</DialogTitle>
+                        <DialogContent>
+                        <DialogContentText>
+                           { bib }
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick={() => {
+                            navigator.clipboard.writeText(bib);
+                            openToast();
+                        }}>Copy</Button>
+                        <Button onClick={handleClose}>Close</Button>
+                        </DialogActions>
+                    </Dialog>
+                    <Snackbar open={toastOpen} autoHideDuration={2000} onClose={handleToastClose}>
+                        <Alert onClose={handleToastClose} severity="success" sx={{ width: '100%' }}>
+                            BibTeX copied to clipboard!
+                        </Alert>
+                    </Snackbar>
+                   
                     <Stack direction="row" spacing={2} sx={{alignItems:"center"}}>
                             { !paper.openaccess ?  <Typography color="error" variant="button"  sx={{fontSize:10}}> <LockTwoToneIcon sx={{fontSize:14}} /> Restricted </Typography> 
                             : <Typography color="green"  variant="button"  sx={{fontSize:10}}> <LockOpenTwoToneIcon sx={{fontSize:14}}/> Free</Typography>}
