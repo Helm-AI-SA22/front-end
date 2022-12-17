@@ -239,11 +239,19 @@ const ResultsList = ( props: ResultsListProps) => {
                         <CiteIcon color="secondary" sx={{pr:1, fontSize:14 }} />
                         Cite this paper
                     </Button>
-                    <Dialog open={open} onClose={handleClose}>
+                    <Dialog open={open} onClose={handleClose} 
+                        BackdropProps={{style: {backgroundColor: '#00000033' }}}
+                        PaperProps={{
+                            style: {
+                            backgroundColor: 'white',
+                            boxShadow: 'none',
+                            },
+                        }}>
                         <DialogTitle>BibTeX</DialogTitle>
                         <DialogContent>
                         <DialogContentText>
-                           { bib }
+                           { bib.replaceAll("},","},") } 
+                           {/* Trovare un carattere per andare a capo. */}
                         </DialogContentText>
                         </DialogContent>
                         <DialogActions>
