@@ -20,7 +20,8 @@ const initialState: FilteringState = {
         max: CIT_MAX
     },
     availability: -1,
-    preprint: -1
+    preprint: -1,
+    sources: []
 }
 
 export function criteriaToAPI(state: FilteringState): Criteria {
@@ -49,7 +50,8 @@ export function criteriaToAPI(state: FilteringState): Criteria {
         availability: (state.availability != -1) ? state.availability : null,
         date: (rangeToAPI(state.date, DATE_MIN, DATE_MAX)),
         citationCount: (rangeToAPI(state.citationCount, CIT_MIN, CIT_MAX)),
-        preprint: null
+        preprint: null,
+        sources: (state.sources.length) ? state.sources: null
     }
     //nel caso impostare min numCitazioni a 0 se min numCitazioni non indicato e preprint non volute
 };
@@ -94,6 +96,7 @@ export const filtersSlice = createSlice({
         state.date = {...initialState.date};
         state.citationCount = {...initialState.citationCount};
         state.availability = initialState.availability;
+        state.sources = [...initialState.sources];
     }
   }
 });

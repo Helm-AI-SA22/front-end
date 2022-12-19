@@ -25,7 +25,7 @@ import FormControl from '@mui/material/FormControl';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
+import { TopicIndex, SourceIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
@@ -59,6 +59,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
     const dispatch = useAppDispatch();
     const [openTopics, setOpenTopics] = React.useState(false);
+    const [openSources, setOpenSources] = React.useState(false);
+
     const [openPublicationYear, setOpenPublicationYear] = React.useState(false);
     const [openCitationCount, setOpenCitationCount] = React.useState(false);
     const [openAuthors, setOpenAuthors] = React.useState(false);
@@ -131,6 +133,77 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     {openTopics ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
                 <Collapse in={openTopics} timeout="auto" unmountOnExit>
+                    <Box sx={{marginLeft: 3}}>
+                        {/** Generates a row for each element of the list */}
+                        {elementsList.map((value) => {
+                            return (
+                                <ListItem key={value.id} disablePadding>
+                                    <ListItemButton role={undefined} onClick={handleToggle(value.id)}>
+                                        <ListItemIcon>
+                                            <Checkbox
+                                            edge="start"
+                                            checked={checked.indexOf(value.id) !== -1}
+                                            tabIndex={-1}
+                                            disableRipple
+                                            inputProps={{ 'aria-labelledby': value.name }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText id={value.name} primary={value.name}/>
+                                    </ListItemButton>
+                                </ListItem>
+                            );
+                        })}
+                    </Box>
+                </Collapse>
+                <Divider sx={{ml:1}}/>
+            </Box>
+        );
+    
+    }
+
+
+    function filterSource(elementsList: SourceIndex[]) {
+        
+        const handleClick = () => {
+            setOpenSources(!openSources);
+        };
+    
+        const handleToggle = (value: number) => () => {
+            const currentIndex = checked.indexOf(value);
+            const newChecked = [...checked];
+            let remove = false;
+            
+            if (currentIndex === -1) {
+                //Element checked
+                newChecked.push(value);
+                remove = false;
+            } else {
+                //Element unchecked
+                newChecked.splice(currentIndex, 1);
+                remove = true;
+            }
+            
+            //Add or remove the topic to the filter list
+            props.updateListFilter({
+                filterKey: 'source',
+                element: value,
+                remove: remove
+            } as FilterListUpdater);
+            setChecked(newChecked);
+            console.log(props);
+        };
+        
+        return(
+            <Box>
+                <Divider sx={{ml:1}}/>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <TopicIcon sx={{mr:1}}/>
+                        <ListItemText primary= {"Sources"} />
+                    </Box>
+                    {openSources ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={openSources} timeout="auto" unmountOnExit>
                     <Box sx={{marginLeft: 3}}>
                         {/** Generates a row for each element of the list */}
                         {elementsList.map((value) => {
@@ -467,6 +540,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     }
 
     const topicsList: TopicIndex[] = data.topics;
+    const sourcesList: SourceIndex[] = data.sources;
 
     let authorsString: string = "";
     const statesAvailabilityKeys = [-1, 1, 0];
@@ -495,6 +569,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
             {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setOpenAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
+            {filterSource(sourcesList)}
             {/**filterList("Peer reviewed", ListedFilters.PREPRINT, "Peer reviewed", statesPreprint, statesPreprintKeys, openPreprint, setPreprint, preprintFilterValue, setPreprintFilterValue)*/}
             <Stack spacing={2} direction="row" sx={{m: 3}}>
                 {buttonFilter(errorsList)}
