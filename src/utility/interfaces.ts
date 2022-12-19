@@ -22,11 +22,6 @@ export interface TopicIndex{
     name: string;
 }
 
-export interface SourceIndex{
-    id: number;
-    name: string;
-}
-
 export interface LDAChart{
     ldaPlot?: string;
 }
@@ -48,7 +43,7 @@ export interface SearchResults {
     documents: Paper[];
     logs?: string;
     topics: TopicIndex[];
-    sources: SourceIndex[];
+    sources: string[];
     max_tfidf: number;
     topicsVisualization: LDAChart | BERTChart; 
 }

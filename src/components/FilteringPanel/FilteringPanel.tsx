@@ -25,7 +25,7 @@ import FormControl from '@mui/material/FormControl';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { TopicIndex, SourceIndex, Paper, SearchResults } from '../../utility/interfaces';
+import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
@@ -43,6 +43,7 @@ const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
     authors: state.filters.authors,
     date: state.filters.date,
+    sources: state.filters.sources,
     citationCount: state.filters.citationCount,
     availability: state.filters.availability,
     preprint: state.filters.preprint
@@ -162,7 +163,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     }
 
 
-    function filterSource(elementsList: SourceIndex[]) {
+    function filterSource(elementsList: string[]) {
         
         const handleClick = () => {
             setOpenSources(!openSources);
@@ -185,7 +186,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             
             //Add or remove the topic to the filter list
             props.updateListFilter({
-                filterKey: 'source',
+                filterKey: 'sources',
                 element: value,
                 remove: remove
             } as FilterListUpdater);
@@ -494,6 +495,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
                 payload.topics = data.topics;
+                payload.sources = data.sources;
                 payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
                 dispatch(updateCurrentPage(1));
