@@ -14,12 +14,13 @@ export interface Paper {
 
 export interface TopicPaperMap{
     id: number;
-    affinity: number;
+    affinity?: number;
 }
 
 export interface TopicIndex{
     id: number;
     name: string;
+    summary: string;
 }
 
 export interface LDAChart{

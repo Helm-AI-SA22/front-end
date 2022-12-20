@@ -29,7 +29,7 @@ import { connect } from 'react-redux';
 import {selectTopicsIndex, selectMaxTfidf}  from '../SearchBar/SearchResultsSlice';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
-import { maxWidth, minWidth } from '@mui/system';
+import TopiChip from '../TopicChip/TopicChip';
 
 interface ResultsListHandler {
     documents: Array<Paper>;
@@ -104,11 +104,16 @@ const ResultsList = ( props: ResultsListProps) => {
         props.updateCurrentPage(value);
     };
 
-    function topicIdToName(paperTopics: TopicPaperMap){
+    function topicFromId(paperTopics: TopicPaperMap){
         for(let i=0; i<topicsIndexList.length; i++){
             if(topicsIndexList[i].id == paperTopics.id){
-                return topicsIndexList[i].name;
+                return topicsIndexList[i];
             }
+        }
+        return {
+            id:-1,
+            name:'',
+            summary: '' 
         }
     }
 
@@ -130,10 +135,17 @@ const ResultsList = ( props: ResultsListProps) => {
     
     const populate = populatePaperPagination.map(function (paper: Paper, index: number) {
         
-        const populatetopics = paper.topics.map((papertopics) => (
-            <Chip sx={{m:0.5}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
-            id={papertopics['id'].toString()} key={papertopics['id'].toString()}/>
-        ));
+        const populatetopics = paper.topics.map((papertopics) => 
+            {
+                const topic = topicFromId(papertopics);
+                return  <TopiChip id={topic.id} name={topic.name} summary={topic.summary}/>
+            }
+        );
+        
+        // (
+        //     <Chip sx={{m:0.5}} size="small" color="primary" variant="outlined"  label={ topicIdToName(papertopics)} 
+        //     id={papertopics['id'].toString()} key={papertopics['id'].toString()}/>
+        // ));
 
     
         const populatesources = (paper.source ? paper.source : []).map((papersources) => (

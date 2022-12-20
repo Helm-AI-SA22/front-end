@@ -38,6 +38,7 @@ import { filter, selectResults, update, selectOriginalDocs } from '../SearchBar/
 import {useAppSelector, useAppDispatch} from '../../utility/hooks'
 import {filterAPI} from '../../utility/api'
 import {updateCurrentPage} from '../../components/ResultsList/PaginationSlice'
+import TopicChip from '../TopicChip/TopicChip';
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -148,6 +149,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                         </ListItemIcon>
                                         <ListItemText id={value.name} primary={value.name}/>
                                     </ListItemButton>
+                                    <TopicChip id={value.id} name={value.name} summary={value.summary} hideName/>
                                 </ListItem>
                             );
                         })}
