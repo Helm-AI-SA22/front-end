@@ -1,5 +1,5 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
-import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range, Criteria} from '../../utility/interfaces'
+import {FilteringState, FilterStringUpdater, FilterListUpdater, FilterRangeUpdater, FilterValueUpdater, Range, Criteria, FilterMode, FilterTopic} from '../../utility/interfaces'
 import { CIT_MAX, CIT_MIN, DATE_MAX, DATE_MIN } from '../../utility/constants';
 import { RootState } from '../../utility/store';
 
@@ -20,14 +20,14 @@ const initialState: FilteringState = {
         max: CIT_MAX
     },
     availability: -1,
-    preprint: -1
+    preprint: -1,
+    mode: FilterMode.UNION
 }
 
 export function criteriaToAPI(state: FilteringState): Criteria {
     
     const rangeToAPI = (range: Range, min: number, max: number): Range | null => {
 
-        
         if(range.min == min && range.max == max){
             return null;
         }
@@ -43,8 +43,21 @@ export function criteriaToAPI(state: FilteringState): Criteria {
         
     }  
 
+    const checkTopics = (): FilterTopic | null => {
+        
+        if(state.topic.length){
+            var topic: FilterTopic = {mode: state.mode,
+                topics: state.topic
+            }
+            return topic
+        }
+        else{
+            return null
+        }
+    }
+
     return {
-        topic: (state.topic.length) ? state.topic : null,
+        topic: (checkTopics()),
         authors: (state.authors.length) ? state.authors : null,
         availability: (state.availability != -1) ? state.availability : null,
         date: (rangeToAPI(state.date, DATE_MIN, DATE_MAX)),
@@ -94,6 +107,7 @@ export const filtersSlice = createSlice({
         state.date = {...initialState.date};
         state.citationCount = {...initialState.citationCount};
         state.availability = initialState.availability;
+        state.mode = initialState.mode;
     }
   }
 });

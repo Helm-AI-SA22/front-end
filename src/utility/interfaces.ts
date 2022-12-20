@@ -20,6 +20,7 @@ export interface TopicPaperMap{
 export interface TopicIndex{
     id: number;
     name: string;
+    ratio: number;
 }
 
 export interface LDAChart{
@@ -75,6 +76,7 @@ export interface FilteringState {
     citationCount: Range;
     availability: number;
     preprint: number;
+    mode: FilterMode;
 };
 
 export interface FilterStringUpdater{
@@ -96,7 +98,7 @@ export interface FilterRangeUpdater {
 
 export interface FilterValueUpdater {
     filterKey: string;
-    value: number | boolean | string;
+    value: number | boolean | string | FilterMode;
 }
 
 export interface FilteringPanelProps extends FilteringState { 
@@ -106,8 +108,18 @@ export interface FilteringPanelProps extends FilteringState {
     updateValueFilter: (updater: FilterValueUpdater) => void;
 }
 
+export enum FilterMode { 
+    UNION = 'union', 
+    INTERSECTION = 'intersection'     
+} 
+
+export interface FilterTopic{
+    mode: FilterMode;
+    topics: string[]; 
+}
+
 export interface Criteria {
-    topic: string[] | null;
+    topic: FilterTopic | null
     authors: string[] | null;
     date: Range | null;
     citationCount: Range | null;
@@ -118,6 +130,7 @@ export interface Criteria {
 export interface FilterAPIRequest {
     documents: Paper[];
     criteria: Criteria;
+    topics: TopicIndex[];
 }
 
 export enum RankingCriteria { 

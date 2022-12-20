@@ -30,14 +30,18 @@ import { connect } from 'react-redux';
 
 import { RootState } from '../../utility/store';
 import { updateListFilter, updateRangeFilter, updateStringFilter, updateValueFilter, clean, criteriaToAPI, selectAvailability} from './FilteringSlice';
-import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest} from '../../utility/interfaces'
+import {FilteringState, FilterListUpdater,FilterRangeUpdater, FilterStringUpdater, FilterValueUpdater, FilteringPanelProps, FilterAPIRequest, FilterMode} from '../../utility/interfaces'
 import { Dispatch } from 'redux';
 
 import { DATE_MIN, DATE_MAX, CIT_MIN, CIT_MAX } from '../../utility/constants'; 
-import { filter, selectResults, update, selectOriginalDocs } from '../SearchBar/SearchResultsSlice';
+import { filter, selectResults, update, selectOriginalDocs, selectTopicsIndex } from '../SearchBar/SearchResultsSlice';
 import {useAppSelector, useAppDispatch} from '../../utility/hooks'
 import {filterAPI} from '../../utility/api'
 import {updateCurrentPage} from '../../components/ResultsList/PaginationSlice'
+
+import {FormControlLabel, FormGroup, IconButton, Switch, Typography} from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
+import Tooltip from '@mui/material/Tooltip';
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -45,7 +49,8 @@ const mapStateToProps = (state: RootState) => ({
     date: state.filters.date,
     citationCount: state.filters.citationCount,
     availability: state.filters.availability,
-    preprint: state.filters.preprint
+    preprint: state.filters.preprint,
+    mode: state.filters.mode
 } as FilteringState);
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -119,6 +124,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             setChecked(newChecked);
             console.log(props);
         };
+
+        const handleTopicFilteringMode = () => {
+            props.updateValueFilter({
+                filterKey: 'mode', 
+                value: ((props.mode == FilterMode.UNION) ? FilterMode.INTERSECTION : FilterMode.UNION)
+            } as FilterValueUpdater);
+        }
         
         return(
             <Box>
@@ -131,6 +143,16 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     {openTopics ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
                 <Collapse in={openTopics} timeout="auto" unmountOnExit>
+                    <Stack direction={'row'} spacing={0.5}>
+                        <FormGroup>
+                            <FormControlLabel control={<Switch value={props.mode} onChange={handleTopicFilteringMode}/>} label="Intersection" sx={{mt:1, ml:4}}/>
+                        </FormGroup>
+                        <Tooltip title="Selects only documents that satisfy all filters at once">
+                            <IconButton size='small'>
+                                <InfoIcon/>
+                            </IconButton>
+                        </Tooltip>
+                    </Stack>
                     <Box sx={{marginLeft: 3}}>
                         {/** Generates a row for each element of the list */}
                         {elementsList.map((value) => {
@@ -146,7 +168,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                             inputProps={{ 'aria-labelledby': value.name }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText id={value.name} primary={value.name}/>
+                                        <ListItemText id={value.name} primary={value.name} secondary={'('+(value.ratio*100)+'% of documents)'}/>
                                     </ListItemButton>
                                 </ListItem>
                             );
@@ -414,13 +436,13 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             if(errorsList.every(element => element === false)){
                 let jsonToSend: FilterAPIRequest = {
                     documents: originalDocs,
-                    criteria: criteriaToAPI(props)
+                    criteria: criteriaToAPI(props),
+                    topics: data.topics
                 }
 
                 const response = await filterAPI(jsonToSend);
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
-                payload.topics = data.topics;
                 payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
                 dispatch(updateCurrentPage(1));
