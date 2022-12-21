@@ -6,11 +6,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Chip from '@mui/material/Chip';
+import { List, ListItem, ListItemText, Tooltip } from '@mui/material';
 
 interface TopiChipProps {
   id: number;
   name: string;
-  summary: string;
+  summary: string[];
   hideName?: boolean;
 }
 
@@ -24,10 +25,12 @@ const TopicChip = (props: TopiChipProps) => {
   
   return (
     <>
-      <Chip sx={{m:0.5}} size="small" color="primary" variant="outlined"  label={props.hideName ? '?' : props.name } 
-                id={props.id.toString()} key={props.id.toString()} onClick={()=>{ 
-                  setOpen(true);
-                }}/>
+      <Tooltip title="Click here for more information about the topic.">
+        <Chip sx={{m:0.5}} size="small" color="primary" variant="outlined"  label={props.hideName ? '?' : props.name } 
+                  id={props.id.toString()} key={props.id.toString()} onClick={()=>{ 
+                    setOpen(true);
+                  }}/>
+      </Tooltip>
       <Dialog open={open} onClose={handleClose} 
         BackdropProps={{style: {backgroundColor: '#00000033' }}}
         PaperProps={{
@@ -38,7 +41,15 @@ const TopicChip = (props: TopiChipProps) => {
         }}>
         <DialogTitle>{props.name}</DialogTitle>
         <DialogContent>
-          <DialogContentText>{ props.summary } </DialogContentText>
+        Relevant arguments of the topic:
+        <List component="div" role="group">
+          { props.summary.map( elem => 
+            <ListItem button divider disabled>
+              <ListItemText primary={elem}/>
+            </ListItem> )
+          }
+        </List>
+          {/* <DialogContentText>{ props.summary } </DialogContentText> */}
         </DialogContent>
         <DialogActions>
         <Button onClick={handleClose}>Close</Button>

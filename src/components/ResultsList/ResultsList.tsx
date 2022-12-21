@@ -12,7 +12,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { Paper, SearchAPIResponse, TopicPaperMap} from '../../utility/interfaces';
+import { Paper, SearchAPIResponse, TopicIndex, TopicPaperMap} from '../../utility/interfaces';
 import { bibFileAPI } from '../../utility/api';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
@@ -137,7 +137,7 @@ const ResultsList = ( props: ResultsListProps) => {
         
         const populatetopics = paper.topics.map((papertopics) => 
             {
-                const topic = topicFromId(papertopics);
+                const topic = topicFromId(papertopics) as TopicIndex;
                 return  <TopiChip id={topic.id} name={topic.name} summary={topic.summary}/>
             }
         );

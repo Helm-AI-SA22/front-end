@@ -20,7 +20,7 @@ export interface TopicPaperMap{
 export interface TopicIndex{
     id: number;
     name: string;
-    summary: string;
+    summary: string[];
 }
 
 export interface LDAChart{
