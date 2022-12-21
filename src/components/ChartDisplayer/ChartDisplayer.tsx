@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 
 import parse from 'html-react-parser';
 import { Helmet } from 'react-helmet';
-
+import Box from '@mui/material/Box';
 
 
 interface ChartDisplayerProps { 
@@ -42,7 +42,7 @@ interface ChartDisplayerProps {
 
         return(
         
-        <>
+        <Box sx={{ width: '35%' }}>
             <Helmet>
                 {links.map((link: HTMLElement) => parse(link.outerHTML))}
             </Helmet>
@@ -51,7 +51,7 @@ interface ChartDisplayerProps {
                 script.setAttribute('class', 'trimone');
                 return parse(script.outerHTML);
             })}
-        </>   
+        </Box>   
 
    )}
     
