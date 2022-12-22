@@ -22,9 +22,7 @@ const TopicChip = (props: TopiChipProps) => {
     setOpen(false);
   };
 
-  const summary = props.id ==  -1 ? [props.summary] : props.summary
-
-  console.log(summary)
+  //const summary = props.id ==  -1 ? [props.summary] : props.summary
   
   return (
     <>
@@ -46,7 +44,7 @@ const TopicChip = (props: TopiChipProps) => {
         <DialogContent>
         Relevant arguments of the topic:
         <List component="div" role="group">
-          { summary.map( elem => 
+          { props.summary.map( elem => 
             <ListItem divider>
               <ListItemText primary={elem}/>
             </ListItem> )
