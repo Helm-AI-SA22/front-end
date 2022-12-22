@@ -169,14 +169,14 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             setOpenSources(!openSources);
         };
     
-        const handleToggle = (value: number) => () => {
-            const currentIndex = checked.indexOf(value);
+        const handleToggle = (value: string, index: number) => () => {
+            const currentIndex = checked.indexOf(index);
             const newChecked = [...checked];
             let remove = false;
             
             if (currentIndex === -1) {
                 //Element checked
-                newChecked.push(value);
+                newChecked.push(index);
                 remove = false;
             } else {
                 //Element unchecked
@@ -207,20 +207,20 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 <Collapse in={openSources} timeout="auto" unmountOnExit>
                     <Box sx={{marginLeft: 3}}>
                         {/** Generates a row for each element of the list */}
-                        {elementsList.map((value) => {
+                        {elementsList.map((src_name, src_index) => {
                             return (
-                                <ListItem key={value.id} disablePadding>
-                                    <ListItemButton role={undefined} onClick={handleToggle(value.id)}>
+                                <ListItem key={src_name} disablePadding>
+                                    <ListItemButton role={undefined} onClick={handleToggle(src_name, src_index)}>
                                         <ListItemIcon>
                                             <Checkbox
                                             edge="start"
-                                            checked={checked.indexOf(value.id) !== -1}
+                                            checked={checked.indexOf(src_index) !== -1}
                                             tabIndex={-1}
                                             disableRipple
-                                            inputProps={{ 'aria-labelledby': value.name }}
+                                            inputProps={{ 'aria-labelledby': src_name }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText id={value.name} primary={value.name}/>
+                                        <ListItemText id={src_name} primary={src_name}/>
                                     </ListItemButton>
                                 </ListItem>
                             );
@@ -542,7 +542,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     }
 
     const topicsList: TopicIndex[] = data.topics;
-    const sourcesList: SourceIndex[] = data.sources;
+    const sourcesList: string[] = data.sources;
 
     let authorsString: string = "";
     const statesAvailabilityKeys = [-1, 1, 0];

@@ -1,6 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../utility/store';
-import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults, TopicIndex, SourceIndex} from '../../utility/interfaces';
+import { APIError, Paper, SearchAPIRequest, SearchAPIResponse, SearchResults, TopicIndex} from '../../utility/interfaces';
 import { searchAPI } from '../../utility/api';
 
 export interface SearchResultsState {
@@ -17,7 +17,7 @@ const initialState: SearchResultsState = {
     topics: [] as TopicIndex[],
     max_tfidf: 0,
     documents: [] as Array<Paper>,
-    sources: [] as SourceIndex[]
+    sources: [] as Array<string>
   } as SearchResults,
   originalDocuments: [],
   searched: false,

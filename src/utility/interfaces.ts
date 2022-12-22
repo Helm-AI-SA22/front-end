@@ -86,7 +86,7 @@ export interface FilterStringUpdater{
 
 export interface FilterListUpdater {
     filterKey: string;
-    element: number;
+    element: number|string;
     remove: boolean;
 }
 
