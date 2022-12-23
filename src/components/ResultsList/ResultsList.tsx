@@ -20,6 +20,8 @@ import {selectTopicsIndex, selectMaxTfidf}  from '../SearchBar/SearchResultsSlic
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
 import { maxWidth, minWidth } from '@mui/system';
+import parse from 'html-react-parser';
+
 
 interface ResultsListHandler {
     documents: Array<Paper>;
@@ -107,9 +109,37 @@ const ResultsList = ( props: ResultsListProps) => {
         );
 
         const readAbstract = (abstract: string, index: number) => {
+            
+            const escapeRegExp = (keyword: string) => (
+                keyword.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&')
+            );
+
+            function boldMe(abstract: string, keyword: string){
+                const regExString = escapeRegExp(keyword)
+                const regex = new RegExp(regExString, 'g');
+                let output = abstract.replace(regex, `<b>  ${keyword} </b>`);
+                return output;
+            }
+
+            /*
+            function bold_all_keywords(abstract: string, keywords_list: string[])
+            {
+                
+                keywords_list.forEach((keyword) =>
+                abstract = boldMe(abstract, keyword)
+
+                )
+
+                return abstract
+            }
+            */
+
+            let short_abstract: string = abstract.substring(0, 250);
+
             return (
                 <Box>
-                    { readMore[index] ? abstract : `${abstract.substring(0, 250)}` }
+
+                    { readMore[index] ? parse(boldMe(abstract, "CNN")) : parse(boldMe(short_abstract, "CNN")) }
                     <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => {
                             const state_copy = [...readMore] as Array<boolean>                            
                             state_copy[index] = !(readMore[index]) 
@@ -162,7 +192,7 @@ const ResultsList = ( props: ResultsListProps) => {
                     </Box>
                     <Box sx={{mt:1 }}>
                         <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Abstract </Typography>
-                        <Typography variant="caption" color="text.secondary" align="justify"> 
+                        <Typography component="div" variant="caption" color="text.secondary" align="justify"> 
                         {readAbstract(paper.abstract, index)}
                         </Typography>  
                     </Box> 
