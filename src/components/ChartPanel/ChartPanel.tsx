@@ -1,5 +1,6 @@
 
 import React, {Component } from 'react';
+import './ChartPanel.css'
 import { Buffer } from 'buffer';
 import { useAppSelector } from '../../utility/hooks'; 
 import { useLocation } from 'react-router-dom';
@@ -25,6 +26,7 @@ import berthierachical from '../../assets/charts/berthierachical.png';
 import bertsimilarity from '../../assets/charts/bertsimilarity.png';
 import bertwords from '../../assets/charts/bertwords.png';
 import ldavis from '../../assets/charts/ldavis.png';
+import { Chip } from '@mui/material';
 
 const plotSelectorMapping = {
     '/chart/lda/vis': 'ldaPlot', 
@@ -124,17 +126,20 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     const [maxWidth] = React.useState<DialogProps['maxWidth']>('lg');
 
     return (
-        <Box>
+      
+        <Box className='box-container'>
           
           <Box 
-          /*onClick={ () => {navigate('/chart/bert/cluster')}} */
           onClick={handleClickOpen}
           component='img' 
           src={imgAnteprima} 
           alt='topicClustersPlot' 
+          sx = {{cursor: 'pointer'}}
+          className = 'box-img'
           width='90%' 
           padding='5%'>
           </Box>
+        
           <Dialog
           fullWidth={fullWidth}
           maxWidth={maxWidth}
@@ -151,36 +156,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
                 <ChartDisplayer HTMLString={decoded} ></ChartDisplayer>
                 </Box>
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Close</Button>
-            </DialogActions>
           </Dialog>
 
-        {/*
-        <BootstrapDialog
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <BootstrapDialogTitle
-            id="customized-dialog-title"
-            onClose={handleClose}
-          >
-            {graphTitle}
-          </BootstrapDialogTitle>
-          <DialogContent dividers>
-            <Typography gutterBottom>
-                {graphDesc}
-              
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </Typography>
-            <ChartDisplayer HTMLString={decoded} ></ChartDisplayer>
-            
-          </DialogContent>
-    </BootstrapDialog> */}
-      </Box>
+          <Box className='box-middle' onClick={handleClickOpen} sx={{display: 'flex', flexDirection: 'row', justifyContent:'center', alignItems:'center'}}>
+            <Chip label='Show interactive chart' sx={{color: 'white', backgroundColor: 'rgb(41, 121, 255)', maxWidth:'50%', cursor:'pointer', opacity:1}}></Chip>
+          </Box>
+
+
+        </Box>
+
+                
+      
 
     )
 }
