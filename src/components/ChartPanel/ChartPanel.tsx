@@ -47,21 +47,30 @@ const imgSelectorMapping = {
 };
 
 const titleSelectorMapping = {
-    '/chart/lda/vis': 'ldaPlot', 
-    '/chart/bert/cluster': 'topicClustersPlot',
-    '/chart/bert/hierachical': 'hierarchicalClusteringPlot',
-    '/chart/bert/words': 'topicsWordsScorePlot',
-    '/chart/bert/similarity': 'topicsSimilarityPlot', 
+    '/chart/lda/vis': 'LDAvis', 
+    '/chart/bert/cluster': 'Intertopic distance map',
+    '/chart/bert/hierachical': 'Hierarchical clustering',
+    '/chart/bert/words': 'Topic word scores',
+    '/chart/bert/similarity': 'Topic similarity matrix', 
     //'/chart/bert/documents': 'documentClustersPlot'
 };
 
 const descSelectorMapping = {
-    '/chart/lda/vis': 'In recent years, deep learning poses a deep technical revolution in almost every field and attracts great attentions from industry and academia. Especially, the convolutional neural network (CNN), one representative model of deep learning, achieves great successes in computer vision and natural language processing. However, simply or blindly applying CNN to the other fields results in lower training effects or makes it quite difficult to adjust the model parameters. In this poster, we propose a general methodology named V-CNN by introducing data visualizing for CNN. V-CNN introduces a data visualization model prior to CNN modeling to make sure the data after processing is fit for the features of images as well as CNN modeling. We apply V-CNN to the network intrusion detection problem based on a famous practical dataset: AWID. Simulation results confirm V-CNN significantly outperforms other studies and the recall rate of each invasion category is more than 99.8%.', 
-    '/chart/bert/cluster': 'In recent years, deep learning poses a deep technical revolution in almost every field and attracts great attentions from industry and academia. Especially, the convolutional neural network (CNN), one representative model of deep learning, achieves great successes in computer vision and natural language processing. However, simply or blindly applying CNN to the other fields results in lower training effects or makes it quite difficult to adjust the model parameters. In this poster, we propose a general methodology named V-CNN by introducing data visualizing for CNN. V-CNN introduces a data visualization model prior to CNN modeling to make sure the data after processing is fit for the features of images as well as CNN modeling. We apply V-CNN to the network intrusion detection problem based on a famous practical dataset: AWID. Simulation results confirm V-CNN significantly outperforms other studies and the recall rate of each invasion category is more than 99.8%.',
-    '/chart/bert/hierachical': 'In recent years, deep learning poses a deep technical revolution in almost every field and attracts great attentions from industry and academia. Especially, the convolutional neural network (CNN), one representative model of deep learning, achieves great successes in computer vision and natural language processing. However, simply or blindly applying CNN to the other fields results in lower training effects or makes it quite difficult to adjust the model parameters. In this poster, we propose a general methodology named V-CNN by introducing data visualizing for CNN. V-CNN introduces a data visualization model prior to CNN modeling to make sure the data after processing is fit for the features of images as well as CNN modeling. We apply V-CNN to the network intrusion detection problem based on a famous practical dataset: AWID. Simulation results confirm V-CNN significantly outperforms other studies and the recall rate of each invasion category is more than 99.8%.',
-    '/chart/bert/words': 'In recent years, deep learning poses a deep technical revolution in almost every field and attracts great attentions from industry and academia. Especially, the convolutional neural network (CNN), one representative model of deep learning, achieves great successes in computer vision and natural language processing. However, simply or blindly applying CNN to the other fields results in lower training effects or makes it quite difficult to adjust the model parameters. In this poster, we propose a general methodology named V-CNN by introducing data visualizing for CNN. V-CNN introduces a data visualization model prior to CNN modeling to make sure the data after processing is fit for the features of images as well as CNN modeling. We apply V-CNN to the network intrusion detection problem based on a famous practical dataset: AWID. Simulation results confirm V-CNN significantly outperforms other studies and the recall rate of each invasion category is more than 99.8%.',
-    '/chart/bert/similarity': 'In recent years, deep learning poses a deep technical revolution in almost every field and attracts great attentions from industry and academia. Especially, the convolutional neural network (CNN), one representative model of deep learning, achieves great successes in computer vision and natural language processing. However, simply or blindly applying CNN to the other fields results in lower training effects or makes it quite difficult to adjust the model parameters. In this poster, we propose a general methodology named V-CNN by introducing data visualizing for CNN. V-CNN introduces a data visualization model prior to CNN modeling to make sure the data after processing is fit for the features of images as well as CNN modeling. We apply V-CNN to the network intrusion detection problem based on a famous practical dataset: AWID. Simulation results confirm V-CNN significantly outperforms other studies and the recall rate of each invasion category is more than 99.8%.', 
+    '/chart/lda/vis': 'This plot is made up of two parts: on the left is the inter-topic distance map, a visualization in 2D space of the topics found. Each circle represents a topic, and the area is proportional to how many words in the dictionary belong to the topic. The distance between different topics is indicative of how many words are shared between them, being closer the more words they have in common. On the right is a bar chart that by default shows the 30 most salient terms, with the bar representing their frequency across the entire corpus. The saliency, defined on the bottom, is a metric that represents how much a term is informative and useful in finding topics in the considered collection of documents. When a topic is selected, instead, the 30 most relevant words to that topic are shown, and red bars are overlayed over the existing ones to show the term frequency in the selected topic. A parameter, lambda, can be set, and is a weight for how the relevance of a term is computed. Increasing the value towards 1 gives more importance to the probability of the term appearing in the topic, while going towards 0 tends to decrease the relevance of globally frequent terms, potentially leading to a better interpretation of the topic, provided a good value of lambda is found. The formula for this score is once again on the bottom. \n\n Plot interaction: Topics can be selected with either the menu on the top left corner or by clicking on the corresponding circle. The lambda parameter can be set using the slider on the top right corner.',
+    '/chart/bert/cluster': 'This plot is a visualization in 2D space of the topics found. Each circle represents a topic, and the area is proportional to how many words in the dictionary belong to the topic. The distance between different topics is indicative of how many words are shared between them, being closer the more words they have in common.',
+    '/chart/bert/hierachical': 'This plot shows the hierarchical structure of the topics found. On the left side are the topic numbers with the three most relevant words for each. The x-axis show the euclidean distance between the topic-cluster. This plot is useful to see which topics could possibly be merged because of their similarity, and can help in choosing how to filter documents.',
+    '/chart/bert/words': 'This plot shows how similar topics are between one another. The similarity between two specific topics is found by looking for the square where two topics meet (a topic always has max similarity with itself). The darker a square is the more similar the two corresponding topics on those axes are, as shown in the key on the right. Values for this score go from 0 to 1, though the key starts from the minimum value found on the plot.',
+    '/chart/bert/similarity': 'This plot shows bar charts based on the scores of the top scoring words for each topic. The numbers on the bottom of every bar chart are the scores. This plot is useful to see how relevant each top word actually is to a topic and to compare between different topics, for example if a word appears in multiple topics.'
     //'/chart/bert/documents': 'documentClustersPlot'
+};
+
+const descSelectorMappingInteraction = {
+  '/chart/lda/vis': 'Topics can be selected with either the menu on the top left corner or by clicking on the corresponding circle. The lambda parameter can be set using the slider on the top right corner.',
+  '/chart/bert/cluster': 'You can use the slider to select a topic, lighting it up in red. If you hover over a topic, then information about it is visualized, namely the most relevant words to that topic and how many documents belong to it (called size in this plot).On the top right corner you can find some general useful functions, for example zoom and pan, and even a way to download the plot in its current state in PNG format.', 
+  '/chart/bert/hierachical': 'On the top right corner you can find some general useful functions, for example zoom and pan, and even a way to download the plot in its current state in PNG format.',
+  '/chart/bert/words': 'You can hover over every square to see the exact score and the topics it refers to. On the top right corner you can find some general useful functions, for example zoom and pan, and even a way to download the plot in its current state in PNG format.',
+  '/chart/bert/similarity': ' You can hover over every bar to see the exact score for the corresponding word.On the top right corner you can find some general useful functions, for example zoom and pan, and even a way to download the plot in its current state in PNG format.'
+  //'/chart/bert/documents': 'documentClustersPlot'
 };
 
 
@@ -114,7 +123,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     const topicsVisualization = useAppSelector(selectTopicVisualization);
     const imgAnteprima = (imgSelectorMapping as any)[path];
     const graphTitle = (titleSelectorMapping as any)[path] as string;
-    const graphDesc  = (descSelectorMapping as any)[path] as string;
+    const graphDesc1  = (descSelectorMapping as any)[path] as string;
+    const graphDesc2  = (descSelectorMappingInteraction as any)[path] as string;
     const chartKey = path ? (plotSelectorMapping as any)[path] as string : 'ldaPlot';
     const chart = chartKey ? (topicsVisualization as any)[chartKey] as string : '';
     const decoded: string =  chart ? Buffer.from(chart, 'base64').toString('utf-8') : '<script id="trimone"></script>' 
@@ -152,7 +162,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
             <DialogContent dividers>
               <Box sx = {{display: 'flex', flexDirection: 'column'}}>
                 
-                <DialogContentText>{graphDesc}</DialogContentText>
+                <DialogContentText><Typography paragraph sx={{fontWeight:'bold', marginTop:1}} > Plot explanation </Typography>{graphDesc1}</DialogContentText>
+                <DialogContentText><Typography paragraph sx={{fontWeight:'bold', marginTop:3}}> Plot interaction </Typography>{graphDesc2}</DialogContentText>
                 <ChartDisplayer HTMLString={decoded} ></ChartDisplayer>
                 </Box>
             </DialogContent>
