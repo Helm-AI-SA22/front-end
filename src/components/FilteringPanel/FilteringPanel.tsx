@@ -38,6 +38,7 @@ import { filter, selectResults, update, selectOriginalDocs, selectTopicsIndex } 
 import {useAppSelector, useAppDispatch} from '../../utility/hooks'
 import {filterAPI} from '../../utility/api'
 import {updateCurrentPage} from '../../components/ResultsList/PaginationSlice'
+import TopicChip from '../TopicChip/TopicChip';
 
 import {FormControlLabel, FormGroup, IconButton, Switch, Typography} from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
@@ -170,6 +171,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                         </ListItemIcon>
                                         <ListItemText id={value.name} primary={value.name} secondary={'('+(value.ratio*100)+'% of documents)'}/>
                                     </ListItemButton>
+                                    <TopicChip id={value.id} name={value.name} summary={value.summary} hideName/>
                                 </ListItem>
                             );
                         })}

@@ -70,7 +70,20 @@ const ranking = async (request: RankingAPIRequest) =>  {
       }
 	}
 
+const bibFile = async (doi: string) => {
+	const ROUTE = '/bibfile';
+
+	try  {
+		console.log('Calling doi2bib. DOI:', doi);
+		return await axios.get(`${SERVER}/${ROUTE}?DOI=${doi}`) as string;
+	} catch (error) {
+		console.log("Erro calling the RANKING API:", error);
+        return ''
+      }
+}
+
 
 export { search as searchAPI};
 export { filter as filterAPI};
 export { ranking as rankingAPI};
+export { bibFile as bibFileAPI};
