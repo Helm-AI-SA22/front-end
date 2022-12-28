@@ -45,6 +45,7 @@ export interface SearchResults {
     documents: Paper[];
     logs?: string;
     topics: TopicIndex[];
+    sources: string[];
     max_tfidf: number;
     topicsVisualization: LDAChart | BERTChart; 
 }
@@ -52,7 +53,7 @@ export interface SearchResults {
 export enum TopicModelingAlgorithm { 
     SLOW = 'slow', 
     FAST = 'fast'     
-    } 
+} 
 
 export interface SearchAPIRequest{
     keywords: string;
@@ -78,6 +79,7 @@ export interface FilteringState {
     availability: number;
     preprint: number;
     mode: FilterMode;
+    sources: string[];
 };
 
 export interface FilterStringUpdater{
@@ -87,7 +89,7 @@ export interface FilterStringUpdater{
 
 export interface FilterListUpdater {
     filterKey: string;
-    element: number;
+    element: number|string;
     remove: boolean;
 }
 
@@ -126,6 +128,7 @@ export interface Criteria {
     citationCount: Range | null;
     availability: number | null;
     preprint: number | null;
+    sources: string[] | null;
 }
 
 export interface FilterAPIRequest {

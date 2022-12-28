@@ -16,7 +16,8 @@ const initialState: SearchResultsState = {
   data: {
     topics: [] as TopicIndex[],
     max_tfidf: 0,
-    documents: [] as Array<Paper>
+    documents: [] as Array<Paper>,
+    sources: [] as Array<string>
   } as SearchResults,
   originalDocuments: [],
   searched: false,

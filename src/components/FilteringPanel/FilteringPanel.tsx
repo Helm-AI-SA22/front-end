@@ -48,6 +48,7 @@ const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
     authors: state.filters.authors,
     date: state.filters.date,
+    sources: state.filters.sources,
     citationCount: state.filters.citationCount,
     availability: state.filters.availability,
     preprint: state.filters.preprint,
@@ -65,6 +66,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
 
     const dispatch = useAppDispatch();
     const [openTopics, setOpenTopics] = React.useState(false);
+    const [openSources, setOpenSources] = React.useState(false);
+
     const [openPublicationYear, setOpenPublicationYear] = React.useState(false);
     const [openCitationCount, setOpenCitationCount] = React.useState(false);
     const [openAuthors, setOpenAuthors] = React.useState(false);
@@ -172,6 +175,77 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                         <ListItemText id={value.name} primary={value.name} secondary={'('+(value.ratio*100)+'% of documents)'}/>
                                     </ListItemButton>
                                     <TopicChip id={value.id} name={value.name} summary={value.summary} hideName/>
+                                </ListItem>
+                            );
+                        })}
+                    </Box>
+                </Collapse>
+                <Divider sx={{ml:1}}/>
+            </Box>
+        );
+    
+    }
+
+
+    function filterSource(elementsList: string[]) {
+        
+        const handleClick = () => {
+            setOpenSources(!openSources);
+        };
+    
+        const handleToggle = (value: string, index: number) => () => {
+            const currentIndex = checked.indexOf(index);
+            const newChecked = [...checked];
+            let remove = false;
+            
+            if (currentIndex === -1) {
+                //Element checked
+                newChecked.push(index);
+                remove = false;
+            } else {
+                //Element unchecked
+                newChecked.splice(currentIndex, 1);
+                remove = true;
+            }
+            
+            //Add or remove the topic to the filter list
+            props.updateListFilter({
+                filterKey: 'sources',
+                element: value,
+                remove: remove
+            } as FilterListUpdater);
+            setChecked(newChecked);
+            console.log(props);
+        };
+        
+        return(
+            <Box>
+                <Divider sx={{ml:1}}/>
+                <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                        <TopicIcon sx={{mr:1}}/>
+                        <ListItemText primary= {"Sources"} />
+                    </Box>
+                    {openSources ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={openSources} timeout="auto" unmountOnExit>
+                    <Box sx={{marginLeft: 3}}>
+                        {/** Generates a row for each element of the list */}
+                        {elementsList.map((src_name, src_index) => {
+                            return (
+                                <ListItem key={src_name} disablePadding>
+                                    <ListItemButton role={undefined} onClick={handleToggle(src_name, src_index)}>
+                                        <ListItemIcon>
+                                            <Checkbox
+                                            edge="start"
+                                            checked={checked.indexOf(src_index) !== -1}
+                                            tabIndex={-1}
+                                            disableRipple
+                                            inputProps={{ 'aria-labelledby': src_name }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText id={src_name} primary={src_name}/>
+                                    </ListItemButton>
                                 </ListItem>
                             );
                         })}
@@ -445,6 +519,11 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 const response = await filterAPI(jsonToSend);
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
+<<<<<<< HEAD
+=======
+                payload.topics = data.topics;
+                payload.sources = data.sources;
+>>>>>>> source_filtering
                 payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
                 dispatch(updateCurrentPage(1));
@@ -491,6 +570,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
     }
 
     const topicsList: TopicIndex[] = data.topics;
+    const sourcesList: string[] = data.sources;
 
     let authorsString: string = "";
     const statesAvailabilityKeys = [-1, 1, 0];
@@ -519,6 +599,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
             errorMinCitCount, setErrorMinCitCount, errorMaxCitCount, setErrorMaxCitCount, RangedFilters.CITCOUNT, new RegExp('^[0-9\b]+$'))}
             {filterAuthors()}
             {filterList("Availability", ListedFilters.AVAILABILITY, "Availability", statesAvailability, statesAvailabilityKeys, openAvailability, setOpenAvailability, availabilityFilterValue, setAvailabilityFilterValue)}
+            {filterSource(sourcesList)}
             {/**filterList("Peer reviewed", ListedFilters.PREPRINT, "Peer reviewed", statesPreprint, statesPreprintKeys, openPreprint, setPreprint, preprintFilterValue, setPreprintFilterValue)*/}
             <Stack spacing={2} direction="row" sx={{m: 3}}>
                 {buttonFilter(errorsList)}
