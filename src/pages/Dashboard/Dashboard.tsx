@@ -17,13 +17,9 @@ import FilteringPanel from '../../components/FilteringPanel/FilteringPanel';
 import { RootState } from '../../utility/store';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ChartDisplayer } from '../../components/ChartDisplayer/ChartDisplayer';
+import ChartPanel from '../../components/ChartPanel/ChartPanel';
 
-import bertcluster from '../../assets/charts/bertcluster.png';
-import berthierachical from '../../assets/charts/berthierachical.png'
-import bertsimilarity from '../../assets/charts/bertsimilarity.png'
-import bertwords from '../../assets/charts/bertwords.png'
-import ldavis from '../../assets/charts/ldavis.png'
+
 
 interface DashboardProps { 
     data: SearchResults;
@@ -96,18 +92,18 @@ const Dashboard = (props: DashboardProps ) => {
                     <Box sx={{width: '25%', height: '100%', margin:'auto'}}>
                         { props.searched && !props.isEmpty ? 
                              <Box>
-                                { speed_str == 'fast' ? 
-                                <>
-                                    <Box onClick={ () => {navigate('/chart/lda/vis')}} component='img' src={ldavis} alt='ldavis' width='90%' padding='5%'></Box>
-                                </>
-                                    : 
+                                { speed_str == 'fast' ?
                                 <Box>
-                                    <Box onClick={ () => {navigate('/chart/bert/cluster')}} component='img' src={bertcluster} alt='topicClustersPlot' width='90%' padding='5%'></Box>
-                                    <Box onClick={ () => {navigate('/chart/bert/hierachical')}} component='img' src={berthierachical} alt='hierarchicalClusteringPlot' width='90%' padding='5%'></Box>
-                                    <Box onClick={ () => {navigate('/chart/bert/words')}} component='img' src={bertwords} alt='topicsWordsScorePlot' width='90%' padding='5%'></Box>
-                                    <Box onClick={ () => {navigate('/chart/bert/similarity')}} component='img' src={bertsimilarity} alt='topicsSimilarityPlot' width='90%' padding='5%'></Box>
-                                    {/* <Box onClick={ () => {navigate('/chart/bert/documents')}}>documentClustersPlot </Box> */}
+                                    <ChartPanel graphpath ='/chart/lda/vis'/>
                                 </Box>
+                                :
+                                <Box>
+                                    <ChartPanel graphpath ='/chart/bert/hierachical'/>
+                                    <ChartPanel graphpath ='/chart/bert/cluster'/>
+                                    <ChartPanel graphpath ='/chart/bert/words'/>
+                                    <ChartPanel graphpath ='/chart/bert/similarity'/>
+                                </Box>
+                                
                                 } 
                             </Box> : <Box></Box>
                         } 

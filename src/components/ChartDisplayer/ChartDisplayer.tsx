@@ -3,8 +3,6 @@ import React, {Component } from 'react';
 import parse from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 
-
-
 interface ChartDisplayerProps { 
     HTMLString: string;
 }
