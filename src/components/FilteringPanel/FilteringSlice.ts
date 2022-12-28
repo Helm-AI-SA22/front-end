@@ -21,11 +21,9 @@ const initialState: FilteringState = {
     },
     availability: -1,
     preprint: -1,
-<<<<<<< HEAD
-    mode: FilterMode.UNION
-=======
+    mode: FilterMode.UNION,
     sources: []
->>>>>>> source_filtering
+
 }
 
 export function criteriaToAPI(state: FilteringState): Criteria {
@@ -112,11 +110,8 @@ export const filtersSlice = createSlice({
         state.date = {...initialState.date};
         state.citationCount = {...initialState.citationCount};
         state.availability = initialState.availability;
-<<<<<<< HEAD
         state.mode = initialState.mode;
-=======
         state.sources = [...initialState.sources];
->>>>>>> source_filtering
     }
   }
 });

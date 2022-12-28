@@ -519,11 +519,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 const response = await filterAPI(jsonToSend);
                 const payload = response.data as SearchResults;
                 payload.topicsVisualization = data.topicsVisualization;
-<<<<<<< HEAD
-=======
                 payload.topics = data.topics;
                 payload.sources = data.sources;
->>>>>>> source_filtering
                 payload.max_tfidf = data.max_tfidf;
                 dispatch(filter());
                 dispatch(updateCurrentPage(1));
