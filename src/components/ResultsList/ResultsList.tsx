@@ -133,13 +133,14 @@ const ResultsList = ( props: ResultsListProps) => {
                 return abstract
             }
             */
+            // testare la funzione, passare le keywords in maniera giusta, vedere se usare keybert o altre cose strane
 
             let short_abstract: string = abstract.substring(0, 250);
 
             return (
                 <Box>
 
-                    { readMore[index] ? parse(boldMe(abstract, "CNN")) : parse(boldMe(short_abstract, "CNN")) }
+                    { readMore[index] ? parse(boldMe(abstract, "neural network")) : parse(boldMe(short_abstract, "neural network")) }
                     <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => {
                             const state_copy = [...readMore] as Array<boolean>                            
                             state_copy[index] = !(readMore[index]) 
