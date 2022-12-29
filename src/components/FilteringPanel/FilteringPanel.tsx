@@ -167,6 +167,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                         {/** Generates a row for each element of the list */}
                         {elementsList.map((value, idx) => {
                             const isSlow = window.location.href.split("/")[3] == "slow";
+                            const topicIdx = idx+(isSlow ? 0 : 1)
                             return (
                                 <ListItem key={value.id} disablePadding>
                                     <ListItemButton role={undefined} onClick={handleToggle(value.id)}>
@@ -181,12 +182,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                         </ListItemIcon>
                                         <ListItemText id={value.name} primary={
                                             <>
-                                                <span style={{ fontWeight: 'bold' }}>{ `Topic ${idx+(isSlow ? 0 : 1)}`}: </span>
+                                                <span style={{ fontWeight: 'bold' }}>{ `Topic ${topicIdx}`}: </span>
                                                 {value.name}
                                             </>
                                             } secondary={'('+(value.ratio*100)+'% of documents)'}/>
                                     </ListItemButton>
-                                    <TopicChip id={value.id} name={value.name} summary={value.summary} hideName/>
+                                    <TopicChip id={value.id} idx={topicIdx} name={value.name} summary={value.summary} hideName/>
                                 </ListItem>
                             );
                         })}

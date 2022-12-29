@@ -108,9 +108,10 @@ const ResultsList = ( props: ResultsListProps) => {
     };
 
     function topicFromId(paperTopics: TopicPaperMap){
+        const isSlow = window.location.href.split("/")[3] == "slow"; 
         for(let i=0; i<topicsIndexList.length; i++){
             if(topicsIndexList[i].id == paperTopics.id){
-                return topicsIndexList[i];
+                return [topicsIndexList[i], i + (isSlow ? 0 : 1)];
             }
         }
         return {
@@ -140,8 +141,10 @@ const ResultsList = ( props: ResultsListProps) => {
         
         const populatetopics = paper.topics.map((papertopics) => 
             {
-                const topic = topicFromId(papertopics) as TopicIndex;
-                return  <TopiChip id={topic.id} name={topic.name} summary={topic.summary}/>
+                const foundTopic = topicFromId(papertopics) as Array<any>;
+                const topic = foundTopic[0]
+                const idx = foundTopic[1]
+                return  <TopiChip id={topic.id} idx={idx} name={topic.name} summary={topic.summary}/>
             }
         );
         
