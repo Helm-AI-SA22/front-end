@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
+import CardMedia from '@mui/material/CardMedia';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import ReactPlayer from 'react-player';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import {Container, Box, Toolbar} from '@mui/material';
@@ -83,6 +87,23 @@ const HomePage = () => {
                 Choose your interest and start exploring
                 </Typography>
                 <SearchBar />
+                <Card sx={{boxShadow: 20, cursor:'pointer'}}>
+                    <CardContent>
+                        <Typography variant="subtitle1" color="text.secondary" sx={{textAlign:'center', fontWeight: 'bold'}}>
+                            How to use Helm
+                        </Typography>
+                    </CardContent>
+                    <iframe width="100%" height="400"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                    </iframe>
+                    {/*<CardMedia
+                        sx={{ width:"100%"}}
+                        component='video'
+                        src={"https://www.youtube.com/watch?v=0D903UlsZ0s"}
+                        controls
+                    />*/}
+                </Card>
+                
             </Container>
             </Box>
         </main>
