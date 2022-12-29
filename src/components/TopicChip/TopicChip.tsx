@@ -10,6 +10,7 @@ import { List, ListItem, ListItemText, Tooltip } from '@mui/material';
 
 interface TopiChipProps {
   id: number;
+  idx: number;
   name: string;
   summary: string[];
   hideName?: boolean;
@@ -40,7 +41,8 @@ const TopicChip = (props: TopiChipProps) => {
             boxShadow: 'none',
             },
         }}>
-        <DialogTitle>{props.name}</DialogTitle>
+        <DialogTitle style={{ fontWeight: 'bold' }}>Topic {props.idx}</DialogTitle>
+        {/* <DialogTitle>{props.name}</DialogTitle> */}
         <DialogContent>
         Relevant arguments of the topic:
         <List component="div" role="group">
