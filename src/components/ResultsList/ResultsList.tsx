@@ -21,6 +21,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { styled } from '@mui/material/styles';
 import { maxWidth, minWidth } from '@mui/system';
 import parse from 'html-react-parser';
+import { useParams } from 'react-router-dom';
 
 
 interface ResultsListHandler {
@@ -108,39 +109,49 @@ const ResultsList = ( props: ResultsListProps) => {
             )
         );
 
-        const readAbstract = (abstract: string, index: number) => {
+        const ReadAbstract = (abstract: string, index: number) => {
+            
             
             const escapeRegExp = (keyword: string) => (
-                keyword.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&')
+                keyword.replace(/[-[\]{}()*+?.,\\^$]/g, '\\$&')
+                //keyword.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&')
+
             );
+            
 
             function boldMe(abstract: string, keyword: string){
                 const regExString = escapeRegExp(keyword)
-                const regex = new RegExp(regExString, 'g');
-                let output = abstract.replace(regex, `<b>  ${keyword} </b>`);
+                //const regExString = "(?u)\b"+keyword+"\b|\b\w\w+\b";
+                console.log(regExString);
+                const regex = new RegExp(regExString, 'gi');    
+                let output = abstract.replace(regex, `<b>${keyword}</b>`);
                 return output;
             }
 
-            /*
             function bold_all_keywords(abstract: string, keywords_list: string[])
-            {
-                
+            {  
                 keywords_list.forEach((keyword) =>
-                abstract = boldMe(abstract, keyword)
-
-                )
+                    abstract = boldMe(abstract, keyword)
+            )
 
                 return abstract
             }
-            */
-            // testare la funzione, passare le keywords in maniera giusta, vedere se usare keybert o altre cose strane
+            
+            // testare la funzione, passare le keywords in maniera giusta
+            const { querytext } = useParams();
+            //console.log("querytext: "+querytext);
+            let keywords: string[] = [""];
+            if(querytext != undefined){
+                keywords = querytext?.split(";");
+            }
+            //console.log("keywords to highlight: "+keywords);
 
             let short_abstract: string = abstract.substring(0, 250);
 
             return (
                 <Box>
 
-                    { readMore[index] ? parse(boldMe(abstract, "neural network")) : parse(boldMe(short_abstract, "neural network")) }
+                    { readMore[index] ? parse(bold_all_keywords(abstract, keywords)) : parse(bold_all_keywords(short_abstract, keywords)) }
                     <Button className="btn" variant="text" sx={{fontSize:10}} onClick={() => {
                             const state_copy = [...readMore] as Array<boolean>                            
                             state_copy[index] = !(readMore[index]) 
@@ -194,7 +205,7 @@ const ResultsList = ( props: ResultsListProps) => {
                     <Box sx={{mt:1 }}>
                         <Typography variant="caption" sx={{fontWeight:'bold', mr:1}}> Abstract </Typography>
                         <Typography component="div" variant="caption" color="text.secondary" align="justify"> 
-                        {readAbstract(paper.abstract, index)}
+                        {ReadAbstract(paper.abstract, index)}
                         </Typography>  
                     </Box> 
                     <Box sx={{mt:1}}>
