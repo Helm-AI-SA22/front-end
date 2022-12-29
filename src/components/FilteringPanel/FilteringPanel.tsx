@@ -20,10 +20,15 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import LockIcon from '@mui/icons-material/Lock';
 import TopicIcon from '@mui/icons-material/Topic';
+import SourceIcon from '@mui/icons-material/Summarize';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+import arxiv from '../../assets/logo/arxiv.png';
+import ieee from '../../assets/logo/ieee.jpeg';
+import scopus from '../../assets/logo/scopus.png';
 
 import { TopicIndex, Paper, SearchResults } from '../../utility/interfaces';
 import { connect } from 'react-redux';
@@ -43,6 +48,7 @@ import TopicChip from '../TopicChip/TopicChip';
 import {FormControlLabel, FormGroup, IconButton, Switch, Typography} from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import Tooltip from '@mui/material/Tooltip';
+
 
 const mapStateToProps = (state: RootState) => ({
     topic: state.filters.topic,
@@ -159,7 +165,8 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                     </Stack>
                     <Box sx={{marginLeft: 3}}>
                         {/** Generates a row for each element of the list */}
-                        {elementsList.map((value) => {
+                        {elementsList.map((value, idx) => {
+                            const isSlow = window.location.href.split("/")[3] == "slow";
                             return (
                                 <ListItem key={value.id} disablePadding>
                                     <ListItemButton role={undefined} onClick={handleToggle(value.id)}>
@@ -172,7 +179,12 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                             inputProps={{ 'aria-labelledby': value.name }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText id={value.name} primary={value.name} secondary={'('+(value.ratio*100)+'% of documents)'}/>
+                                        <ListItemText id={value.name} primary={
+                                            <>
+                                                <span style={{ fontWeight: 'bold' }}>{ `Topic ${idx+(isSlow ? 0 : 1)}`}: </span>
+                                                {value.name}
+                                            </>
+                                            } secondary={'('+(value.ratio*100)+'% of documents)'}/>
                                     </ListItemButton>
                                     <TopicChip id={value.id} name={value.name} summary={value.summary} hideName/>
                                 </ListItem>
@@ -223,7 +235,7 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                 <Divider sx={{ml:1}}/>
                 <ListItemButton onClick={handleClick} sx={{justifyContent:'space-between'}}>
                     <Box display="flex" flexDirection="row" alignItems="center">
-                        <TopicIcon sx={{mr:1}}/>
+                        <SourceIcon sx={{mr:1}}/>
                         <ListItemText primary= {"Sources"} />
                     </Box>
                     {openSources ? <ExpandLess /> : <ExpandMore />}
@@ -244,7 +256,10 @@ const FilteringPanel = (props: FilteringPanelProps) => {
                                             inputProps={{ 'aria-labelledby': src_name }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText id={src_name} primary={src_name}/>
+                                        {(src_name =="arxiv") ?  <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={arxiv}/>
+                                        : (src_name =="ieee") ? <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={ieee}/>
+                                        : <Box component="img" sx={{height: 20, ml:1}} alt="source logo" src={scopus}/>}
+                                        {/* <ListItemText id={src_name} primary={src_name}/> */}
                                     </ListItemButton>
                                 </ListItem>
                             );
