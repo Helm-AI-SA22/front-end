@@ -5,7 +5,7 @@ import {SearchAPIResponse, SearchAPIRequest, SearchResults, Paper, APIError, Fil
 const SERVER = 'http://localhost:5000';
 
 const search = async (request: SearchAPIRequest) => {
-    const ROUTE = '/mock'; // The name of this route can be improved BE side.
+    const ROUTE = '/aggregator'; // The name of this route can be improved BE side.
 
     try {
         console.log(`The search API has been called. Query: ${request}`);
