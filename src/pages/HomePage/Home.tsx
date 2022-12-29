@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import ReactPlayer from 'react-player';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import {Container, Box, Toolbar} from '@mui/material';
