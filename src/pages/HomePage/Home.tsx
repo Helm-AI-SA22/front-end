@@ -92,15 +92,9 @@ const HomePage = () => {
                             How to use Helm
                         </Typography>
                     </CardContent>
-                    <iframe width="100%" height="400"
-                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-                    {/*<CardMedia
-                        sx={{ width:"100%"}}
-                        component='video'
-                        src={"https://www.youtube.com/watch?v=0D903UlsZ0s"}
-                        controls
-                    />*/}
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/opxWYOpeW1w" title="Introductio to HELM" 
+                    frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen></iframe>
                 </Card>
                 
             </Container>
